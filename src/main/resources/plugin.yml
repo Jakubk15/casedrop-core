@@ -1,0 +1,53 @@
+name: Casedropcore
+version: ${project.version}
+main: dev.jakubk15.casedropcore.Casedropcore
+api-version: 1.17
+prefix: CaseDropCore
+loadbefore: [ EssentialsX, LuckPerms, Vault ]
+authors: [ Jakubk15 ]
+description: Core dedykowany na serwer Case-Drop.PL
+website: case-drop.pl
+commands:
+  feed:
+    permission: essentials.feed
+    usage: /feed [gracz]
+    description: Nadaje danemu graczowi/sobie pełny pasek głodu
+  heal:
+    permission: essentials.heal
+    usage: /heal [gracz]
+    description: Leczy danego gracza/siebie
+  vanish:
+    permission: essentials.vanish
+    usage: /vanish [gracz]
+    description: Włącza/wyłącza vanisha
+  fly:
+    permission: essentials.fly
+    usage: /fly [gracz]
+    description: Włącza możliwość latania danemu graczowi/sobie
+  gm:
+    permission: essentials.gamemode
+    usage: /gm <tryb> [gracz]
+    description: Zmienia tryb gry
+  ip:
+    permission: essentials.ip
+    usage: /ip <gracz>
+    description: Pobiera adres IP danego gracza
+  nick:
+    permission: essentials.nick
+    usage: /nick <nick> [gracz]
+    description: Zmienia nick danemu graczowi/sobie
+  ping:
+    usage: /ping
+    description: Sprawdza twój ping
+  ban:
+    usage: /ban <nick> [powód]
+    description: Banuje gracza
+    permission: essentials.ban\
+  kick:
+    usage: /kick <gracz> [powód]
+    description: Wyrzuca gracza z serwera
+    permission: essentials.kick
+  ac:
+    usage: /ac <wiadomość>
+    description: Wysyła wiadomość do wszystkich administratorów
+    permission: essentials.adminchat
