@@ -23,6 +23,7 @@ public class CasedropCore extends JavaPlugin {
 		Objects.requireNonNull(getCommand("banip")).setExecutor(new BanIPCommand());
 		Objects.requireNonNull(getCommand("chat")).setExecutor(new ChatManager());
 		Objects.requireNonNull(getCommand("helpop")).setExecutor(new HelpopCommand());
+		Objects.requireNonNull(getCommand("uuid")).setExecutor(new UUIDCommand());
 
 	}
 
