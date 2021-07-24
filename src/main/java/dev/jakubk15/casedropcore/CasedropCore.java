@@ -1,7 +1,6 @@
 package dev.jakubk15.casedropcore;
 
 import dev.jakubk15.casedropcore.cmds.*;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Objects;
@@ -28,8 +27,7 @@ public class CasedropCore extends JavaPlugin {
 		Objects.requireNonNull(getCommand("helpop")).setExecutor(new HelpopCommand());
 		Objects.requireNonNull(getCommand("uuid")).setExecutor(new UUIDCommand());
 		Objects.requireNonNull(getCommand("god")).setExecutor(new GodCommand());
-		YamlConfiguration config = new YamlConfiguration();
-		this.saveDefaultConfig();
+		Objects.requireNonNull(getCommand("alert")).setExecutor(new AlertCommand());
 		instance = this;
 	}
 
