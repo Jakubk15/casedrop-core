@@ -1,11 +1,14 @@
 package dev.jakubk15.casedropcore;
 
 import dev.jakubk15.casedropcore.cmds.*;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Objects;
 
 public class CasedropCore extends JavaPlugin {
+
+	public static CasedropCore instance;
 
 	@Override
 	public void onEnable() {
@@ -24,7 +27,12 @@ public class CasedropCore extends JavaPlugin {
 		Objects.requireNonNull(getCommand("chat")).setExecutor(new ChatManager());
 		Objects.requireNonNull(getCommand("helpop")).setExecutor(new HelpopCommand());
 		Objects.requireNonNull(getCommand("uuid")).setExecutor(new UUIDCommand());
-
+		YamlConfiguration config = new YamlConfiguration();
+		this.saveDefaultConfig();
+		instance = this;
 	}
 
+	public static CasedropCore getInstance() {
+		return instance;
+	}
 }
