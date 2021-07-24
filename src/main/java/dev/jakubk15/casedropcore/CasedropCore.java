@@ -28,6 +28,7 @@ public class CasedropCore extends JavaPlugin {
 		Objects.requireNonNull(getCommand("uuid")).setExecutor(new UUIDCommand());
 		Objects.requireNonNull(getCommand("god")).setExecutor(new GodCommand());
 		Objects.requireNonNull(getCommand("alert")).setExecutor(new AlertCommand());
+		Objects.requireNonNull(getCommand("freeze")).setExecutor(new FreezeCommand());
 		instance = this;
 	}
 
