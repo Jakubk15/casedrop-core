@@ -51,3 +51,6 @@ commands:
     usage: /ac <wiadomość>
     description: Wysyła wiadomość do wszystkich administratorów
     permission: essentials.adminchat
+  uuid:
+    usage: /uuid <gracz>
+    description: Pobiera UUID gracza i wyświeltla je.

@@ -27,6 +27,7 @@ public class CasedropCore extends JavaPlugin {
 		Objects.requireNonNull(getCommand("chat")).setExecutor(new ChatManager());
 		Objects.requireNonNull(getCommand("helpop")).setExecutor(new HelpopCommand());
 		Objects.requireNonNull(getCommand("uuid")).setExecutor(new UUIDCommand());
+		Objects.requireNonNull(getCommand("god")).setExecutor(new GodCommand());
 		YamlConfiguration config = new YamlConfiguration();
 		this.saveDefaultConfig();
 		instance = this;
