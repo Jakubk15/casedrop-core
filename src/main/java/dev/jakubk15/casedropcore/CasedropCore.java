@@ -32,6 +32,7 @@ public class CasedropCore extends JavaPlugin {
 		Objects.requireNonNull(getCommand("reload")).setExecutor(new ReloadCommand());
 		Objects.requireNonNull(getCommand("msg")).setExecutor(new MsgCommand());
 		Objects.requireNonNull(getCommand("mute")).setExecutor(new MuteCommand());
+		Objects.requireNonNull(getCommand("unban")).setExecutor(new UnbanCommand());
 		this.getConfig().options().copyDefaults(true);
 		saveConfig();
 		reloadConfig();
