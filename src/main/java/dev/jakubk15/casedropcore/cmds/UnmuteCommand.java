@@ -8,19 +8,18 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public class MsgCommand implements CommandExecutor {
+public class UnmuteCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 		Player p = (Player) sender;
-		if (p.hasPermission("essentials.msg")) {
+		if (p.hasPermission("essentials.unmute")) {
 			if (args[0].length() >= 1) {
-				if (args[1].length() >= 1) {
-					Player cel = Bukkit.getPlayerExact(args[0]);
-					String msg = args[1];
-					cel.sendMessage(ChatColorUtil.fixColor("&3[&b" + p.getName() + "&3 -> " + cel.getName() + "&3] &7" + msg));
-					p.sendMessage(ChatColorUtil.fixColor("&3[&b" + p.getName() + "&3 -> " + cel.getName() + "&3] &7" + msg));
+				Player cel = Bukkit.getPlayerExact(args[0]);
+				if (MuteCommand.muted.contains(cel.getUniqueId())) {
+					MuteCommand.muted.remove(cel.getUniqueId());
+					p.sendMessage(ChatColorUtil.fixColor("&3Odciszono gracza " + cel.getName()));
 				} else {
-					p.sendMessage(ChatColorUtil.fixColor("&cPodaj wiadomość!"));
+					p.sendMessage(ChatColorUtil.fixColor("&cTen gracz nie jest wyciszony!"));
 				}
 			} else {
 				p.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
