@@ -13,7 +13,7 @@ public class IPCommand implements CommandExecutor {
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 		Player p = (Player) sender;
 		if (p.hasPermission("essentials.ip")) {
-			if (args[0] != null) {
+			if (args[0].length() >= 1) {
 				Player cel = Bukkit.getPlayerExact(args[0]);
 				p.sendMessage(ChatColorUtil.fixColor("&3IP gracza &b") + cel.getName() + " &3to &b" + cel.getAddress());
 			} else {

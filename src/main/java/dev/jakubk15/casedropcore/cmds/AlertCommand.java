@@ -13,8 +13,8 @@ public class AlertCommand implements CommandExecutor {
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 		Player p = (Player) sender;
 		if (p.hasPermission("essentials.broadcast")) {
-			if (args[0].length() > 1) {
-				if (args[1].length() > 1) {
+			if (args[0].length() >= 1) {
+				if (args[1].length() >= 1) {
 					String message = args[1];
 					if (!args[0].equals("title") && !args[0].equals("actionbar") && !args[0].equals("chat")) {
 						p.sendMessage(ChatColorUtil.fixColor("&cPodaj prawidłowy typ alertu!"));

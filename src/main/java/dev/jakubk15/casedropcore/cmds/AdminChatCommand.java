@@ -13,7 +13,7 @@ public class AdminChatCommand implements CommandExecutor {
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 		Player p = (Player) sender;
 		if (p.hasPermission("essentials.adminchat")) {
-			if (args[0] != null) {
+			if (args[0].length() >= 1) {
 				for (Player adm : Bukkit.getOnlinePlayers()) {
 					if (adm.hasPermission("essentials.adminchat")) {
 						adm.sendMessage(ChatColorUtil.fixColor("&8[&4AdminChat&8] » &7" + p.getName() + " &7» " + args[0]));

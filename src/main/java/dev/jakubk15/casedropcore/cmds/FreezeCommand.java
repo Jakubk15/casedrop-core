@@ -34,8 +34,8 @@ public class FreezeCommand implements CommandExecutor {
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 		Player p = (Player) sender;
 		if (p.hasPermission("essentials.freeze")) {
-			if (args[0].length() > 1) {
-				if (args[1].length() > 1) {
+			if (args[0].length() >= 1) {
+				if (args[1].length() >= 1) {
 					if (args[1].equals("on")) {
 						Player cel = Bukkit.getPlayerExact(args[0]);
 						if (!cel.hasPermission("essentials.freeze.bypass")) {

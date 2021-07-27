@@ -13,7 +13,7 @@ public class GodCommand implements CommandExecutor {
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 		Player p = (Player) sender;
 		if (p.hasPermission("essentials.god")) {
-			if (args[0].length() > 1) {
+			if (args[0].length() >= 1) {
 				Player cel = Bukkit.getPlayerExact(args[0]);
 				cel.setInvulnerable(!cel.isInvulnerable());
 				p.sendMessage(ChatColorUtil.fixColor("&3Godmode " + (cel.isInvulnerable() ? "&3włączone" : "&3wyłączone")));

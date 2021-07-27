@@ -28,7 +28,7 @@ public class ChatManager implements Listener, CommandExecutor {
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 		Player pl = (Player) sender;
 		if (pl.hasPermission("essentials.chat.*")) {
-			if (args[0] != null) {
+			if (args[0].length() >= 1) {
 				if (args[0].equalsIgnoreCase("on")) {
 					isMuted = false;
 					for (Player all : Bukkit.getOnlinePlayers()) {

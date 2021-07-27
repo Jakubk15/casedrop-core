@@ -13,7 +13,7 @@ public class FlyCommand implements CommandExecutor {
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 		Player p = (Player) sender;
 		if (p.hasPermission("essentials.fly")) {
-			if (args[0] != null) {
+			if (args[0].length() >= 1) {
 				Player cel = Bukkit.getPlayerExact(args[0]);
 				cel.setAllowFlight(!cel.isFlying());
 				cel.sendMessage(ChatColorUtil.fixColor("&3Latanie zostało:") + (p.getAllowFlight() ? "włączone." : "wyłączone."));

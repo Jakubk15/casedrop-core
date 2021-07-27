@@ -13,7 +13,7 @@ public class GamemodeCommand implements CommandExecutor {
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 		Player p = (Player) sender;
 		if (p.hasPermission("essentials.gamemode")) {
-			if (args[0] != null) {
+			if (args[0].length() >= 1) {
 				if (args[0] == "0") {
 					p.setGameMode(GameMode.SURVIVAL);
 					p.sendMessage(ChatColorUtil.fixColor("&3Twój tryb gry został zmieniony na " + p.getGameMode()));

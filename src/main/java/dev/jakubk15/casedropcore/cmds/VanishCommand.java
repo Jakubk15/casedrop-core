@@ -14,23 +14,13 @@ public class VanishCommand implements CommandExecutor {
 		Player p = (Player) sender;
 		// TODO skrócić ten syf
 		if (p.hasPermission("essentials.vanish")) {
-			if (args[0] != null) {
+			if (args[0].length() >= 1) {
 				Player cel = Bukkit.getPlayerExact(args[0]);
-				if (cel.isInvisible()) {
-					p.sendMessage(ChatColorUtil.fixColor("&3Wyłączono vanish dla gracza &b " + p.getName()));
-					cel.setInvisible(false);
-				} else {
-					p.sendMessage(ChatColorUtil.fixColor("&3Włączono vanish dla gracza &b " + p.getName()));
-					cel.setInvisible(true);
-				}
+				p.sendMessage(ChatColorUtil.fixColor(cel.isInvisible() ? "&3Włączono " : "&3Wyłączono " + "vanisha dla gracza " + cel.getName()));
+				cel.setInvisible(!cel.isInvisible());
 			} else {
-				if (p.isInvisible()) {
-					p.sendMessage(ChatColorUtil.fixColor("&3Wyłączono vanisha"));
-					p.setInvisible(false);
-				} else {
-					p.sendMessage(ChatColorUtil.fixColor("&3Włączono vanisha"));
-					p.setInvisible(true);
-				}
+				p.sendMessage(ChatColorUtil.fixColor(p.isInvisible() ? "&3Włączono " : "&3Wyłączono " + "vanisha."));
+				p.setInvisible(!p.isInvisible());
 			}
 		}
 		return false;
