@@ -12,9 +12,13 @@
 - Freeze
 - Fly
 - Gamemode
+- Godmode
 - GetIP
 - Kick
+- MSG
+- Mute
 - Nick
 - Ping
+- Unban
 - UUID getter
 - Vanish
