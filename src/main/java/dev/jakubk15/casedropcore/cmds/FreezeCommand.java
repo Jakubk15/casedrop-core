@@ -42,6 +42,8 @@ public class FreezeCommand implements CommandExecutor {
 							UUID uuid = cel.getUniqueId();
 							freezedPlayers.add(uuid);
 							p.sendMessage(ChatColorUtil.fixColor("&3Zamrożono gracza " + cel.getName()));
+							cel.sendMessage(ChatColorUtil.fixColor("&3Gracz " + p.getName() + "&3 zamroził cię."));
+							cel.setInvulnerable(!cel.isInvulnerable());
 							int food = cel.getFoodLevel();
 						} else {
 							p.sendMessage(ChatColorUtil.fixColor("&cTen gracz ma uprawnienie essentials.freeze.bypass, co daje mu bypass na zamrażanie"));
@@ -51,6 +53,7 @@ public class FreezeCommand implements CommandExecutor {
 						UUID uuid = cel.getUniqueId();
 						freezedPlayers.remove(uuid);
 						p.sendMessage(ChatColorUtil.fixColor("&3Odmrożono gracza " + cel.getName()));
+						cel.setInvulnerable(!cel.isInvulnerable());
 					} else {
 						p.sendMessage(ChatColorUtil.fixColor("&cPodaj odpowiedni parametr; Dostępne: 'on', 'off'"));
 					}
