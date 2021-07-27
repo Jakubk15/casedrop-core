@@ -4,14 +4,17 @@
 
 ### Features:
 - AdminChat
+- Alert
 - Ban
 - BanIP
 - ChatManager
 - Feed
+- Freeze
 - Fly
 - Gamemode
 - GetIP
 - Kick
 - Nick
 - Ping
+- UUID getter
 - Vanish
