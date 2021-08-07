@@ -1,6 +1,6 @@
 name: Casedropcore
 version: ${project.version}
-main: dev.jakubk15.casedropcore.Casedropcore
+main: dev.jakubk15.casedropcore.CasedropCore
 api-version: 1.17
 prefix: CaseDropCore
 loadbefore: [ EssentialsX, LuckPerms, Vault ]
