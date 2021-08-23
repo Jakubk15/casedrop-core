@@ -11,32 +11,32 @@ public class CasedropCore extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-		Objects.requireNonNull(getCommand("feed")).setExecutor(new FeedCommand());
-		Objects.requireNonNull(getCommand("heal")).setExecutor(new HealCommand());
-		Objects.requireNonNull(getCommand("fly")).setExecutor(new FlyCommand());
-		Objects.requireNonNull(getCommand("ip")).setExecutor(new IPCommand());
-		Objects.requireNonNull(getCommand("nick")).setExecutor(new NickCommand());
-		Objects.requireNonNull(getCommand("gm")).setExecutor(new GamemodeCommand());
-		Objects.requireNonNull(getCommand("ping")).setExecutor(new PingCommand());
-		Objects.requireNonNull(getCommand("vanish")).setExecutor(new VanishCommand());
-		Objects.requireNonNull(getCommand("kick")).setExecutor(new KickCommand());
-		Objects.requireNonNull(getCommand("ac")).setExecutor(new AdminChatCommand());
-		Objects.requireNonNull(getCommand("ban")).setExecutor(new BanCommand());
-		Objects.requireNonNull(getCommand("banip")).setExecutor(new BanIPCommand());
-		Objects.requireNonNull(getCommand("chat")).setExecutor(new ChatManager());
-		Objects.requireNonNull(getCommand("helpop")).setExecutor(new HelpopCommand());
-		Objects.requireNonNull(getCommand("uuid")).setExecutor(new UUIDCommand());
-		Objects.requireNonNull(getCommand("god")).setExecutor(new GodCommand());
-		Objects.requireNonNull(getCommand("alert")).setExecutor(new AlertCommand());
-		Objects.requireNonNull(getCommand("freeze")).setExecutor(new FreezeCommand());
-		Objects.requireNonNull(getCommand("reload")).setExecutor(new ReloadCommand());
-		Objects.requireNonNull(getCommand("msg")).setExecutor(new MsgCommand());
-		Objects.requireNonNull(getCommand("mute")).setExecutor(new MuteCommand());
-		Objects.requireNonNull(getCommand("unban")).setExecutor(new UnbanCommand());
+		instance = this;
+		Objects.requireNonNull(instance.getCommand("feed")).setExecutor(new FeedCommand());
+		Objects.requireNonNull(instance.getCommand("heal")).setExecutor(new HealCommand());
+		Objects.requireNonNull(instance.getCommand("fly")).setExecutor(new FlyCommand());
+		Objects.requireNonNull(instance.getCommand("ip")).setExecutor(new IPCommand());
+		Objects.requireNonNull(instance.getCommand("nick")).setExecutor(new NickCommand());
+		Objects.requireNonNull(instance.getCommand("gm")).setExecutor(new GamemodeCommand());
+		Objects.requireNonNull(instance.getCommand("ping")).setExecutor(new PingCommand());
+		Objects.requireNonNull(instance.getCommand("vanish")).setExecutor(new VanishCommand());
+		Objects.requireNonNull(instance.getCommand("kick")).setExecutor(new KickCommand());
+		Objects.requireNonNull(instance.getCommand("ac")).setExecutor(new AdminChatCommand());
+		Objects.requireNonNull(instance.getCommand("ban")).setExecutor(new BanCommand());
+		Objects.requireNonNull(instance.getCommand("banip")).setExecutor(new BanIPCommand());
+		Objects.requireNonNull(instance.getCommand("chat")).setExecutor(new ChatManager());
+		Objects.requireNonNull(instance.getCommand("helpop")).setExecutor(new HelpopCommand());
+		Objects.requireNonNull(instance.getCommand("uuid")).setExecutor(new UUIDCommand());
+		Objects.requireNonNull(instance.getCommand("god")).setExecutor(new GodCommand());
+		Objects.requireNonNull(instance.getCommand("alert")).setExecutor(new AlertCommand());
+		Objects.requireNonNull(instance.getCommand("freeze")).setExecutor(new FreezeCommand());
+		Objects.requireNonNull(instance.getCommand("reload")).setExecutor(new ReloadCommand());
+		Objects.requireNonNull(instance.getCommand("msg")).setExecutor(new MsgCommand());
+		Objects.requireNonNull(instance.getCommand("mute")).setExecutor(new MuteCommand());
+		Objects.requireNonNull(instance.getCommand("unban")).setExecutor(new UnbanCommand());
 		this.getConfig().options().copyDefaults(true);
 		saveConfig();
 		reloadConfig();
-		instance = this;
 	}
 
 	public static CasedropCore getInstance() {
