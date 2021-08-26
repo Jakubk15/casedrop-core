@@ -11,7 +11,6 @@ public class CasedropCore extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-		instance = this;
 		Objects.requireNonNull(instance.getCommand("feed")).setExecutor(new FeedCommand());
 		Objects.requireNonNull(instance.getCommand("heal")).setExecutor(new HealCommand());
 		Objects.requireNonNull(instance.getCommand("fly")).setExecutor(new FlyCommand());
@@ -36,7 +35,6 @@ public class CasedropCore extends JavaPlugin {
 		Objects.requireNonNull(instance.getCommand("unban")).setExecutor(new UnbanCommand());
 		this.getConfig().options().copyDefaults(true);
 		saveConfig();
-		reloadConfig();
 	}
 
 	public static CasedropCore getInstance() {

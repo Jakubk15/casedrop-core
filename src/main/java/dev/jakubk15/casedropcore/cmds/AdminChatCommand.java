@@ -16,7 +16,13 @@ public class AdminChatCommand implements CommandExecutor {
 			if (args[0].length() >= 1) {
 				for (Player adm : Bukkit.getOnlinePlayers()) {
 					if (adm.hasPermission("essentials.adminchat")) {
-						adm.sendMessage(ChatColorUtil.fixColor("&8[&4AdminChat&8] » &7" + p.getName() + " &7» " + args[0]));
+						StringBuilder builder = new StringBuilder();
+						for (String arg : args) {
+							String s1 = arg + " ";
+							builder.append(s1);
+						}
+						String result = builder.toString();
+						adm.sendMessage(ChatColorUtil.fixColor("&8[&4AdminChat&8] » &7" + p.getName() + " &7» " + result));
 					}
 				}
 			} else {
