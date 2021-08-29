@@ -15,9 +15,15 @@ public class HelpopCommand implements CommandExecutor {
 		if (args[0].isEmpty()) {
 			p.sendMessage(ChatColorUtil.fixColor("&cPodaj wiadomość!"));
 		} else {
+			StringBuilder builder = new StringBuilder();
+			for (String arg : args) {
+				String s1 = arg + " ";
+				builder.append(s1);
+			}
+			String result = builder.toString();
 			for (Player ps : Bukkit.getOnlinePlayers()) {
 				if (ps.hasPermission("essentials.helpop.receive") || ps.isOp()) {
-					ps.sendMessage(ChatColorUtil.fixColor("&8[&4Helpop&8] &c" + p.getName() + ": " + args[0]));
+					ps.sendMessage(ChatColorUtil.fixColor("&8[&4Helpop&8] &c" + p.getName() + ": " + result));
 					p.sendMessage(ChatColorUtil.fixColor("&8[&4Helpop&8] &7Wiadomość wysłana do administracji!"));
 				}
 			}
