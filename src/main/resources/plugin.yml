@@ -3,7 +3,6 @@ version: ${project.version}
 main: dev.jakubk15.casedropcore.CasedropCore
 api-version: 1.17
 prefix: CaseDropCore
-loadbefore: [ EssentialsX, LuckPerms, Vault ]
 authors: [ Jakubk15 ]
 description: Core dedykowany na serwer Case-Drop.PL
 website: case-drop.pl
@@ -54,3 +53,10 @@ commands:
   uuid:
     usage: /uuid <gracz>
     description: Pobiera UUID gracza i wyświeltla je.
+  banip:
+  helpop:
+  reload:
+  alert:
+  freeze:
+  msg:
+

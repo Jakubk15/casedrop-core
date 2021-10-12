@@ -6,7 +6,7 @@
 
     <groupId>dev.jakubk15</groupId>
     <artifactId>casedropcore</artifactId>
-    <version>1.3-SNAPSHOT</version>
+    <version>1.4-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Casedropcore</name>
