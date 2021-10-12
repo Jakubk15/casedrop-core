@@ -16,6 +16,7 @@ public class MsgCommand implements CommandExecutor {
 			if (args[0].length() >= 1) {
 				if (args[1].length() >= 1) {
 					Player cel = Bukkit.getPlayerExact(args[0]);
+					assert cel != null;
 					String msg = args[1];
 					cel.sendMessage(ChatColorUtil.fixColor("&3[&b" + p.getName() + "&3 -> " + cel.getName() + "&3] &7" + msg));
 					p.sendMessage(ChatColorUtil.fixColor("&3[&b" + p.getName() + "&3 -> " + cel.getName() + "&3] &7" + msg));

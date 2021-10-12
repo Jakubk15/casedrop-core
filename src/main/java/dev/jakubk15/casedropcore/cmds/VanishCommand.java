@@ -16,6 +16,7 @@ public class VanishCommand implements CommandExecutor {
 		if (p.hasPermission("essentials.vanish")) {
 			if (args[0].length() >= 1) {
 				Player cel = Bukkit.getPlayerExact(args[0]);
+				assert cel != null;
 				p.sendMessage(ChatColorUtil.fixColor(cel.isInvisible() ? "&3Włączono " : "&3Wyłączono " + "vanisha dla gracza " + cel.getName()));
 				cel.setInvisible(!cel.isInvisible());
 			} else {

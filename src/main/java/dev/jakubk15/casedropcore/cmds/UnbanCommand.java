@@ -15,6 +15,7 @@ public class UnbanCommand implements CommandExecutor {
 		if (p.hasPermission("essentials.unban")) {
 			if (args[0].length() >= 1) {
 				Player cel = Bukkit.getPlayerExact(args[0]);
+				assert cel != null;
 				if (cel.isBanned()) {
 					Bukkit.getServer().getBannedPlayers().remove(cel);
 				} else {

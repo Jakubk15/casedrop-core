@@ -15,6 +15,7 @@ public class HealCommand implements CommandExecutor {
 		if (p.hasPermission("essentials.heal")) {
 			if (args[0].length() >= 1) {
 				Player cel = Bukkit.getPlayerExact(args[0]);
+				assert cel != null;
 				cel.setHealth(20);
 				cel.setFoodLevel(20);
 				cel.setFireTicks(0);

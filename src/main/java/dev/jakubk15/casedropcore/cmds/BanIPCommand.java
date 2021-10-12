@@ -16,6 +16,7 @@ public class BanIPCommand implements CommandExecutor {
 		if (p.hasPermission("essentials.banip")) {
 			if (args[0].length() > 1) {
 				Player cel = Bukkit.getPlayerExact(args[0]);
+				assert cel != null;
 				if (args[1].length() >= 1) {
 					cel.banPlayerFull(ChatColorUtil.fixColor("&cZostałeś zbanowany na IP!\n\nPrzez administratora: " + p.getName() + "\n\n&cPowód: " + args[1]));
 					p.sendMessage(ChatColorUtil.fixColor("&3Zbanowano gracza " + cel.getName() + "\n&3Powód: " + args[1]));

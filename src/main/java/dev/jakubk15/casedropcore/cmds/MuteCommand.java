@@ -24,6 +24,7 @@ public class MuteCommand implements CommandExecutor {
 		if (p.hasPermission("essentials.mute")) {
 			if (args[0].length() >= 1) {
 				Player cel = Bukkit.getPlayerExact(args[0]);
+				assert cel != null;
 				if (args[0].length() >= 1) {
 					String reason = args[1];
 					cel.sendMessage(ChatColorUtil.fixColor("&3Zostałeś wyciszony przez administratora " + p.getName() + " &3 za " + reason));

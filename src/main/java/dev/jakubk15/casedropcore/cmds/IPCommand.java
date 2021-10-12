@@ -15,6 +15,7 @@ public class IPCommand implements CommandExecutor {
 		if (p.hasPermission("essentials.ip")) {
 			if (args[0].length() >= 1) {
 				Player cel = Bukkit.getPlayerExact(args[0]);
+				assert cel != null;
 				p.sendMessage(ChatColorUtil.fixColor("&3IP gracza &b") + cel.getName() + " &3to &b" + cel.getAddress());
 			} else {
 				p.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));

@@ -15,6 +15,7 @@ public class UnmuteCommand implements CommandExecutor {
 		if (p.hasPermission("essentials.unmute")) {
 			if (args[0].length() >= 1) {
 				Player cel = Bukkit.getPlayerExact(args[0]);
+				assert cel != null;
 				if (MuteCommand.muted.contains(cel.getUniqueId())) {
 					MuteCommand.muted.remove(cel.getUniqueId());
 					p.sendMessage(ChatColorUtil.fixColor("&3Odciszono gracza " + cel.getName()));

@@ -38,6 +38,7 @@ public class FreezeCommand implements CommandExecutor {
 				if (args[1].length() >= 1) {
 					if (args[1].equals("on")) {
 						Player cel = Bukkit.getPlayerExact(args[0]);
+						assert cel != null;
 						if (!cel.hasPermission("essentials.freeze.bypass")) {
 							UUID uuid = cel.getUniqueId();
 							freezedPlayers.add(uuid);

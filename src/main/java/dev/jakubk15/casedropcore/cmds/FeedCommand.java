@@ -15,6 +15,7 @@ public class FeedCommand implements CommandExecutor {
 		if (p.hasPermission("essentials.feed")) {
 			if (args[0].length() >= 1) {
 				Player cel = Bukkit.getPlayerExact(args[0]);
+				assert cel != null;
 				cel.setFoodLevel(20);
 				cel.sendMessage(ChatColorUtil.fixColor("&3Zostałeś najedzony!"));
 				p.sendMessage(ChatColorUtil.fixColor("&3Najadłeś gracza " + cel.getName() + "."));
