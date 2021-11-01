@@ -5,10 +5,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class CasedropCore extends JavaPlugin {
 
-	public static CasedropCore instance;
+	private static CasedropCore instance;
 
 	@Override
 	public void onEnable() {
+		instance = this;
 		getCommand("feed").setExecutor(new FeedCommand());
 		getCommand("heal").setExecutor(new HealCommand());
 		getCommand("fly").setExecutor(new FlyCommand());

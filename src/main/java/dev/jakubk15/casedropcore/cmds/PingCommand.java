@@ -6,15 +6,21 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 public class PingCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-		Player p = (Player) sender;
-		for (int i = 0; i < 30; i++) {
-			Bukkit.getScheduler().scheduleSyncRepeatingTask(CasedropCore.getInstance(), () -> p.sendMessage(ChatColorUtil.fixColor("&aTwój ping to: &6" + p.getPing())), 50, 1);
+		if (sender instanceof Player) {
+			Player p = (Player) sender;
+			for (int i = 0; i < 30; i++) {
+				Bukkit.getScheduler().scheduleSyncRepeatingTask(CasedropCore.getInstance(), () -> p.sendMessage(ChatColorUtil.fixColor("&aTwój ping to: &6" + p.getPing())), 50, 1);
+			}
+		} else if (sender instanceof ConsoleCommandSender) {
+			ConsoleCommandSender p = (ConsoleCommandSender) sender;
+			p.sendMessage("Tylko gracz może tego użyć!");
 		}
 		return false;
 	}

@@ -5,23 +5,39 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 public class IPCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-		Player p = (Player) sender;
-		if (p.hasPermission("essentials.ip")) {
-			if (args[0].length() >= 1) {
-				Player cel = Bukkit.getPlayerExact(args[0]);
-				assert cel != null;
-				p.sendMessage(ChatColorUtil.fixColor("&3IP gracza &b") + cel.getName() + " &3to &b" + cel.getAddress());
+		if (sender instanceof Player) {
+			Player p = (Player) sender;
+			if (p.hasPermission("essentials.ip")) {
+				if (args[0].length() >= 1) {
+					Player cel = Bukkit.getPlayerExact(args[0]);
+					assert cel != null;
+					p.sendMessage(ChatColorUtil.fixColor("&3IP gracza &b") + cel.getName() + " &3to &b" + cel.getAddress());
+				} else {
+					p.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
+				}
 			} else {
-				p.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
+				p.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnień!"));
 			}
-		} else {
-			p.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnień!"));
+		} else if (sender instanceof ConsoleCommandSender) {
+			ConsoleCommandSender p = (ConsoleCommandSender) sender;
+			if (p.hasPermission("essentials.ip")) {
+				if (args[0].length() >= 1) {
+					Player cel = Bukkit.getPlayerExact(args[0]);
+					assert cel != null;
+					p.sendMessage(ChatColorUtil.fixColor("&3IP gracza &b") + cel.getName() + " &3to &b" + cel.getAddress());
+				} else {
+					p.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
+				}
+			} else {
+				p.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnień!"));
+			}
 		}
 		return false;
 	}
