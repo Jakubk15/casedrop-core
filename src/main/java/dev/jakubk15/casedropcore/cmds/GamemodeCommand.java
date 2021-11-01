@@ -11,34 +11,33 @@ import org.jetbrains.annotations.NotNull;
 public class GamemodeCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-		if (sender instanceof Player p) {
-			if (p.hasPermission("essentials.gamemode")) {
+			if (sender.hasPermission("essentials.gamemode")) {
 				if (args[0].length() >= 1) {
+					Player sender1 = (Player) sender;
 					switch (args[0]) {
 						case "0" -> {
-							p.setGameMode(GameMode.SURVIVAL);
-							p.sendMessage(ChatColorUtil.fixColor("&3Twój tryb gry został zmieniony na " + p.getGameMode()));
+							sender1.setGameMode(GameMode.SURVIVAL);
+							sender.sendMessage(ChatColorUtil.fixColor("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
 						}
 						case "1" -> {
-							p.setGameMode(GameMode.CREATIVE);
-							p.sendMessage(ChatColorUtil.fixColor("&3Twój tryb gry został zmieniony na " + p.getGameMode()));
+							sender1.setGameMode(GameMode.CREATIVE);
+							sender.sendMessage(ChatColorUtil.fixColor("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
 						}
 						case "2" -> {
-							p.setGameMode(GameMode.ADVENTURE);
-							p.sendMessage(ChatColorUtil.fixColor("&3Twój tryb gry został zmieniony na " + p.getGameMode()));
+							sender1.setGameMode(GameMode.ADVENTURE);
+							sender.sendMessage(ChatColorUtil.fixColor("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
 						}
 						case "3" -> {
-							p.setGameMode(GameMode.SPECTATOR);
-							p.sendMessage(ChatColorUtil.fixColor("&3Twój tryb gry został zmieniony na " + p.getGameMode()));
+							sender1.setGameMode(GameMode.SPECTATOR);
+							sender.sendMessage(ChatColorUtil.fixColor("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
 						}
 					}
 				} else {
-					p.sendMessage(ChatColorUtil.fixColor("&cPodaj argument 1!"));
+					sender.sendMessage(ChatColorUtil.fixColor("&cPodaj argument 1!"));
 				}
 			} else {
-				p.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnien!"));
+				sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnien!"));
 			}
-	}
 	return false;
 	}
 

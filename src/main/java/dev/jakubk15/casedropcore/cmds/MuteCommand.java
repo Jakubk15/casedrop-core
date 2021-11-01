@@ -6,7 +6,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
@@ -21,39 +20,21 @@ public class MuteCommand implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-		if (sender instanceof Player p) {
-			if (p.hasPermission("essentials.mute")) {
+			if (sender.hasPermission("essentials.mute")) {
 				if (args[0].length() >= 1) {
 					Player cel = Bukkit.getPlayerExact(args[0]);
 					assert cel != null;
 					if (args[0].length() >= 1) {
 						String reason = args[1];
-						cel.sendMessage(ChatColorUtil.fixColor("&3Zostałeś wyciszony przez administratora " + p.getName() + " &3 za " + reason));
+						cel.sendMessage(ChatColorUtil.fixColor("&3Zostałeś wyciszony przez administratora " + sender.getName() + " &3 za " + reason));
 					} else {
-						cel.sendMessage(ChatColorUtil.fixColor("&3Zostałeś wyciszony przez administratora " + p.getName()));
+						cel.sendMessage(ChatColorUtil.fixColor("&3Zostałeś wyciszony przez administratora " + sender.getName()));
 					}
 					muted.add(cel.getUniqueId());
 				} else {
-					p.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
+					sender.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
 				}
 			}
-		} else if (sender instanceof ConsoleCommandSender p) {
-			if (p.hasPermission("essentials.mute")) {
-				if (args[0].length() >= 1) {
-					Player cel = Bukkit.getPlayerExact(args[0]);
-					assert cel != null;
-					if (args[0].length() >= 1) {
-						String reason = args[1];
-						cel.sendMessage(ChatColorUtil.fixColor("&3Zostałeś wyciszony przez administratora " + p.getName() + " &3 za " + reason));
-					} else {
-						cel.sendMessage(ChatColorUtil.fixColor("&3Zostałeś wyciszony przez administratora " + p.getName()));
-					}
-					muted.add(cel.getUniqueId());
-				} else {
-					p.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
-				}
-		}
-		}
 		return false;
 	}
 

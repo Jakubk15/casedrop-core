@@ -5,7 +5,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
@@ -27,8 +26,7 @@ public class ChatManager implements Listener, CommandExecutor {
 
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-		if (sender instanceof Player pl) {
-			if (pl.hasPermission("essentials.chat.*")) {
+			if (sender.hasPermission("essentials.chat.*")) {
 				if (args[0].length() >= 1) {
 					if (args[0].equalsIgnoreCase("on")) {
 						isMuted = false;
@@ -60,56 +58,14 @@ public class ChatManager implements Listener, CommandExecutor {
 							all.sendMessage(ChatColorUtil.fixColor("&8&m---------- &8&l[ &3&lCHAT &8&l ] &8&m----------"));
 						}
 					} else {
-						pl.sendMessage(ChatColorUtil.fixColor("&cPodaj prawidłowy argument; Dostępne: on, off, clear."));
+						sender.sendMessage(ChatColorUtil.fixColor("&cPodaj prawidłowy argument; Dostępne: on, off, clear."));
 					}
 				} else {
-					pl.sendMessage(ChatColorUtil.fixColor("&cPodaj prawidłowy argument; Dostępne: on, off, clear."));
+					sender.sendMessage(ChatColorUtil.fixColor("&cPodaj prawidłowy argument; Dostępne: on, off, clear."));
 				}
 			} else {
-				pl.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnień!"));
-			}
-		} else if (sender instanceof ConsoleCommandSender pl) {
-			if (pl.hasPermission("essentials.chat.*")) {
-				if (args[0].length() >= 1) {
-					if (args[0].equalsIgnoreCase("on")) {
-						isMuted = false;
-						for (Player all : Bukkit.getOnlinePlayers()) {
-							all.sendMessage(ChatColorUtil.fixColor("&8&m---------- &8&l[ &3&lCHAT &8&l ] &8&m----------"));
-							all.sendMessage(ChatColorUtil.fixColor(""));
-							all.sendMessage(ChatColorUtil.fixColor("              &3Chat został &awłączony!"));
-							all.sendMessage(ChatColorUtil.fixColor(""));
-							all.sendMessage(ChatColorUtil.fixColor("&8&m---------- &8&l[ &3&lCHAT &8&l ] &8&m----------"));
-						}
-					} else if (args[0].equalsIgnoreCase("off")) {
-						isMuted = true;
-						for (Player all : Bukkit.getOnlinePlayers()) {
-							all.sendMessage(ChatColorUtil.fixColor("&8&m---------- &8&l[ &3&lCHAT &8&l ] &8&m----------"));
-							all.sendMessage(ChatColorUtil.fixColor(""));
-							all.sendMessage(ChatColorUtil.fixColor("              &3Chat został &cwyłączony!"));
-							all.sendMessage(ChatColorUtil.fixColor(""));
-							all.sendMessage(ChatColorUtil.fixColor("&8&m---------- &8&l[ &3&lCHAT &8&l ] &8&m----------"));
-						}
-					} else if (args[0].equalsIgnoreCase("clear")) {
-						for (Player all : Bukkit.getOnlinePlayers()) {
-							for (int i = 0; i < 500; i++) {
-								all.sendMessage(" ");
-							}
-							all.sendMessage(ChatColorUtil.fixColor("&8&m---------- &8&l[ &3&lCHAT &8&l ] &8&m----------"));
-							all.sendMessage(ChatColorUtil.fixColor(""));
-							all.sendMessage(ChatColorUtil.fixColor("              &3Chat został &bwyczyszczony!"));
-							all.sendMessage(ChatColorUtil.fixColor(""));
-							all.sendMessage(ChatColorUtil.fixColor("&8&m---------- &8&l[ &3&lCHAT &8&l ] &8&m----------"));
-						}
-					} else {
-						pl.sendMessage(ChatColorUtil.fixColor("&cPodaj prawidłowy argument; Dostępne: on, off, clear."));
-					}
-				} else {
-					pl.sendMessage(ChatColorUtil.fixColor("&cPodaj prawidłowy argument; Dostępne: on, off, clear."));
-				}
-			} else {
-				pl.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnień!"));
-			}
-		}
+				sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnień!"));
+	}
 		return false;
 	}
 }

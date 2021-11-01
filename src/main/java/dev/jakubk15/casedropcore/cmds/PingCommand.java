@@ -13,12 +13,11 @@ import org.jetbrains.annotations.NotNull;
 public class PingCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-		if (sender instanceof Player p) {
+		if (!(sender instanceof ConsoleCommandSender)) {
+			Player sender1 = (Player) sender;
 			for (int i = 0; i < 30; i++) {
-				Bukkit.getScheduler().scheduleSyncRepeatingTask(CasedropCore.getInstance(), () -> p.sendMessage(ChatColorUtil.fixColor("&aTwój ping to: &6" + p.getPing())), 50, 1);
+				Bukkit.getScheduler().scheduleSyncRepeatingTask(CasedropCore.getInstance(), () -> sender.sendMessage(ChatColorUtil.fixColor("&aTwój ping to: &6" + sender1.getPing())), 50, 1);
 			}
-		} else if (sender instanceof ConsoleCommandSender p) {
-			p.sendMessage("Tylko gracz może tego użyć!");
 		}
 		return false;
 	}
