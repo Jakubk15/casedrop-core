@@ -4,7 +4,6 @@
 
 plugins {
     id 'java'
-    id 'maven-publish'
     id "com.github.johnrengelman.shadow" version "7.1.0"
 }
 
@@ -33,14 +32,6 @@ description = 'Casedropcore'
 java {
     sourceCompatibility = JavaVersion.VERSION_16
     targetCompatibility = JavaVersion.VERSION_16
-}
-
-publishing {
-    publications {
-        maven(MavenPublication) {
-            from(components.java)
-        }
-    }
 }
 
 tasks.withType(JavaCompile) {
