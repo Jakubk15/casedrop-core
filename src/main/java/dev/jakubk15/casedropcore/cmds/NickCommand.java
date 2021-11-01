@@ -12,8 +12,7 @@ import org.jetbrains.annotations.NotNull;
 public class NickCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-		if (sender instanceof Player) {
-			Player p = (Player) sender;
+		if (sender instanceof Player p) {
 			if (p.hasPermission("essentials.nick")) {
 				if (args[0].length() >= 1) {
 					if (args[1].length() >= 1) {
@@ -31,8 +30,7 @@ public class NickCommand implements CommandExecutor {
 			} else {
 				p.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnień!"));
 			}
-		} else if (sender instanceof ConsoleCommandSender) {
-			ConsoleCommandSender p = (ConsoleCommandSender) sender;
+		} else if (sender instanceof ConsoleCommandSender p) {
 			if (p.hasPermission("essentials.nick")) {
 				if (args[0].length() >= 1) {
 					if (args[1].length() >= 1) {

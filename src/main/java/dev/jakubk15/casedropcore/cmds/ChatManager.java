@@ -27,8 +27,7 @@ public class ChatManager implements Listener, CommandExecutor {
 
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-		if (sender instanceof Player) {
-			Player pl = (Player) sender;
+		if (sender instanceof Player pl) {
 			if (pl.hasPermission("essentials.chat.*")) {
 				if (args[0].length() >= 1) {
 					if (args[0].equalsIgnoreCase("on")) {
@@ -69,8 +68,7 @@ public class ChatManager implements Listener, CommandExecutor {
 			} else {
 				pl.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnień!"));
 			}
-		} else if (sender instanceof ConsoleCommandSender) {
-			ConsoleCommandSender pl = (ConsoleCommandSender) sender;
+		} else if (sender instanceof ConsoleCommandSender pl) {
 			if (pl.hasPermission("essentials.chat.*")) {
 				if (args[0].length() >= 1) {
 					if (args[0].equalsIgnoreCase("on")) {

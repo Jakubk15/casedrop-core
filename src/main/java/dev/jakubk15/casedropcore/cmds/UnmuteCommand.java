@@ -12,8 +12,7 @@ import org.jetbrains.annotations.NotNull;
 public class UnmuteCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-		if (sender instanceof Player) {
-			Player p = (Player) sender;
+		if (sender instanceof Player p) {
 			if (p.hasPermission("essentials.unmute")) {
 				if (args[0].length() >= 1) {
 					Player cel = Bukkit.getPlayerExact(args[0]);
@@ -30,8 +29,7 @@ public class UnmuteCommand implements CommandExecutor {
 			} else {
 				p.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnien!"));
 			}
-		} else if (sender instanceof ConsoleCommandSender) {
-			ConsoleCommandSender p = (ConsoleCommandSender) sender;
+		} else if (sender instanceof ConsoleCommandSender p) {
 			if (p.hasPermission("essentials.unmute")) {
 				if (args[0].length() >= 1) {
 					Player cel = Bukkit.getPlayerExact(args[0]);

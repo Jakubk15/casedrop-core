@@ -12,8 +12,7 @@ import org.jetbrains.annotations.NotNull;
 public class FeedCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-		if (sender instanceof Player) {
-			Player p = (Player) sender;
+		if (sender instanceof Player p) {
 			if (p.hasPermission("essentials.feed")) {
 				if (args[0].length() >= 1) {
 					Player cel = Bukkit.getPlayerExact(args[0]);
@@ -28,8 +27,7 @@ public class FeedCommand implements CommandExecutor {
 			} else {
 				p.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnień!"));
 			}
-		} else if (sender instanceof ConsoleCommandSender) {
-			ConsoleCommandSender p = (ConsoleCommandSender) sender;
+		} else if (sender instanceof ConsoleCommandSender p) {
 			if (p.hasPermission("essentials.feed")) {
 				if (args[0].length() >= 1) {
 					Player cel = Bukkit.getPlayerExact(args[0]);

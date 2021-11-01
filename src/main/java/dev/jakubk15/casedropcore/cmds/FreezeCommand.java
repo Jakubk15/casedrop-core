@@ -26,15 +26,14 @@ import java.util.UUID;
  *    Use carefully, only when really needed.
  */
 
-
+@SuppressWarnings("never used")
 public class FreezeCommand implements CommandExecutor {
 
 	public static Set<UUID> freezedPlayers = new HashSet<>();
 
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-		if (sender instanceof Player) {
-			Player p = (Player) sender;
+		if (sender instanceof Player p) {
 			if (p.hasPermission("essentials.freeze")) {
 				if (args[0].length() >= 1) {
 					if (args[1].length() >= 1) {
@@ -67,8 +66,7 @@ public class FreezeCommand implements CommandExecutor {
 			} else {
 				p.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnien!"));
 			}
-		} else if (sender instanceof ConsoleCommandSender) {
-			ConsoleCommandSender p = (ConsoleCommandSender) sender;
+		} else if (sender instanceof ConsoleCommandSender p) {
 			if (p.hasPermission("essentials.freeze")) {
 				if (args[0].length() >= 1) {
 					if (args[1].length() >= 1) {

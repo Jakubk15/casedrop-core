@@ -12,8 +12,7 @@ import org.jetbrains.annotations.NotNull;
 public class AdminChatCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-		if (sender instanceof Player) {
-			Player p = (Player) sender;
+		if (sender instanceof Player p) {
 			if (p.hasPermission("essentials.adminchat")) {
 				if (args[0].length() >= 1) {
 					for (Player adm : Bukkit.getOnlinePlayers()) {
@@ -33,9 +32,8 @@ public class AdminChatCommand implements CommandExecutor {
 			} else {
 				p.sendMessage("&cBrak uprawnień!");
 			}
-		} else if (sender instanceof ConsoleCommandSender) {
-			ConsoleCommandSender p = (ConsoleCommandSender) sender;
-		if (p.hasPermission("essentials.adminchat")) {
+		} else if (sender instanceof ConsoleCommandSender p) {
+			if (p.hasPermission("essentials.adminchat")) {
 			if (args[0].length() >= 1) {
 				for (Player adm : Bukkit.getOnlinePlayers()) {
 					if (adm.hasPermission("essentials.adminchat")) {

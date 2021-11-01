@@ -21,11 +21,7 @@ public class MuteCommand implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-		if (sender instanceof Player) {
-			Player p = (Player) sender;
-
-		} else if (sender instanceof ConsoleCommandSender) {
-			ConsoleCommandSender p = (ConsoleCommandSender) sender;
+		if (sender instanceof Player p) {
 			if (p.hasPermission("essentials.mute")) {
 				if (args[0].length() >= 1) {
 					Player cel = Bukkit.getPlayerExact(args[0]);
@@ -33,11 +29,26 @@ public class MuteCommand implements CommandExecutor {
 					if (args[0].length() >= 1) {
 						String reason = args[1];
 						cel.sendMessage(ChatColorUtil.fixColor("&3Zostałeś wyciszony przez administratora " + p.getName() + " &3 za " + reason));
-						muted.add(cel.getUniqueId());
 					} else {
 						cel.sendMessage(ChatColorUtil.fixColor("&3Zostałeś wyciszony przez administratora " + p.getName()));
-						muted.add(cel.getUniqueId());
 					}
+					muted.add(cel.getUniqueId());
+				} else {
+					p.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
+				}
+			}
+		} else if (sender instanceof ConsoleCommandSender p) {
+			if (p.hasPermission("essentials.mute")) {
+				if (args[0].length() >= 1) {
+					Player cel = Bukkit.getPlayerExact(args[0]);
+					assert cel != null;
+					if (args[0].length() >= 1) {
+						String reason = args[1];
+						cel.sendMessage(ChatColorUtil.fixColor("&3Zostałeś wyciszony przez administratora " + p.getName() + " &3 za " + reason));
+					} else {
+						cel.sendMessage(ChatColorUtil.fixColor("&3Zostałeś wyciszony przez administratora " + p.getName()));
+					}
+					muted.add(cel.getUniqueId());
 				} else {
 					p.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
 				}

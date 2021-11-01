@@ -12,8 +12,7 @@ import org.jetbrains.annotations.NotNull;
 public class HelpopCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-		if (sender instanceof Player) {
-			Player p = (Player) sender;
+		if (sender instanceof Player p) {
 			if (args[0].isEmpty()) {
 				p.sendMessage(ChatColorUtil.fixColor("&cPodaj wiadomość!"));
 			} else {
@@ -30,8 +29,7 @@ public class HelpopCommand implements CommandExecutor {
 					}
 				}
 			}
-		} else if (sender instanceof ConsoleCommandSender) {
-			ConsoleCommandSender p = (ConsoleCommandSender) sender;
+		} else if (sender instanceof ConsoleCommandSender p) {
 			if (args[0].isEmpty()) {
 				p.sendMessage(ChatColorUtil.fixColor("&cPodaj wiadomość!"));
 			} else {

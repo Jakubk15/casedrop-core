@@ -11,22 +11,26 @@ import org.jetbrains.annotations.NotNull;
 public class GamemodeCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-		if (sender instanceof Player) {
-			Player p = (Player) sender;
+		if (sender instanceof Player p) {
 			if (p.hasPermission("essentials.gamemode")) {
 				if (args[0].length() >= 1) {
-					if (args[0] == "0") {
-						p.setGameMode(GameMode.SURVIVAL);
-						p.sendMessage(ChatColorUtil.fixColor("&3Twój tryb gry został zmieniony na " + p.getGameMode()));
-					} else if (args[0] == "1") {
-						p.setGameMode(GameMode.CREATIVE);
-						p.sendMessage(ChatColorUtil.fixColor("&3Twój tryb gry został zmieniony na " + p.getGameMode()));
-					} else if (args[0] == "2") {
-						p.setGameMode(GameMode.ADVENTURE);
-						p.sendMessage(ChatColorUtil.fixColor("&3Twój tryb gry został zmieniony na " + p.getGameMode()));
-					} else if (args[0] == "3") {
-						p.setGameMode(GameMode.SPECTATOR);
-						p.sendMessage(ChatColorUtil.fixColor("&3Twój tryb gry został zmieniony na " + p.getGameMode()));
+					switch (args[0]) {
+						case "0" -> {
+							p.setGameMode(GameMode.SURVIVAL);
+							p.sendMessage(ChatColorUtil.fixColor("&3Twój tryb gry został zmieniony na " + p.getGameMode()));
+						}
+						case "1" -> {
+							p.setGameMode(GameMode.CREATIVE);
+							p.sendMessage(ChatColorUtil.fixColor("&3Twój tryb gry został zmieniony na " + p.getGameMode()));
+						}
+						case "2" -> {
+							p.setGameMode(GameMode.ADVENTURE);
+							p.sendMessage(ChatColorUtil.fixColor("&3Twój tryb gry został zmieniony na " + p.getGameMode()));
+						}
+						case "3" -> {
+							p.setGameMode(GameMode.SPECTATOR);
+							p.sendMessage(ChatColorUtil.fixColor("&3Twój tryb gry został zmieniony na " + p.getGameMode()));
+						}
 					}
 				} else {
 					p.sendMessage(ChatColorUtil.fixColor("&cPodaj argument 1!"));
