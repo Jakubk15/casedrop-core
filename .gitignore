@@ -1,6 +1,7 @@
 # User-specific stuff
 .idea/
-
+.gradle/
+build/
 *.iml
 *.ipr
 *.iws
@@ -111,3 +112,5 @@ buildNumber.properties
 
 # Common working directory
 run/
+
+!gradle/wrapper/gradle-wrapper.jar
