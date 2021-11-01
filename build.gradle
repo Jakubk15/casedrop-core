@@ -28,7 +28,7 @@ dependencies {
 }
 
 group = 'dev.jakubk15'
-version = '1.6-SNAPSHOT'
+version = '1.5-SNAPSHOT'
 description = 'Casedropcore'
 java {
     sourceCompatibility = JavaVersion.VERSION_16
@@ -50,5 +50,5 @@ tasks.withType(JavaCompile) {
 shadowJar {
     archiveBaseName.set('casedropcore')
     archiveClassifier.set('SNAPSHOT')
-    archiveVersion.set('1.6')
+    archiveVersion.set('1.5')
 }
