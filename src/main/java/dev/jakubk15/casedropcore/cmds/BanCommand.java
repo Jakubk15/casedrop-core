@@ -12,7 +12,7 @@ public class BanCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 			if (sender.hasPermission("essentials.ban")) {
-				if (args[0].length() > 1) {
+				if (args[0].length() >= 1) {
 					final Player target = Bukkit.getPlayerExact(args[0]);
 					assert target != null;
 					if (args[1].length() >= 1) {
