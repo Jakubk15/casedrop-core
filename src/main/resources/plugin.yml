@@ -92,4 +92,8 @@ commands:
     usage: /unban <gracz>
     description: Odbanowuje gracza
     permission: essentials.unban
+  kill:
+    usage: /kill [gracz]
+    description: Zabija gracza
+    permission: essentials.kill
 

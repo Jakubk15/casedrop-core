@@ -1,20 +1,20 @@
 package dev.jakubk15.casedropcore.cmds;
 
 import dev.jakubk15.casedropcore.utils.ChatColorUtil;
+import io.papermc.paper.event.player.AsyncChatEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.jetbrains.annotations.NotNull;
 
 public class ChatManager implements Listener, CommandExecutor {
 
 	public static boolean isMuted;
 
-	public void onChat(AsyncPlayerChatEvent e) {
+	public void onChat(AsyncChatEvent e) {
 		Player p = e.getPlayer();
 		if (!p.hasPermission("essentials.chat.*")) {
 			if (ChatManager.isMuted) {

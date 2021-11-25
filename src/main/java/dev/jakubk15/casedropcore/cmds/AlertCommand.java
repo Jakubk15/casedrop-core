@@ -1,6 +1,8 @@
 package dev.jakubk15.casedropcore.cmds;
 
 import dev.jakubk15.casedropcore.utils.ChatColorUtil;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.title.Title;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -27,11 +29,15 @@ public class AlertCommand implements CommandExecutor {
 							}
 						} else if (args[0].equals("title")) {
 							for (Player ps : Bukkit.getOnlinePlayers()) {
-								ps.sendTitle(ChatColorUtil.fixColor("&8&l[ &4&lALERT&8&l ]&r"), message, 1, 4, 1);
+								final Component mainTitle = Component.text(ChatColorUtil.fixColor("&8* &4&lALERT &8*"));
+								final Component subTitle = Component.text(ChatColorUtil.fixColor(message));
+								final Title title = Title.title(mainTitle, subTitle);
+								ps.showTitle(title);
 							}
 						} else if (args[0].equals("actionbar")) {
 							for (Player ps : Bukkit.getOnlinePlayers()) {
-								ps.sendActionBar(ChatColorUtil.fixColor("&8&l[ &4&lALERT&8&l &r] " + message));
+								final Component actionbar = Component.text(ChatColorUtil.fixColor("&8* &4&lALERT &8*" + message));
+								ps.sendActionBar(actionbar);
 							}
 						}
 					} else {
