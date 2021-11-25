@@ -13,11 +13,11 @@ public class UnmuteCommand implements CommandExecutor {
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 			if (sender.hasPermission("essentials.unmute")) {
 				if (args[0].length() >= 1) {
-					Player cel = Bukkit.getPlayerExact(args[0]);
-					assert cel != null;
-					if (MuteCommand.muted.contains(cel.getUniqueId())) {
-						MuteCommand.muted.remove(cel.getUniqueId());
-						sender.sendMessage(ChatColorUtil.fixColor("&3Odciszono gracza " + cel.getName()));
+					Player target = Bukkit.getPlayerExact(args[0]);
+					assert target != null;
+					if (MuteCommand.muted.contains(target.getUniqueId())) {
+						MuteCommand.muted.remove(target.getUniqueId());
+						sender.sendMessage(ChatColorUtil.fixColor("&3Odciszono gracza " + target.getName()));
 					} else {
 						sender.sendMessage(ChatColorUtil.fixColor("&cTen gracz nie jest wyciszony!"));
 					}

@@ -12,9 +12,9 @@ public class UUIDCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 			if (args[0].length() >= 1) {
-				Player cel = Bukkit.getPlayerExact(args[0]);
-				assert cel != null;
-				sender.sendMessage(ChatColorUtil.fixColor("&3UUID gracza &b" + cel.getName() + "&3 to &b" + cel.getUniqueId()));
+				Player target = Bukkit.getPlayerExact(args[0]);
+				assert target != null;
+				sender.sendMessage(ChatColorUtil.fixColor("&3UUID gracza &b" + target.getName() + "&3 to &b" + target.getUniqueId()));
 			} else {
 				sender.sendMessage(ChatColorUtil.fixColor("&cPodaj prawidłowy nick gracza"));
 			}

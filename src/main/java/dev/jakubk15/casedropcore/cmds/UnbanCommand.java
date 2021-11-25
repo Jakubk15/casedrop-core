@@ -13,10 +13,10 @@ public class UnbanCommand implements CommandExecutor {
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 			if (sender.hasPermission("essentials.unban")) {
 				if (args[0].length() >= 1) {
-					Player cel = Bukkit.getPlayerExact(args[0]);
-					assert cel != null;
-					if (cel.isBanned()) {
-						Bukkit.getServer().getBannedPlayers().remove(cel);
+					Player target = Bukkit.getPlayerExact(args[0]);
+					assert target != null;
+					if (target.isBanned()) {
+						Bukkit.getServer().getBannedPlayers().remove(target);
 					} else {
 						sender.sendMessage(ChatColorUtil.fixColor("&cTen gracz nie jest zbanowany!"));
 					}

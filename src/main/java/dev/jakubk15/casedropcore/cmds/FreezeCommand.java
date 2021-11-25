@@ -85,15 +85,15 @@ public class FreezeCommand implements CommandExecutor {
 			if (args[0].length() >= 1) {
 				if (args[1].length() >= 1) {
 					if (args[1].equals("on")) {
-						Player cel = Bukkit.getPlayerExact(args[0]);
-						assert cel != null;
-						if (!cel.hasPermission("essentials.freeze.bypass")) {
-							UUID uuid = cel.getUniqueId();
+						Player target = Bukkit.getPlayerExact(args[0]);
+						assert target != null;
+						if (!target.hasPermission("essentials.freeze.bypass")) {
+							UUID uuid = target.getUniqueId();
 							freezedPlayers.add(uuid);
-							sender.sendMessage(ChatColorUtil.fixColor("&3Zamrożono gracza " + cel.getName()));
-							cel.sendMessage(ChatColorUtil.fixColor("&3Gracz " + sender.getName() + "&3 zamroził cię."));
-							cel.setInvulnerable(!cel.isInvulnerable());
-							int food = cel.getFoodLevel();
+							sender.sendMessage(ChatColorUtil.fixColor("&3Zamrożono gracza " + target.getName()));
+							target.sendMessage(ChatColorUtil.fixColor("&3Gracz " + sender.getName() + "&3 zamroził cię."));
+							target.setInvulnerable(!target.isInvulnerable());
+							int food = target.getFoodLevel();
 						} else {
 							sender.sendMessage(ChatColorUtil.fixColor("&cTen gracz ma uprawnienie essentials.freeze.bypass, co daje mu bypass na zamrażanie"));
 						}

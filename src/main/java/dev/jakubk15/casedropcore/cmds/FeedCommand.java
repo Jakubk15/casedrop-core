@@ -13,11 +13,11 @@ public class FeedCommand implements CommandExecutor {
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 			if (sender.hasPermission("essentials.feed")) {
 				if (args[0].length() >= 1) {
-					Player cel = Bukkit.getPlayerExact(args[0]);
-					assert cel != null;
-					cel.setFoodLevel(20);
-					cel.sendMessage(ChatColorUtil.fixColor("&3Zostałeś najedzony!"));
-					sender.sendMessage(ChatColorUtil.fixColor("&3Najadłeś gracza " + cel.getName() + "."));
+					Player target = Bukkit.getPlayerExact(args[0]);
+					assert target != null;
+					target.setFoodLevel(20);
+					target.sendMessage(ChatColorUtil.fixColor("&3Zostałeś najedzony!"));
+					sender.sendMessage(ChatColorUtil.fixColor("&3Najadłeś gracza " + target.getName() + "."));
 				} else {
 					Player sender1 = (Player) sender;
 					sender1.setFoodLevel(20);

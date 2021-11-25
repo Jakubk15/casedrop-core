@@ -14,11 +14,11 @@ public class MsgCommand implements CommandExecutor {
 			if (sender.hasPermission("essentials.msg")) {
 				if (args[0].length() >= 1) {
 					if (args[1].length() >= 1) {
-						Player cel = Bukkit.getPlayerExact(args[0]);
-						assert cel != null;
+						Player target = Bukkit.getPlayerExact(args[0]);
+						assert target != null;
 						String msg = args[1];
-						cel.sendMessage(ChatColorUtil.fixColor("&3[&b" + sender.getName() + "&3 -> " + cel.getName() + "&3] &7" + msg));
-						sender.sendMessage(ChatColorUtil.fixColor("&3[&b" + sender.getName() + "&3 -> " + cel.getName() + "&3] &7" + msg));
+						target.sendMessage(ChatColorUtil.fixColor("&3[&b" + sender.getName() + "&3 -> " + target.getName() + "&3] &7" + msg));
+						sender.sendMessage(ChatColorUtil.fixColor("&3[&b" + sender.getName() + "&3 -> " + target.getName() + "&3] &7" + msg));
 					} else {
 						sender.sendMessage(ChatColorUtil.fixColor("&cPodaj wiadomość!"));
 					}

@@ -13,10 +13,10 @@ public class VanishCommand implements CommandExecutor {
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 			if (sender.hasPermission("essentials.vanish")) {
 				if (args[0].length() >= 1) {
-					Player cel = Bukkit.getPlayerExact(args[0]);
-					assert cel != null;
-					sender.sendMessage(ChatColorUtil.fixColor(cel.isInvisible() ? "&3Włączono " : "&3Wyłączono " + "vanisha dla gracza " + cel.getName()));
-					cel.setInvisible(!cel.isInvisible());
+					Player target = Bukkit.getPlayerExact(args[0]);
+					assert target != null;
+					sender.sendMessage(ChatColorUtil.fixColor(target.isInvisible() ? "&3Włączono " : "&3Wyłączono " + "vanisha dla gracza " + target.getName()));
+					target.setInvisible(!target.isInvisible());
 				} else {
 					Player sender1 = (Player) sender;
 					sender.sendMessage(ChatColorUtil.fixColor(sender1.isInvisible() ? "&3Włączono " : "&3Wyłączono " + "vanisha."));

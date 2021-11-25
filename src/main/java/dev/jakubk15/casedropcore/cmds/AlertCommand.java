@@ -16,7 +16,7 @@ public class AlertCommand implements CommandExecutor {
 			if (sender.hasPermission("essentials.broadcast")) {
 				if (args[0].length() >= 1) {
 					if (args[1].length() >= 1) {
-						String message = args[1];
+						final String message = args[1];
 						if (!args[0].equals("title") && !args[0].equals("actionbar") && !args[0].equals("chat")) {
 							sender.sendMessage(ChatColorUtil.fixColor("&cPodaj prawidłowy typ alertu!"));
 						} else if (args[0].equals("chat")) {

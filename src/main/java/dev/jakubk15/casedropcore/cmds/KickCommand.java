@@ -14,14 +14,14 @@ public class KickCommand implements CommandExecutor {
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 			if (sender.hasPermission("essentials.kick")) {
 				if (args[0].length() >= 1) {
-					Player cel = Bukkit.getPlayerExact(args[0]);
-					assert cel != null;
+					Player target = Bukkit.getPlayerExact(args[0]);
+					assert target != null;
 					if (args[1].length() >= 1) {
-						cel.kick(null, PlayerKickEvent.Cause.valueOf(ChatColorUtil.fixColor("&cZostałeś wyrzucony z serwera!\n\n&cPrzez administratora: " + sender.getName() + "\n\n&cPowód: " + args[1])));
+						target.kick(null, PlayerKickEvent.Cause.valueOf(ChatColorUtil.fixColor("&cZostałeś wyrzucony z serwera!\n\n&cPrzez administratora: " + sender.getName() + "\n\n&cPowód: " + args[1])));
 					} else {
-						cel.kick(null, PlayerKickEvent.Cause.valueOf(ChatColorUtil.fixColor("&cZostałeś wyrzucony z serwera!\n\n&cPrzez administratora: " + sender.getName())));
+						target.kick(null, PlayerKickEvent.Cause.valueOf(ChatColorUtil.fixColor("&cZostałeś wyrzucony z serwera!\n\n&cPrzez administratora: " + sender.getName())));
 					}
-					sender.sendMessage(ChatColorUtil.fixColor("&3Wyrzucono gracza" + cel.getName()));
+					sender.sendMessage(ChatColorUtil.fixColor("&3Wyrzucono gracza" + target.getName()));
 				} else {
 					sender.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
 				}

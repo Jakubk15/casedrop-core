@@ -13,13 +13,13 @@ public class HealCommand implements CommandExecutor {
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 			if (sender.hasPermission("essentials.heal")) {
 				if (args[0].length() >= 1) {
-					Player cel = Bukkit.getPlayerExact(args[0]);
-					assert cel != null;
-					cel.setHealth(20);
-					cel.setFoodLevel(20);
-					cel.setFireTicks(0);
-					cel.sendMessage(ChatColorUtil.fixColor("&3Zostałeś uleczony!"));
-					sender.sendMessage(ChatColorUtil.fixColor("&3Uleczyłeś gracza " + cel.getName() + "."));
+					Player target = Bukkit.getPlayerExact(args[0]);
+					assert target != null;
+					target.setHealth(20);
+					target.setFoodLevel(20);
+					target.setFireTicks(0);
+					target.sendMessage(ChatColorUtil.fixColor("&3Zostałeś uleczony!"));
+					sender.sendMessage(ChatColorUtil.fixColor("&3Uleczyłeś gracza " + target.getName() + "."));
 				} else {
 					Player sender1 = (Player) sender;
 					sender1.setHealth(20);

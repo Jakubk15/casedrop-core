@@ -13,14 +13,14 @@ public class BanCommand implements CommandExecutor {
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 			if (sender.hasPermission("essentials.ban")) {
 				if (args[0].length() > 1) {
-					Player cel = Bukkit.getPlayerExact(args[0]);
-					assert cel != null;
+					final Player target = Bukkit.getPlayerExact(args[0]);
+					assert target != null;
 					if (args[1].length() >= 1) {
-						cel.banPlayer(ChatColorUtil.fixColor("&cZostałeś zbanowany!\n\nPrzez administratora: " + sender.getName() + "\n\n&cPowód: " + args[1]));
-						sender.sendMessage(ChatColorUtil.fixColor("&3Zbanowano gracza " + cel.getName() + "\n&3Powód: " + args[1]));
+						target.banPlayer(ChatColorUtil.fixColor("&cZostałeś zbanowany!\n\nPrzez administratora: " + sender.getName() + "\n\n&cPowód: " + args[1]));
+						sender.sendMessage(ChatColorUtil.fixColor("&3Zbanowano gracza " + target.getName() + "\n&3Powód: " + args[1]));
 					} else {
-						cel.banPlayer(ChatColorUtil.fixColor("&cZostałeś zbanowany!\n\nPrzez administratora: " + sender.getName()));
-						sender.sendMessage(ChatColorUtil.fixColor("&3Zbanowano gracza " + cel.getName()));
+						target.banPlayer(ChatColorUtil.fixColor("&cZostałeś zbanowany!\n\nPrzez administratora: " + sender.getName()));
+						sender.sendMessage(ChatColorUtil.fixColor("&3Zbanowano gracza " + target.getName()));
 					}
 				} else {
 					sender.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
