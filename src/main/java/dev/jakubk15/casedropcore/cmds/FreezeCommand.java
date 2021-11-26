@@ -82,8 +82,7 @@ public class FreezeCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 		if (sender.hasPermission("essentials.freeze")) {
-			if (args[0].length() >= 1) {
-				if (args[1].length() >= 1) {
+			if (args.length > 0) {
 					if (args[1].equals("on")) {
 						Player target = Bukkit.getPlayerExact(args[0]);
 						assert target != null;
@@ -106,7 +105,6 @@ public class FreezeCommand implements CommandExecutor {
 					} else {
 						sender.sendMessage(ChatColorUtil.fixColor("&cPodaj odpowiedni parametr; Dostępne: 'on', 'off'"));
 					}
-				}
 			} else {
 				sender.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
 			}

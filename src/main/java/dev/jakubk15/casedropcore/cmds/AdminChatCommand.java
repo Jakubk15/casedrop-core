@@ -12,7 +12,7 @@ public class AdminChatCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 			if (sender.hasPermission("essentials.adminchat")) {
-				if (args[0].length() >= 1) {
+				if (args.length > 0) {
 					for (Player adm : Bukkit.getOnlinePlayers()) {
 						if (adm.hasPermission("essentials.adminchat")) {
 							StringBuilder builder = new StringBuilder();

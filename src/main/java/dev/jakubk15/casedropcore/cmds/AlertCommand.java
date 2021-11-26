@@ -14,8 +14,7 @@ public class AlertCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 			if (sender.hasPermission("essentials.broadcast")) {
-				if (args[0].length() >= 1) {
-					if (args[1].length() >= 1) {
+				if (args.length > 0) {
 						final String message = args[1];
 						if (!args[0].equals("title") && !args[0].equals("actionbar") && !args[0].equals("chat")) {
 							sender.sendMessage(ChatColorUtil.fixColor("&cPodaj prawidłowy typ alertu!"));
@@ -40,9 +39,6 @@ public class AlertCommand implements CommandExecutor {
 								ps.sendActionBar(actionbar);
 							}
 						}
-					} else {
-						sender.sendMessage(ChatColorUtil.fixColor("&cPodaj wiadomość!"));
-					}
 				} else {
 					sender.sendMessage(ChatColorUtil.fixColor("&cPodaj prawidłowy typ alertu!"));
 				}

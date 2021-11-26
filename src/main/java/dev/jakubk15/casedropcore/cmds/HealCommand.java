@@ -12,7 +12,7 @@ public class HealCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 			if (sender.hasPermission("essentials.heal")) {
-				if (args[0].length() >= 1) {
+				if (args.length > 0) {
 					Player target = Bukkit.getPlayerExact(args[0]);
 					assert target != null;
 					target.setHealth(20);

@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 public class UUIDCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-			if (args[0].length() >= 1) {
+			if (args.length > 0) {
 				Player target = Bukkit.getPlayerExact(args[0]);
 				assert target != null;
 				sender.sendMessage(ChatColorUtil.fixColor("&3UUID gracza &b" + target.getName() + "&3 to &b" + target.getUniqueId()));

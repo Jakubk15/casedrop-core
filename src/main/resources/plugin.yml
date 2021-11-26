@@ -1,5 +1,5 @@
 name: Casedropcore
-version: ${project.version}
+version: 1.6
 main: dev.jakubk15.casedropcore.CasedropCore
 api-version: 1.17
 prefix: CaseDropCore

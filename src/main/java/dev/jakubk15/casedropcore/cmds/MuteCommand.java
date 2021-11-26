@@ -21,15 +21,11 @@ public class MuteCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 			if (sender.hasPermission("essentials.mute")) {
-				if (args[0].length() >= 1) {
+				if (args.length > 0) {
 					Player target = Bukkit.getPlayerExact(args[0]);
 					assert target != null;
-					if (args[0].length() >= 1) {
-						String reason = args[1];
-						target.sendMessage(ChatColorUtil.fixColor("&3Zostałeś wyciszony przez administratora " + sender.getName() + " &3 za " + reason));
-					} else {
-						target.sendMessage(ChatColorUtil.fixColor("&3Zostałeś wyciszony przez administratora " + sender.getName()));
-					}
+					String reason = args[1];
+					target.sendMessage(ChatColorUtil.fixColor("&3Zostałeś wyciszony przez administratora " + sender.getName() + " &3 za " + reason));
 					muted.add(target.getUniqueId());
 				} else {
 					sender.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));

@@ -12,16 +12,12 @@ public class MsgCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 			if (sender.hasPermission("essentials.msg")) {
-				if (args[0].length() >= 1) {
-					if (args[1].length() >= 1) {
+				if (args.length > 0) {
 						Player target = Bukkit.getPlayerExact(args[0]);
 						assert target != null;
 						String msg = args[1];
 						target.sendMessage(ChatColorUtil.fixColor("&3[&b" + sender.getName() + "&3 -> " + target.getName() + "&3] &7" + msg));
 						sender.sendMessage(ChatColorUtil.fixColor("&3[&b" + sender.getName() + "&3 -> " + target.getName() + "&3] &7" + msg));
-					} else {
-						sender.sendMessage(ChatColorUtil.fixColor("&cPodaj wiadomość!"));
-					}
 				} else {
 					sender.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
 				}
