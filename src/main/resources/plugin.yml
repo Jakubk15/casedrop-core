@@ -96,4 +96,24 @@ commands:
     usage: /kill [gracz]
     description: Zabija gracza
     permission: essentials.kill
+  grindstone:
+    usage: /grindstone
+    description: Otwiera grindstone'a
+    permission: essentials.grindstone
+  enderchest:
+    usage: /enderchest
+    description: Otwiera enderchest
+    permission: essentials.enderchest
+  workbench:
+    usage: /workbench
+    description: Otwiera workbench
+    permission: essentials.workbench
+  anvil:
+    usage: /anvil
+    description: Otwiera anvil
+    permission: essentials.anvil
+  stonecutter:
+    usage: /stonecutter
+    description: Otwiera stonecutter
+    permission: essentials.stonecutter
 

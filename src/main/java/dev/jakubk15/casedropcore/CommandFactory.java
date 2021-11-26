@@ -27,5 +27,11 @@ public class CommandFactory {
 		CasedropCore.getInstance().getCommand("msg").setExecutor(new MsgCommand());
 		CasedropCore.getInstance().getCommand("mute").setExecutor(new MuteCommand());
 		CasedropCore.getInstance().getCommand("unban").setExecutor(new UnbanCommand());
+		CasedropCore.getInstance().getCommand("grindstone").setExecutor(new GrindstoneCommand());
+		CasedropCore.getInstance().getCommand("enderchest").setExecutor(new EnderChestCommand());
+		CasedropCore.getInstance().getCommand("workbench").setExecutor(new WorkbenchCommand());
+		CasedropCore.getInstance().getCommand("stonecutter").setExecutor(new StoneCutterCommand());
+		CasedropCore.getInstance().getCommand("anvil").setExecutor(new AnvilCommand());
+
 	}
 }
