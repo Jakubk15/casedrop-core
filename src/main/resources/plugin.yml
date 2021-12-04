@@ -1,11 +1,10 @@
 name: Casedropcore
-version: 1.6
+version: 1.7
 main: dev.jakubk15.casedropcore.CasedropCore
-api-version: 1.17
+api-version: 1.18
 prefix: CaseDropCore
-authors: [ Jakubk15 ]
+author: Jakubk15
 description: Core dedykowany na serwer Case-Drop.PL
-website: case-drop.pl
 commands:
   feed:
     permission: essentials.feed
