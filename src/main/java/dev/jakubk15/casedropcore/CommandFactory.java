@@ -5,7 +5,7 @@ import lombok.Getter;
 
 public class CommandFactory {
 
-	@Getter private CommandFactory instance;
+	@Getter public CommandFactory instance;
 
 	public CommandFactory() {
 	}
