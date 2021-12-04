@@ -1,11 +1,10 @@
 package dev.jakubk15.casedropcore;
 
 import dev.jakubk15.casedropcore.cmds.*;
-import lombok.Getter;
 
 public class CommandFactory {
 
-	@Getter public CommandFactory instance;
+	public CommandFactory instance;
 
 	public CommandFactory() {
 	}
@@ -40,5 +39,9 @@ public class CommandFactory {
 		CasedropCore.getInstance().getCommand("stonecutter").setExecutor(new StoneCutterCommand());
 		CasedropCore.getInstance().getCommand("anvil").setExecutor(new AnvilCommand());
 
+	}
+
+	public CommandFactory getInstance() {
+		return instance;
 	}
 }

@@ -1,13 +1,12 @@
 package dev.jakubk15.casedropcore;
 
-import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class CasedropCore extends JavaPlugin {
 
 	public CasedropCore() {}
 
-	@Getter private static CasedropCore instance;
+	private static CasedropCore instance;
 	private CommandFactory commandFactory;
 
 	@Override
@@ -24,5 +23,7 @@ public class CasedropCore extends JavaPlugin {
 		saveDefaultConfig();
 	}
 
-
+	public static CasedropCore getInstance() {
+		return instance;
+	}
 }
