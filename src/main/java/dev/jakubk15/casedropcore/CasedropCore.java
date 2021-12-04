@@ -20,7 +20,7 @@ public class CasedropCore extends JavaPlugin {
 		getLogger().info("                                                /_/                                       ");
 		commandFactory.registerCommands();
 		this.getConfig().options().copyDefaults(true);
-		saveConfig();
+		saveDefaultConfig();
 	}
 
 	public static CasedropCore getInstance() {
