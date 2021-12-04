@@ -116,4 +116,8 @@ commands:
     usage: /stonecutter
     description: Otwiera stonecutter
     permission: essentials.stonecutter
+  unmute:
+    usage: /unmute <nick>
+    description: Odcisza gracza
+    permission: essentials.unmute
 

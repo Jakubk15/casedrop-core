@@ -4,6 +4,9 @@ import dev.jakubk15.casedropcore.cmds.*;
 
 public class CommandFactory {
 
+	public CommandFactory() {
+	}
+
 	public void registerCommands() {
 		CasedropCore.getInstance().getCommand("feed").setExecutor(new FeedCommand());
 		CasedropCore.getInstance().getCommand("heal").setExecutor(new HealCommand());
@@ -32,6 +35,7 @@ public class CommandFactory {
 		CasedropCore.getInstance().getCommand("workbench").setExecutor(new WorkbenchCommand());
 		CasedropCore.getInstance().getCommand("stonecutter").setExecutor(new StoneCutterCommand());
 		CasedropCore.getInstance().getCommand("anvil").setExecutor(new AnvilCommand());
+		CasedropCore.getInstance().getCommand("unmute").setExecutor(new UnmuteCommand());
 
 	}
 }

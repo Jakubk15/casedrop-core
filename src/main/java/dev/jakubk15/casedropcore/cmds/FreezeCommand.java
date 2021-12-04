@@ -28,6 +28,9 @@ import java.util.UUID;
 @SuppressWarnings("never used")
 public class FreezeCommand implements CommandExecutor {
 
+	public FreezeCommand() {
+	}
+
 	public static Set<UUID> freezedPlayers = new HashSet<>();
 
 	public void onMove(PlayerMoveEvent e) {

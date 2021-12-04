@@ -15,6 +15,8 @@ import java.util.UUID;
 
 public class MuteCommand implements CommandExecutor {
 
+	public MuteCommand() {
+	}
 
 	public static Set<UUID> muted = new HashSet<>();
 
