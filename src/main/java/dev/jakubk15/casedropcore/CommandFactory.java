@@ -1,13 +1,17 @@
 package dev.jakubk15.casedropcore;
 
 import dev.jakubk15.casedropcore.cmds.*;
+import lombok.Getter;
 
 public class CommandFactory {
+
+	@Getter private CommandFactory instance;
 
 	public CommandFactory() {
 	}
 
 	public void registerCommands() {
+		instance = this;
 		CasedropCore.getInstance().getCommand("feed").setExecutor(new FeedCommand());
 		CasedropCore.getInstance().getCommand("heal").setExecutor(new HealCommand());
 		CasedropCore.getInstance().getCommand("fly").setExecutor(new FlyCommand());
