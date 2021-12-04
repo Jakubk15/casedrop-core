@@ -32,7 +32,7 @@ dependencies {
 
 group = 'dev.jakubk15'
 version = '1.7-SNAPSHOT'
-description = 'Casedropcore'
+description = 'casedropcore'
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 }
@@ -42,5 +42,5 @@ tasks.withType(JavaCompile) {
 }
 
 shadowJar {
-    archiveFileName.set("CaseDrop-Core v.${project.version}.jar")
+    archiveFileName.set("casedrop-core v.${project.version}.jar")
 }
