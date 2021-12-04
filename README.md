@@ -16,20 +16,25 @@
 ### Features:
 - AdminChat
 - Alert
+- Anvil
 - Ban
 - BanIP
 - ChatManager
+- Enderchest
 - Feed
 - Freeze
 - Fly
 - Gamemode
 - Godmode
+- Grindstone
 - GetIP
 - Kick
 - MSG
 - Mute
 - Nick
 - Ping
+- Stonecutter
 - Unban
 - UUID getter
 - Vanish
+- Workbench
