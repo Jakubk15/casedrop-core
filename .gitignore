@@ -5,7 +5,6 @@ build/
 *.iml
 *.ipr
 *.iws
-!gradle/wrapper/gradle-wrapper.jar
 # IntelliJ
 out/
 
