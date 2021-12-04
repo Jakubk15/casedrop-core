@@ -25,8 +25,11 @@ import java.util.UUID;
  *    Use carefully, only when really needed.
  */
 
-@SuppressWarnings("never used")
 public class FreezeCommand implements CommandExecutor {
+
+
+	public FreezeCommand() {
+	}
 
 	public static Set<UUID> freezedPlayers = new HashSet<>();
 

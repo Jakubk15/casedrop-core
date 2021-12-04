@@ -11,6 +11,10 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 public class PingCommand implements CommandExecutor {
+
+	public PingCommand() {
+	}
+
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 		if (!(sender instanceof ConsoleCommandSender)) {

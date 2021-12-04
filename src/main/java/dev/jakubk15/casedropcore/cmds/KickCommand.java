@@ -10,6 +10,10 @@ import org.bukkit.event.player.PlayerKickEvent;
 import org.jetbrains.annotations.NotNull;
 
 public class KickCommand implements CommandExecutor {
+
+	public KickCommand() {
+	}
+
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 			if (sender.hasPermission("essentials.kick")) {

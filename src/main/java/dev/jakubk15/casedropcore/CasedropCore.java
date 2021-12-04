@@ -4,6 +4,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class CasedropCore extends JavaPlugin {
 
+	public CasedropCore() {}
+
 	private static CasedropCore instance;
 	private CommandFactory commandFactory;
 

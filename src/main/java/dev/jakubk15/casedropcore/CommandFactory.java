@@ -4,6 +4,9 @@ import dev.jakubk15.casedropcore.cmds.*;
 
 public class CommandFactory {
 
+	public CommandFactory() {
+	}
+
 	public void registerCommands() {
 		CasedropCore.getInstance().getCommand("feed").setExecutor(new FeedCommand());
 		CasedropCore.getInstance().getCommand("heal").setExecutor(new HealCommand());

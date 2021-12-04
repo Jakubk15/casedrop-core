@@ -9,6 +9,10 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 public class KillCommand implements CommandExecutor {
+
+	public KillCommand() {
+	}
+
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
 		if (sender.hasPermission("essentials.kill")) {

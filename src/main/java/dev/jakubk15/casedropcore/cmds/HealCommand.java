@@ -9,6 +9,10 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 public class HealCommand implements CommandExecutor {
+
+	public HealCommand() {
+	}
+
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 			if (sender.hasPermission("essentials.heal")) {

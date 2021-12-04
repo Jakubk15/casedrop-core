@@ -8,6 +8,10 @@ import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 
 public class ReloadCommand implements CommandExecutor {
+
+	public ReloadCommand() {
+	}
+
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 		if (sender.hasPermission("essentials.reload")) {

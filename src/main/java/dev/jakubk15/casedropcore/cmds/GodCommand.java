@@ -9,6 +9,10 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 public class GodCommand implements CommandExecutor {
+
+	public GodCommand() {
+	}
+
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 			if (sender.hasPermission("essentials.god")) {

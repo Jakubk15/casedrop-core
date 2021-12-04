@@ -12,6 +12,9 @@ import org.jetbrains.annotations.NotNull;
 
 public class ChatManager implements Listener, CommandExecutor {
 
+	public ChatManager() {
+	}
+
 	public static boolean isMuted;
 
 	public void onChat(AsyncChatEvent e) {
