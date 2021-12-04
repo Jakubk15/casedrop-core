@@ -4,7 +4,7 @@
 
 plugins {
     id 'java'
-    id "com.github.johnrengelman.shadow" version "7.1.0"
+    id "com.github.johnrengelman.shadow" version "7.+"
 }
 
 repositories {
@@ -31,10 +31,10 @@ dependencies {
 }
 
 group = 'dev.jakubk15'
-version = '1.6-SNAPSHOT'
+version = '1.7-SNAPSHOT'
 description = 'Casedropcore'
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(16))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 }
 
 tasks.withType(JavaCompile) {
