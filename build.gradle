@@ -10,11 +10,11 @@ plugins {
 repositories {
     mavenCentral()
     mavenLocal()
-    maven { url = uri('https://papermc.io/repo/repository/maven-public/') }
+    maven { url = ('https://papermc.io/repo/repository/maven-public/') }
 
-    maven { url = uri('https://oss.sonatype.org/content/groups/public/') }
+    maven { url = ('https://oss.sonatype.org/content/groups/public/') }
 
-    maven { url = uri('https://repo.maven.apache.org/maven2/') }
+    maven { url = ('https://repo.maven.apache.org/maven2/') }
 }
 
 dependencies {
@@ -24,14 +24,17 @@ dependencies {
     // lombok
     compileOnly ("org.projectlombok:lombok:1.18.22")
     annotationProcessor("org.projectlombok:lombok:1.18.22")
+
+    // plugin annotations
+    compileOnly "org.spigotmc:plugin-annotations:1.2.3-SNAPSHOT"
+    annotationProcessor "org.spigotmc:plugin-annotations:1.2.3-SNAPSHOT"
 }
 
 group = 'dev.jakubk15'
-version = '1.5-SNAPSHOT'
+version = '1.6-SNAPSHOT'
 description = 'Casedropcore'
 java {
-    sourceCompatibility = JavaVersion.VERSION_16
-    targetCompatibility = JavaVersion.VERSION_16
+    toolchain.languageVersion.set(JavaLanguageVersion.of(16));
 }
 
 tasks.withType(JavaCompile) {
@@ -39,7 +42,5 @@ tasks.withType(JavaCompile) {
 }
 
 shadowJar {
-    archiveBaseName.set('casedropcore')
-    archiveClassifier.set('SNAPSHOT')
-    archiveVersion.set('1.5')
+    archiveFileName.set("CaseDrop-Core v.${project.version}")
 }
