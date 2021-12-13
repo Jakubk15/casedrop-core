@@ -19,7 +19,7 @@ repositories {
 
 dependencies {
     // paper api
-    shadow("io.papermc.paper:paper-api:1.18-R0.1-SNAPSHOT")
+    shadow("io.papermc.paper:paper-api:1.18.1-R0.1-SNAPSHOT")
 
     // lombok
     compileOnly ("org.projectlombok:lombok:1.18.22")
