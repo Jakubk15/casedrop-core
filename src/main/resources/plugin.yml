@@ -4,7 +4,7 @@ main: dev.jakubk15.casedropcore.CasedropCore
 api-version: 1.17
 prefix: CaseDropCore
 authors: [ Jakubk15 ]
-description: Core dedykowany na serwer Case-Drop.PL
+description: Essentials tools for server.
 commands:
   feed:
     permission: essentials.feed
