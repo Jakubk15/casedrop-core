@@ -19,22 +19,21 @@ repositories {
 
 dependencies {
     // paper api
-    shadow("io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.18.1-R0.1-SNAPSHOT")
 
     // lombok
     compileOnly ("org.projectlombok:lombok:1.18.22")
     annotationProcessor("org.projectlombok:lombok:1.18.22")
 
-    // plugin annotations
-    compileOnly "org.spigotmc:plugin-annotations:1.2.3-SNAPSHOT"
-    annotationProcessor "org.spigotmc:plugin-annotations:1.2.3-SNAPSHOT"
+    // kyori
+    implementation "net.kyori:adventure-api:4.9.3"
 }
 
 group = 'dev.jakubk15'
 version = '1.6-SNAPSHOT'
 description = 'casedropcore'
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(16))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 }
 
 tasks.withType(JavaCompile) {
@@ -43,4 +42,5 @@ tasks.withType(JavaCompile) {
 
 shadowJar {
     archiveFileName.set("casedrop-core-${project.version}.jar")
+    relocate("net.kyori", "dev.jakubk15.casedropcore.libs.kyori")
 }

@@ -4,11 +4,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class CasedropCore extends JavaPlugin {
 
-	public CasedropCore() {
-	}
+	public CasedropCore() {}
 
 	public static CasedropCore instance;
-	private CommandFactory commandFactory;
+	private final CommandFactory commandFactory = new CommandFactory();
 
 	@Override
 	public void onEnable() {

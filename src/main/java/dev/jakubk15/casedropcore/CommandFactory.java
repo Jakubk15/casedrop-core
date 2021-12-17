@@ -5,8 +5,7 @@ import dev.jakubk15.casedropcore.cmds.*;
 public class CommandFactory {
 
 	public static CommandFactory instance;
-	public CommandFactory() {
-	}
+	public CommandFactory() {}
 
 	public void registerCommands() {
 		instance = this;
