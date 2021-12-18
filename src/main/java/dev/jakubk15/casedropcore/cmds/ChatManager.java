@@ -72,7 +72,7 @@ public class ChatManager implements Listener, CommandExecutor {
 				}
 			} else {
 				sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnień!"));
-	}
+		}
 		return false;
 	}
 }
