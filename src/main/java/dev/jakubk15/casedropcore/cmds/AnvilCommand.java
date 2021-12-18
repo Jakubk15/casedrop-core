@@ -17,8 +17,10 @@ public class AnvilCommand implements CommandExecutor {
 		if (commandSender instanceof Player p) {
 			if (commandSender.hasPermission("essentials.anvil")) {
 				p.openAnvil(null, true);
+				return true;
 			} else {
 				commandSender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnień."));
+				return false;
 			}
 		} else {
 			commandSender.sendMessage("Nie można wykonać tego polecenia z poziomu konsoli.");

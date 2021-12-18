@@ -12,8 +12,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class ChatManager implements Listener, CommandExecutor {
 
-	public ChatManager() {
-	}
+	public ChatManager() {}
 
 	public static boolean isMuted;
 
@@ -39,6 +38,7 @@ public class ChatManager implements Listener, CommandExecutor {
 							all.sendMessage(ChatColorUtil.fixColor("              &3Chat został &awłączony!"));
 							all.sendMessage(ChatColorUtil.fixColor(""));
 							all.sendMessage(ChatColorUtil.fixColor("&8&m---------- &8&l[ &3&lCHAT &8&l ] &8&m----------"));
+							return true;
 						}
 					} else if (args[0].equalsIgnoreCase("off")) {
 						isMuted = true;
@@ -48,6 +48,7 @@ public class ChatManager implements Listener, CommandExecutor {
 							all.sendMessage(ChatColorUtil.fixColor("              &3Chat został &cwyłączony!"));
 							all.sendMessage(ChatColorUtil.fixColor(""));
 							all.sendMessage(ChatColorUtil.fixColor("&8&m---------- &8&l[ &3&lCHAT &8&l ] &8&m----------"));
+							return true;
 						}
 					} else if (args[0].equalsIgnoreCase("clear")) {
 						for (Player all : Bukkit.getOnlinePlayers()) {
@@ -59,12 +60,15 @@ public class ChatManager implements Listener, CommandExecutor {
 							all.sendMessage(ChatColorUtil.fixColor("              &3Chat został &bwyczyszczony!"));
 							all.sendMessage(ChatColorUtil.fixColor(""));
 							all.sendMessage(ChatColorUtil.fixColor("&8&m---------- &8&l[ &3&lCHAT &8&l ] &8&m----------"));
+							return true;
 						}
 					} else {
 						sender.sendMessage(ChatColorUtil.fixColor("&cPodaj prawidłowy argument; Dostępne: on, off, clear."));
+						return false;
 					}
 				} else {
 					sender.sendMessage(ChatColorUtil.fixColor("&cPodaj prawidłowy argument; Dostępne: on, off, clear."));
+					return false;
 				}
 			} else {
 				sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnień!"));

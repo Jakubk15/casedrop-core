@@ -10,8 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class UnmuteCommand implements CommandExecutor {
 
-	public UnmuteCommand() {
-	}
+	public UnmuteCommand() {}
 
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {

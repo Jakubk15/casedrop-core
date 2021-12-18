@@ -34,7 +34,6 @@ public class AdminChatCommand implements CommandExecutor {
 			} else {
 				sender.sendMessage("&cBrak uprawnień!");
 			}
-
 		return false;
 	}
 }

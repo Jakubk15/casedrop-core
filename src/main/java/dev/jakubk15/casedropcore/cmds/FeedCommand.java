@@ -10,8 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class FeedCommand implements CommandExecutor {
 
-	public FeedCommand() {
-	}
+	public FeedCommand() {}
 
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
@@ -22,10 +21,12 @@ public class FeedCommand implements CommandExecutor {
 					target.setFoodLevel(20);
 					target.sendMessage(ChatColorUtil.fixColor("&3Zostałeś najedzony!"));
 					sender.sendMessage(ChatColorUtil.fixColor("&3Najadłeś gracza " + target.getName() + "."));
+					return true;
 				} else {
 					Player sender1 = (Player) sender;
 					sender1.setFoodLevel(20);
 					sender.sendMessage(ChatColorUtil.fixColor("&3Zostałeś najedzony!"));
+					return true;
 				}
 			} else {
 				sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnień!"));

@@ -10,8 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class GamemodeCommand implements CommandExecutor {
 
-	public GamemodeCommand() {
-	}
+	public GamemodeCommand() {}
 
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
@@ -22,22 +21,27 @@ public class GamemodeCommand implements CommandExecutor {
 						case "0" -> {
 							sender1.setGameMode(GameMode.SURVIVAL);
 							sender.sendMessage(ChatColorUtil.fixColor("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
+							return true;
 						}
 						case "1" -> {
 							sender1.setGameMode(GameMode.CREATIVE);
 							sender.sendMessage(ChatColorUtil.fixColor("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
+							return true;
 						}
 						case "2" -> {
 							sender1.setGameMode(GameMode.ADVENTURE);
 							sender.sendMessage(ChatColorUtil.fixColor("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
+							return true;
 						}
 						case "3" -> {
 							sender1.setGameMode(GameMode.SPECTATOR);
 							sender.sendMessage(ChatColorUtil.fixColor("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
+							return true;
 						}
 					}
 				} else {
 					sender.sendMessage(ChatColorUtil.fixColor("&cPodaj argument 1!"));
+					return false;
 				}
 			} else {
 				sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnien!"));

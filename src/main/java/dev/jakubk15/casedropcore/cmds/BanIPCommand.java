@@ -21,12 +21,14 @@ public class BanIPCommand implements CommandExecutor {
 					assert target != null;
 						target.banPlayerFull(ChatColorUtil.fixColor("&cZostałeś zbanowany na IP!\n\nPrzez administratora: " + sender.getName() + "\n\n&cPowód: " + args[1]));
 						sender.sendMessage(ChatColorUtil.fixColor("&3Zbanowano gracza " + target.getName() + "\n&3Powód: " + args[1]));
+						return true;
 				} else {
 					sender.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
+					return false;
 				}
 			} else {
 				sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnien!"));
 			}
-	return false;
+		return false;
 	}
 }

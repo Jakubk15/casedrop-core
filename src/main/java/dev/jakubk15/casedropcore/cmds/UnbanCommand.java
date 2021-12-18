@@ -10,8 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class UnbanCommand implements CommandExecutor {
 
-	public UnbanCommand() {
-	}
+	public UnbanCommand() {}
 
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
@@ -21,11 +20,14 @@ public class UnbanCommand implements CommandExecutor {
 					assert target != null;
 					if (target.isBanned()) {
 						Bukkit.getServer().getBannedPlayers().remove(target);
+						return true;
 					} else {
 						sender.sendMessage(ChatColorUtil.fixColor("&cTen gracz nie jest zbanowany!"));
+						return false;
 					}
 				} else {
 					sender.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
+					return false;
 				}
 			} else {
 				sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnien!"));

@@ -24,12 +24,9 @@ import java.util.UUID;
  *    And many lags!
  *    Use carefully, only when really needed.
  */
-
-@SuppressWarnings("never used")
 public class FreezeCommand implements CommandExecutor {
 
-	public FreezeCommand() {
-	}
+	public FreezeCommand() {}
 
 	public static Set<UUID> freezedPlayers = new HashSet<>();
 
@@ -41,17 +38,25 @@ public class FreezeCommand implements CommandExecutor {
 		}
 	}
 
+	/*
+	 * Wykonywane gdy zamrożony gracz zaatakuje innego gracza
+	 */
 	public void onAttack(EntityDamageByEntityEvent e) {
 		if (e.getDamager() instanceof Player) {
-			Entity en = e.getEntity();
+			Entity en = e.getDamager();
 			if (freezedPlayers.contains(en.getUniqueId())) {
 				e.setCancelled(true);
 				en.sendMessage(ChatColorUtil.fixColor("&cJesteś zamrożony! Nie możesz wykonywać żadnych akcji, HAHA!"));
 			}
 		}
+
+		/*
+		 * Wykonywane gdy inny gracz zaatakuje zamrożonego gracza
+		 */
 		if (e.getDamager() instanceof Player) {
 			Entity en = e.getEntity();
 			if (freezedPlayers.contains(e.getEntity().getUniqueId())) {
+				e.setCancelled(true);
 				en.sendMessage(ChatColorUtil.fixColor("&cTen gracz jest zamrożony, więc nie możesz zadawać mu żadnych obrażeń!"));
 			}
 		}
@@ -95,9 +100,11 @@ public class FreezeCommand implements CommandExecutor {
 							sender.sendMessage(ChatColorUtil.fixColor("&3Zamrożono gracza " + target.getName()));
 							target.sendMessage(ChatColorUtil.fixColor("&3Gracz " + sender.getName() + "&3 zamroził cię."));
 							target.setInvulnerable(!target.isInvulnerable());
-							int food = target.getFoodLevel();
+							final int food = target.getFoodLevel();
+							return true;
 						} else {
-							sender.sendMessage(ChatColorUtil.fixColor("&cTen gracz ma uprawnienie essentials.freeze.bypass, co daje mu bypass na zamrażanie"));
+							sender.sendMessage(ChatColorUtil.fixColor("&cTen gracz ma uprawnienie 'essentials.freeze.bypass', co daje mu bypass na zamrażanie"));
+							return false;
 						}
 					} else if (args[1].equals("off")) {
 						Player cel = Bukkit.getPlayerExact(args[0]);
@@ -105,11 +112,14 @@ public class FreezeCommand implements CommandExecutor {
 						freezedPlayers.remove(uuid);
 						sender.sendMessage(ChatColorUtil.fixColor("&3Odmrożono gracza " + cel.getName()));
 						cel.setInvulnerable(!cel.isInvulnerable());
+						return true;
 					} else {
 						sender.sendMessage(ChatColorUtil.fixColor("&cPodaj odpowiedni parametr; Dostępne: 'on', 'off'"));
+						return false;
 					}
 			} else {
 				sender.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
+				return false;
 			}
 		} else {
 			sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnien!"));

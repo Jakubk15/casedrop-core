@@ -21,13 +21,14 @@ public class BanCommand implements CommandExecutor {
 					assert target != null;
 						target.banPlayer(ChatColorUtil.fixColor("&cZostałeś zbanowany!\n\nPrzez administratora: " + sender.getName() + "\n\n&cPowód: " + args[1]));
 						sender.sendMessage(ChatColorUtil.fixColor("&3Zbanowano gracza " + target.getName() + "\n&3Powód: " + args[1]));
+						return true;
 				} else {
 					sender.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
+					return false;
 				}
 			} else {
 				sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnień!"));
 			}
-
 	return false;
 	}
 }

@@ -10,8 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class HealCommand implements CommandExecutor {
 
-	public HealCommand() {
-	}
+	public HealCommand() {}
 
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
@@ -24,12 +23,14 @@ public class HealCommand implements CommandExecutor {
 					target.setFireTicks(0);
 					target.sendMessage(ChatColorUtil.fixColor("&3Zostałeś uleczony!"));
 					sender.sendMessage(ChatColorUtil.fixColor("&3Uleczyłeś gracza " + target.getName() + "."));
+					return true;
 				} else {
 					Player sender1 = (Player) sender;
 					sender1.setHealth(20);
 					sender1.setFoodLevel(20);
 					sender1.setFireTicks(0);
 					sender.sendMessage(ChatColorUtil.fixColor("&3Zostałeś uleczony!"));
+					return true;
 				}
 			} else {
 				sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnień!"));

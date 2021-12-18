@@ -10,8 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class FlyCommand implements CommandExecutor {
 
-	public FlyCommand() {
-	}
+	public FlyCommand() {}
 
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
@@ -22,11 +21,15 @@ public class FlyCommand implements CommandExecutor {
 					target.setAllowFlight(!target.isFlying());
 					Player sender1 = (Player) sender;
 					target.sendMessage(ChatColorUtil.fixColor("&3Latanie zostało:") + (sender1.getAllowFlight() ? "włączone." : "wyłączone."));
+					return true;
 				} else {
 					Player sender1 = (Player) sender;
 					sender1.setAllowFlight(!sender1.isFlying());
 					sender.sendMessage(ChatColorUtil.fixColor("&3Latanie zostało:") + (sender1.getAllowFlight() ? "włączone." : "wyłączone."));
+					return true;
 				}
+			} else {
+				sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnień."));
 			}
 	return false;
 	}

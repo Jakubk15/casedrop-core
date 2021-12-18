@@ -22,8 +22,10 @@ public class MsgCommand implements CommandExecutor {
 						String msg = args[1];
 						target.sendMessage(ChatColorUtil.fixColor("&3[&b" + sender.getName() + "&3 -> " + target.getName() + "&3] &7" + msg));
 						sender.sendMessage(ChatColorUtil.fixColor("&3[&b" + sender.getName() + "&3 -> " + target.getName() + "&3] &7" + msg));
+						return true;
 				} else {
 					sender.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
+					return false;
 				}
 			} else {
 				sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnien!"));

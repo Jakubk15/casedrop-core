@@ -17,6 +17,7 @@ public class ReloadCommand implements CommandExecutor {
 		if (sender.hasPermission("essentials.reload")) {
 			CasedropCore.getInstance().reloadConfig();
 			sender.sendMessage(ChatColorUtil.fixColor("&3Przeładowano config!"));
+			return true;
 		} else {
 			sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnien."));
 		}

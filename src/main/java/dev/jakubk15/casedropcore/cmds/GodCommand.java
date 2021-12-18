@@ -10,8 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class GodCommand implements CommandExecutor {
 
-	public GodCommand() {
-	}
+	public GodCommand() {}
 
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
@@ -21,10 +20,12 @@ public class GodCommand implements CommandExecutor {
 					assert target != null;
 					target.setInvulnerable(!target.isInvulnerable());
 					sender.sendMessage(ChatColorUtil.fixColor("&3Godmode " + (target.isInvulnerable() ? "&3włączone" : "&3wyłączone")));
+					return true;
 				} else {
 					Player sender1 = (Player) sender;
 					sender1.setInvulnerable(!sender1.isInvulnerable());
 					sender.sendMessage(ChatColorUtil.fixColor("&3Godmode " + (sender1.isInvulnerable() ? "&3włączone" : "&3wyłączone")));
+					return true;
 				}
 			} else {
 				sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnien."));

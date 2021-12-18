@@ -10,8 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class IPCommand implements CommandExecutor {
 
-	public IPCommand() {
-	}
+	public IPCommand() {}
 
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
@@ -20,8 +19,10 @@ public class IPCommand implements CommandExecutor {
 					Player target = Bukkit.getPlayerExact(args[0]);
 					assert target != null;
 					sender.sendMessage(ChatColorUtil.fixColor("&3IP gracza &b") + target.getName() + " &3to &b" + target.getAddress());
+					return true;
 				} else {
 					sender.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
+					return false;
 				}
 			} else {
 				sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnień!"));

@@ -19,6 +19,7 @@ public class KillCommand implements CommandExecutor {
 			Player target = Bukkit.getPlayerExact(args[0]);
 			target.setHealth(0);
 			sender.sendMessage(ChatColorUtil.fixColor("&3Zabito gracza &b" + target.getName()));
+			return true;
 		}
 		return false;
 	}

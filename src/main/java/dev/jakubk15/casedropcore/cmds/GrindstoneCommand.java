@@ -9,16 +9,17 @@ import org.jetbrains.annotations.NotNull;
 
 public class GrindstoneCommand implements CommandExecutor {
 
-	public GrindstoneCommand() {
-	}
+	public GrindstoneCommand() {}
 
 	@Override
 	public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
 		if (commandSender instanceof Player p) {
 			if (commandSender.hasPermission("essentials.grindstone")) {
 				p.openGrindstone(null, true);
+				return true;
 			} else {
 				commandSender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnień."));
+				return false;
 			}
 		} else {
 			commandSender.sendMessage("Nie można wykonać tego polecenia z poziomu konsoli.");

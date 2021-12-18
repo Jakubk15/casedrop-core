@@ -9,16 +9,17 @@ import org.jetbrains.annotations.NotNull;
 
 public class StoneCutterCommand implements CommandExecutor {
 
-	public StoneCutterCommand() {
-	}
+	public StoneCutterCommand() {}
 
 	@Override
 	public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
 		if (commandSender instanceof Player p) {
 			if (commandSender.hasPermission("essentials.stonecutter")) {
 				p.openStonecutter(null, true);
+				return true;
 			} else {
 				commandSender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnień."));
+				return false;
 			}
 		} else {
 			commandSender.sendMessage("Nie można wykonać tego polecenia z poziomu konsoli.");
