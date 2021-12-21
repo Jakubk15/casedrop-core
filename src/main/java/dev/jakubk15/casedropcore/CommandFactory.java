@@ -38,6 +38,9 @@ public class CommandFactory {
 		CasedropCore.getInstance().getCommand("anvil").setExecutor(new AnvilCommand());
 		CasedropCore.getInstance().getCommand("unmute").setExecutor(new UnmuteCommand());
 		CasedropCore.getInstance().getCommand("kill").setExecutor(new KillCommand());
+		CasedropCore.getInstance().getServer().getPluginManager().registerEvents(new ChatManager(), CasedropCore.getInstance());
+		CasedropCore.getInstance().getServer().getPluginManager().registerEvents(new FreezeCommand(), CasedropCore.getInstance());
+		CasedropCore.getInstance().getServer().getPluginManager().registerEvents(new MuteCommand(), CasedropCore.getInstance());
 
 	}
 

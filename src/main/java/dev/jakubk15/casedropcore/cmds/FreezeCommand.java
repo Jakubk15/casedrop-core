@@ -7,6 +7,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.PlayerAttemptPickupItemEvent;
@@ -24,13 +26,14 @@ import java.util.UUID;
  *    And many lags!
  *    Use carefully, only when really needed.
  */
-public class FreezeCommand implements CommandExecutor {
+public class FreezeCommand implements CommandExecutor, Listener {
 
 	public FreezeCommand() {}
 
 	public static Set<UUID> freezedPlayers = new HashSet<>();
 
-	public void onMove(PlayerMoveEvent e) {
+	@EventHandler
+	private void onMove(PlayerMoveEvent e) {
 		Player p = e.getPlayer();
 		if (freezedPlayers.contains(p.getUniqueId())) {
 			e.setCancelled(true);
@@ -41,7 +44,8 @@ public class FreezeCommand implements CommandExecutor {
 	/*
 	 * Wykonywane gdy zamrożony gracz zaatakuje innego gracza
 	 */
-	public void onAttack(EntityDamageByEntityEvent e) {
+	@EventHandler
+	private void onAttack(EntityDamageByEntityEvent e) {
 		if (e.getDamager() instanceof Player) {
 			Entity en = e.getDamager();
 			if (freezedPlayers.contains(en.getUniqueId())) {
@@ -62,7 +66,8 @@ public class FreezeCommand implements CommandExecutor {
 		}
 	}
 
-	public void onDrop(PlayerDropItemEvent e) {
+	@EventHandler
+	private void onDrop(PlayerDropItemEvent e) {
 		Player p = e.getPlayer();
 		if (freezedPlayers.contains(p.getUniqueId())) {
 			p.sendMessage(ChatColorUtil.fixColor("&cJesteś zamrożony! Nie możesz wykonywać żadnych akcji, HAHA!"));
@@ -70,7 +75,8 @@ public class FreezeCommand implements CommandExecutor {
 
 	}
 
-	public void onPickup(PlayerAttemptPickupItemEvent e) {
+	@EventHandler
+	private void onPickup(PlayerAttemptPickupItemEvent e) {
 		Player p = e.getPlayer();
 		if (freezedPlayers.contains(p.getUniqueId())) {
 			e.setCancelled(true);
@@ -78,7 +84,8 @@ public class FreezeCommand implements CommandExecutor {
 
 	}
 
-	public void onFoodDrain(FoodLevelChangeEvent e) {
+	@EventHandler
+	private void onFoodDrain(FoodLevelChangeEvent e) {
 		if (e.getEntity() instanceof Player) {
 			if (freezedPlayers.contains(((Player) e.getEntity()).getPlayer().getUniqueId())) {
 				e.setCancelled(true);
