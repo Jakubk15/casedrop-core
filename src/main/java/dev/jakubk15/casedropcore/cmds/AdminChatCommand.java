@@ -10,8 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class AdminChatCommand implements CommandExecutor {
 
-	public AdminChatCommand() {
-	}
+	public AdminChatCommand() {}
 
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {

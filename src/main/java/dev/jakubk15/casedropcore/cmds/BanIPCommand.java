@@ -10,8 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class BanIPCommand implements CommandExecutor {
 
-	public BanIPCommand() {
-	}
+	public BanIPCommand() {}
 
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {

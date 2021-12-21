@@ -37,6 +37,7 @@ public class CommandFactory {
 		CasedropCore.getInstance().getCommand("stonecutter").setExecutor(new StoneCutterCommand());
 		CasedropCore.getInstance().getCommand("anvil").setExecutor(new AnvilCommand());
 		CasedropCore.getInstance().getCommand("unmute").setExecutor(new UnmuteCommand());
+		CasedropCore.getInstance().getCommand("kill").setExecutor(new KillCommand());
 
 	}
 

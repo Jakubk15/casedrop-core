@@ -9,8 +9,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class AnvilCommand implements CommandExecutor {
 
-	public AnvilCommand() {
-	}
+	public AnvilCommand() {}
 
 	@Override
 	public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {

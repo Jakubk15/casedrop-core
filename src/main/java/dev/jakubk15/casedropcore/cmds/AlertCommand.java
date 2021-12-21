@@ -12,8 +12,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class AlertCommand implements CommandExecutor {
 
-	public AlertCommand() {
-	}
+	public AlertCommand() {}
 
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {

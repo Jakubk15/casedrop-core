@@ -10,19 +10,21 @@ import org.jetbrains.annotations.NotNull;
 
 public class MsgCommand implements CommandExecutor {
 
-	public MsgCommand() {
-	}
+	public MsgCommand() {}
 
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 			if (sender.hasPermission("essentials.msg")) {
 				if (args.length > 0) {
 						Player target = Bukkit.getPlayerExact(args[0]);
-						assert target != null;
-						String msg = args[1];
-						target.sendMessage(ChatColorUtil.fixColor("&3[&b" + sender.getName() + "&3 -> " + target.getName() + "&3] &7" + msg));
-						sender.sendMessage(ChatColorUtil.fixColor("&3[&b" + sender.getName() + "&3 -> " + target.getName() + "&3] &7" + msg));
-						return true;
+						if (target != null) {
+							String msg = args[1];
+							target.sendMessage(ChatColorUtil.fixColor("&3[&b" + sender.getName() + "&3 -> " + target.getName() + "&3] &7" + msg));
+							sender.sendMessage(ChatColorUtil.fixColor("&3[&b" + sender.getName() + "&3 -> " + target.getName() + "&3] &7" + msg));
+							return true;
+						} else {
+							sender.sendMessage(ChatColorUtil.fixColor("&cPodany gracz jest offline lub nie był nigdy na serwerze!"));
+						}
 				} else {
 					sender.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
 					return false;
