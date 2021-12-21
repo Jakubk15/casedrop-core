@@ -11,7 +11,7 @@
 ![Gradle](https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=Gradle&logoColor=white)
 
 
-## This project is mainly dedicated for my Minecraft Server, however it also can be used for other Paper-based servers.
+This project is mainly dedicated for my Minecraft Server, however it also can be used for other Paper-based servers.
 
 ### Features:
 - AdminChat
