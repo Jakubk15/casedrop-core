@@ -1,6 +1,6 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.ChatColorUtil;
+import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -17,7 +17,7 @@ public class KillCommand implements CommandExecutor {
 		if (sender.hasPermission("essentials.kill")) {
 			Player target = Bukkit.getPlayerExact(args[0]);
 			target.setHealth(0);
-			sender.sendMessage(ChatColorUtil.fixColor("&3Zabito gracza &b" + target.getName()));
+			sender.sendMessage(Util.color("&3Zabito gracza &b" + target.getName()));
 			return true;
 		}
 		return false;

@@ -1,6 +1,6 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.ChatColorUtil;
+import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -37,7 +37,7 @@ public class FreezeCommand implements CommandExecutor, Listener {
 		Player p = e.getPlayer();
 		if (freezedPlayers.contains(p.getUniqueId())) {
 			e.setCancelled(true);
-			p.sendMessage(ChatColorUtil.fixColor("&cJesteś zamrożony! Nie możesz wykonywać żadnych akcji, HAHA!"));
+			p.sendMessage(Util.color("&cJesteś zamrożony! Nie możesz wykonywać żadnych akcji, HAHA!"));
 		}
 	}
 
@@ -50,7 +50,7 @@ public class FreezeCommand implements CommandExecutor, Listener {
 			Entity en = e.getDamager();
 			if (freezedPlayers.contains(en.getUniqueId())) {
 				e.setCancelled(true);
-				en.sendMessage(ChatColorUtil.fixColor("&cJesteś zamrożony! Nie możesz wykonywać żadnych akcji, HAHA!"));
+				en.sendMessage(Util.color("&cJesteś zamrożony! Nie możesz wykonywać żadnych akcji, HAHA!"));
 			}
 		}
 
@@ -61,7 +61,7 @@ public class FreezeCommand implements CommandExecutor, Listener {
 			Entity en = e.getEntity();
 			if (freezedPlayers.contains(e.getEntity().getUniqueId())) {
 				e.setCancelled(true);
-				en.sendMessage(ChatColorUtil.fixColor("&cTen gracz jest zamrożony, więc nie możesz zadawać mu żadnych obrażeń!"));
+				en.sendMessage(Util.color("&cTen gracz jest zamrożony, więc nie możesz zadawać mu żadnych obrażeń!"));
 			}
 		}
 	}
@@ -70,7 +70,7 @@ public class FreezeCommand implements CommandExecutor, Listener {
 	private void onDrop(PlayerDropItemEvent e) {
 		Player p = e.getPlayer();
 		if (freezedPlayers.contains(p.getUniqueId())) {
-			p.sendMessage(ChatColorUtil.fixColor("&cJesteś zamrożony! Nie możesz wykonywać żadnych akcji, HAHA!"));
+			p.sendMessage(Util.color("&cJesteś zamrożony! Nie możesz wykonywać żadnych akcji, HAHA!"));
 		}
 
 	}
@@ -104,32 +104,32 @@ public class FreezeCommand implements CommandExecutor, Listener {
 						if (!target.hasPermission("essentials.freeze.bypass")) {
 							UUID uuid = target.getUniqueId();
 							freezedPlayers.add(uuid);
-							sender.sendMessage(ChatColorUtil.fixColor("&3Zamrożono gracza " + target.getName()));
-							target.sendMessage(ChatColorUtil.fixColor("&3Gracz " + sender.getName() + "&3 zamroził cię."));
+							sender.sendMessage(Util.color("&3Zamrożono gracza " + target.getName()));
+							target.sendMessage(Util.color("&3Gracz " + sender.getName() + "&3 zamroził cię."));
 							target.setInvulnerable(!target.isInvulnerable());
 							final int food = target.getFoodLevel();
 							return true;
 						} else {
-							sender.sendMessage(ChatColorUtil.fixColor("&cTen gracz ma uprawnienie 'essentials.freeze.bypass', co daje mu bypass na zamrażanie"));
+							sender.sendMessage(Util.color("&cTen gracz ma uprawnienie 'essentials.freeze.bypass', co daje mu bypass na zamrażanie"));
 							return false;
 						}
 					} else if (args[1].equals("off")) {
 						Player cel = Bukkit.getPlayerExact(args[0]);
 						UUID uuid = cel.getUniqueId();
 						freezedPlayers.remove(uuid);
-						sender.sendMessage(ChatColorUtil.fixColor("&3Odmrożono gracza " + cel.getName()));
+						sender.sendMessage(Util.color("&3Odmrożono gracza " + cel.getName()));
 						cel.setInvulnerable(!cel.isInvulnerable());
 						return true;
 					} else {
-						sender.sendMessage(ChatColorUtil.fixColor("&cPodaj odpowiedni parametr; Dostępne: 'on', 'off'"));
+						sender.sendMessage(Util.color("&cPodaj odpowiedni parametr; Dostępne: 'on', 'off'"));
 						return false;
 					}
 			} else {
-				sender.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
+				sender.sendMessage(Util.color("&cPodaj nick gracza!"));
 				return false;
 			}
 		} else {
-			sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnien!"));
+			sender.sendMessage(Util.color("&cBrak uprawnien!"));
 		}
 	return false;
 	}

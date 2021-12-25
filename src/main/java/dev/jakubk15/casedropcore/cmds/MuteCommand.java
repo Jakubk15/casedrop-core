@@ -1,6 +1,6 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.ChatColorUtil;
+import dev.jakubk15.casedropcore.utils.Util;
 import io.papermc.paper.event.player.AsyncChatEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -28,11 +28,11 @@ public class MuteCommand implements CommandExecutor, Listener {
 					Player target = Bukkit.getPlayerExact(args[0]);
 					assert target != null;
 					String reason = args[1];
-					target.sendMessage(ChatColorUtil.fixColor("&3Zostałeś wyciszony przez administratora " + sender.getName() + " &3 za " + reason));
+					target.sendMessage(Util.color("&3Zostałeś wyciszony przez administratora " + sender.getName() + " &3 za " + reason));
 					muted.add(target.getUniqueId());
 					return true;
 				} else {
-					sender.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
+					sender.sendMessage(Util.color("&cPodaj nick gracza!"));
 					return false;
 				}
 			}
@@ -43,7 +43,7 @@ public class MuteCommand implements CommandExecutor, Listener {
 	private void onChat(AsyncChatEvent event) {
 		if (muted.contains(event.getPlayer().getUniqueId())) {
 			event.setCancelled(true);
-			event.getPlayer().sendMessage(ChatColorUtil.fixColor("&cJesteś wyciszony!"));
+			event.getPlayer().sendMessage(Util.color("&cJesteś wyciszony!"));
 		}
 
 	}

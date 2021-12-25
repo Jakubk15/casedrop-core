@@ -1,6 +1,6 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.ChatColorUtil;
+import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -20,16 +20,16 @@ public class FlyCommand implements CommandExecutor {
 					assert target != null;
 					target.setAllowFlight(!target.isFlying());
 					Player sender1 = (Player) sender;
-					target.sendMessage(ChatColorUtil.fixColor("&3Latanie zostało:") + (sender1.getAllowFlight() ? "włączone." : "wyłączone."));
+					target.sendMessage(Util.color("&3Latanie zostało:") + (sender1.getAllowFlight() ? "włączone." : "wyłączone."));
 					return true;
 				} else {
 					Player sender1 = (Player) sender;
 					sender1.setAllowFlight(!sender1.isFlying());
-					sender.sendMessage(ChatColorUtil.fixColor("&3Latanie zostało:") + (sender1.getAllowFlight() ? "włączone." : "wyłączone."));
+					sender.sendMessage(Util.color("&3Latanie zostało:") + (sender1.getAllowFlight() ? "włączone." : "wyłączone."));
 					return true;
 				}
 			} else {
-				sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnień."));
+				sender.sendMessage(Util.color("&cBrak uprawnień."));
 			}
 	return false;
 	}

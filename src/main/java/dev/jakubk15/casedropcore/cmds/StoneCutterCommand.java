@@ -1,6 +1,6 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.ChatColorUtil;
+import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -18,7 +18,7 @@ public class StoneCutterCommand implements CommandExecutor {
 				p.openStonecutter(null, true);
 				return true;
 			} else {
-				commandSender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnień."));
+				commandSender.sendMessage(Util.color("&cBrak uprawnień."));
 				return false;
 			}
 		} else {

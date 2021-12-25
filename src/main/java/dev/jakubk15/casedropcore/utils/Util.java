@@ -2,11 +2,11 @@ package dev.jakubk15.casedropcore.utils;
 
 import org.bukkit.ChatColor;
 
-public class ChatColorUtil {
+public class Util {
 
-	public ChatColorUtil() {}
+	public Util() {}
 
-	public static String fixColor(final String text) {
+	public static String color(final String text) {
 		return ChatColor.translateAlternateColorCodes('&', text);
 	}
 }

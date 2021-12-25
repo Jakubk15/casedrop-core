@@ -1,7 +1,7 @@
 package dev.jakubk15.casedropcore.cmds;
 
 import dev.jakubk15.casedropcore.CasedropCore;
-import dev.jakubk15.casedropcore.utils.ChatColorUtil;
+import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -19,7 +19,7 @@ public class PingCommand implements CommandExecutor {
 		if (!(sender instanceof ConsoleCommandSender)) {
 			Player sender1 = (Player) sender;
 			for (int i = 0; i < 30; i++) {
-				Bukkit.getScheduler().scheduleSyncRepeatingTask(CasedropCore.getInstance(), () -> sender.sendMessage(ChatColorUtil.fixColor("&aTwój ping to: &6" + sender1.getPing())), 50, 1);
+				Bukkit.getScheduler().scheduleSyncRepeatingTask(CasedropCore.getInstance(), () -> sender.sendMessage(Util.color("&aTwój ping to: &6" + sender1.getPing())), 50, 1);
 			}
 		}
 		return false;

@@ -1,6 +1,6 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.ChatColorUtil;
+import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -17,10 +17,10 @@ public class UUIDCommand implements CommandExecutor {
 			if (args.length > 0) {
 				Player target = Bukkit.getPlayerExact(args[0]);
 				assert target != null;
-				sender.sendMessage(ChatColorUtil.fixColor("&3UUID gracza &b" + target.getName() + "&3 to &b" + target.getUniqueId()));
+				sender.sendMessage(Util.color("&3UUID gracza &b" + target.getName() + "&3 to &b" + target.getUniqueId()));
 				return true;
 			} else {
-				sender.sendMessage(ChatColorUtil.fixColor("&cPodaj prawidłowy nick gracza"));
+				sender.sendMessage(Util.color("&cPodaj prawidłowy nick gracza"));
 			}
 		return false;
 	}

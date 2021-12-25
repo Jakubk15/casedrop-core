@@ -1,6 +1,6 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.ChatColorUtil;
+import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -19,18 +19,18 @@ public class MsgCommand implements CommandExecutor {
 						Player target = Bukkit.getPlayerExact(args[0]);
 						if (target != null) {
 							String msg = args[1];
-							target.sendMessage(ChatColorUtil.fixColor("&3[&b" + sender.getName() + "&3 -> " + target.getName() + "&3] &7" + msg));
-							sender.sendMessage(ChatColorUtil.fixColor("&3[&b" + sender.getName() + "&3 -> " + target.getName() + "&3] &7" + msg));
+							target.sendMessage(Util.color("&3[&b" + sender.getName() + "&3 -> " + target.getName() + "&3] &7" + msg));
+							sender.sendMessage(Util.color("&3[&b" + sender.getName() + "&3 -> " + target.getName() + "&3] &7" + msg));
 							return true;
 						} else {
-							sender.sendMessage(ChatColorUtil.fixColor("&cPodany gracz jest offline lub nie był nigdy na serwerze!"));
+							sender.sendMessage(Util.color("&cPodany gracz jest offline lub nie był nigdy na serwerze!"));
 						}
 				} else {
-					sender.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
+					sender.sendMessage(Util.color("&cPodaj nick gracza!"));
 					return false;
 				}
 			} else {
-				sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnien!"));
+				sender.sendMessage(Util.color("&cBrak uprawnien!"));
 			}
 		return false;
 	}

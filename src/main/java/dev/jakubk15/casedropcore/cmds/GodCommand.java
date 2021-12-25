@@ -1,6 +1,6 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.ChatColorUtil;
+import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -19,16 +19,16 @@ public class GodCommand implements CommandExecutor {
 					Player target = Bukkit.getPlayerExact(args[0]);
 					assert target != null;
 					target.setInvulnerable(!target.isInvulnerable());
-					sender.sendMessage(ChatColorUtil.fixColor("&3Godmode " + (target.isInvulnerable() ? "&3włączone" : "&3wyłączone")));
+					sender.sendMessage(Util.color("&3Godmode " + (target.isInvulnerable() ? "&3włączone" : "&3wyłączone")));
 					return true;
 				} else {
 					Player sender1 = (Player) sender;
 					sender1.setInvulnerable(!sender1.isInvulnerable());
-					sender.sendMessage(ChatColorUtil.fixColor("&3Godmode " + (sender1.isInvulnerable() ? "&3włączone" : "&3wyłączone")));
+					sender.sendMessage(Util.color("&3Godmode " + (sender1.isInvulnerable() ? "&3włączone" : "&3wyłączone")));
 					return true;
 				}
 			} else {
-				sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnien."));
+				sender.sendMessage(Util.color("&cBrak uprawnien."));
 			}
 		return false;
 		}

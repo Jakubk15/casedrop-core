@@ -1,6 +1,6 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.ChatColorUtil;
+import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -18,15 +18,15 @@ public class BanIPCommand implements CommandExecutor {
 				if (args.length > 0) {
 					final Player target = Bukkit.getPlayerExact(args[0]);
 					assert target != null;
-						target.banPlayerFull(ChatColorUtil.fixColor("&cZostałeś zbanowany na IP!\n\nPrzez administratora: " + sender.getName() + "\n\n&cPowód: " + args[1]));
-						sender.sendMessage(ChatColorUtil.fixColor("&3Zbanowano gracza " + target.getName() + "\n&3Powód: " + args[1]));
+						target.banPlayerFull(Util.color("&cZostałeś zbanowany na IP!\n\nPrzez administratora: " + sender.getName() + "\n\n&cPowód: " + args[1]));
+						sender.sendMessage(Util.color("&3Zbanowano gracza " + target.getName() + "\n&3Powód: " + args[1]));
 						return true;
 				} else {
-					sender.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
+					sender.sendMessage(Util.color("&cPodaj nick gracza!"));
 					return false;
 				}
 			} else {
-				sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnien!"));
+				sender.sendMessage(Util.color("&cBrak uprawnien!"));
 			}
 		return false;
 	}

@@ -1,6 +1,6 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.ChatColorUtil;
+import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -18,12 +18,12 @@ public class VanishCommand implements CommandExecutor {
 				if (args.length > 0) {
 					Player target = Bukkit.getPlayerExact(args[0]);
 					assert target != null;
-					sender.sendMessage(ChatColorUtil.fixColor(target.isInvisible() ? "&3Włączono " : "&3Wyłączono " + "vanisha dla gracza " + target.getName()));
+					sender.sendMessage(Util.color(target.isInvisible() ? "&3Włączono " : "&3Wyłączono " + "vanisha dla gracza " + target.getName()));
 					target.setInvisible(!target.isInvisible());
 					return true;
 				} else {
 					Player sender1 = (Player) sender;
-					sender.sendMessage(ChatColorUtil.fixColor(sender1.isInvisible() ? "&3Włączono " : "&3Wyłączono " + "vanisha."));
+					sender.sendMessage(Util.color(sender1.isInvisible() ? "&3Włączono " : "&3Wyłączono " + "vanisha."));
 					sender1.setInvisible(!sender1.isInvisible());
 				}
 			}

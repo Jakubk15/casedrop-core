@@ -1,6 +1,6 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.ChatColorUtil;
+import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -20,15 +20,15 @@ public class UnmuteCommand implements CommandExecutor {
 					assert target != null;
 					if (MuteCommand.muted.contains(target.getUniqueId())) {
 						MuteCommand.muted.remove(target.getUniqueId());
-						sender.sendMessage(ChatColorUtil.fixColor("&3Odciszono gracza " + target.getName()));
+						sender.sendMessage(Util.color("&3Odciszono gracza " + target.getName()));
 					} else {
-						sender.sendMessage(ChatColorUtil.fixColor("&cTen gracz nie jest wyciszony!"));
+						sender.sendMessage(Util.color("&cTen gracz nie jest wyciszony!"));
 					}
 				} else {
-					sender.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
+					sender.sendMessage(Util.color("&cPodaj nick gracza!"));
 				}
 			} else {
-				sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnien!"));
+				sender.sendMessage(Util.color("&cBrak uprawnien!"));
 			}
 
 		return false;

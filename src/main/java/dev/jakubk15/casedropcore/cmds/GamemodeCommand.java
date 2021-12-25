@@ -1,6 +1,6 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.ChatColorUtil;
+import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -20,31 +20,31 @@ public class GamemodeCommand implements CommandExecutor {
 					switch (args[0]) {
 						case "0" -> {
 							sender1.setGameMode(GameMode.SURVIVAL);
-							sender.sendMessage(ChatColorUtil.fixColor("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
+							sender.sendMessage(Util.color("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
 							return true;
 						}
 						case "1" -> {
 							sender1.setGameMode(GameMode.CREATIVE);
-							sender.sendMessage(ChatColorUtil.fixColor("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
+							sender.sendMessage(Util.color("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
 							return true;
 						}
 						case "2" -> {
 							sender1.setGameMode(GameMode.ADVENTURE);
-							sender.sendMessage(ChatColorUtil.fixColor("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
+							sender.sendMessage(Util.color("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
 							return true;
 						}
 						case "3" -> {
 							sender1.setGameMode(GameMode.SPECTATOR);
-							sender.sendMessage(ChatColorUtil.fixColor("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
+							sender.sendMessage(Util.color("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
 							return true;
 						}
 					}
 				} else {
-					sender.sendMessage(ChatColorUtil.fixColor("&cPodaj argument 1!"));
+					sender.sendMessage(Util.color("&cPodaj argument 1!"));
 					return false;
 				}
 			} else {
-				sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnien!"));
+				sender.sendMessage(Util.color("&cBrak uprawnien!"));
 			}
 	return false;
 	}

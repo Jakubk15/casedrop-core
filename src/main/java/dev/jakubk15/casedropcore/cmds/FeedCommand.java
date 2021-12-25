@@ -1,6 +1,6 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.ChatColorUtil;
+import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -19,17 +19,17 @@ public class FeedCommand implements CommandExecutor {
 					Player target = Bukkit.getPlayerExact(args[0]);
 					assert target != null;
 					target.setFoodLevel(20);
-					target.sendMessage(ChatColorUtil.fixColor("&3Zostałeś najedzony!"));
-					sender.sendMessage(ChatColorUtil.fixColor("&3Najadłeś gracza " + target.getName() + "."));
+					target.sendMessage(Util.color("&3Zostałeś najedzony!"));
+					sender.sendMessage(Util.color("&3Najadłeś gracza " + target.getName() + "."));
 					return true;
 				} else {
 					Player sender1 = (Player) sender;
 					sender1.setFoodLevel(20);
-					sender.sendMessage(ChatColorUtil.fixColor("&3Zostałeś najedzony!"));
+					sender.sendMessage(Util.color("&3Zostałeś najedzony!"));
 					return true;
 				}
 			} else {
-				sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnień!"));
+				sender.sendMessage(Util.color("&cBrak uprawnień!"));
 			}
 	return false;
 }

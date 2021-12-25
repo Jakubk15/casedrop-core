@@ -1,6 +1,6 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.ChatColorUtil;
+import dev.jakubk15.casedropcore.utils.Util;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.title.Title;
 import org.bukkit.Bukkit;
@@ -20,38 +20,38 @@ public class AlertCommand implements CommandExecutor {
 				if (args.length > 0) {
 						final String message = args[1];
 						if (!args[0].equals("title") && !args[0].equals("actionbar") && !args[0].equals("chat")) {
-							sender.sendMessage(ChatColorUtil.fixColor("&cPodaj prawidłowy typ alertu!"));
+							sender.sendMessage(Util.color("&cPodaj prawidłowy typ alertu!"));
 							return false;
 						} else if (args[0].equals("chat")) {
 							for (Player ps : Bukkit.getOnlinePlayers()) {
-								ps.sendMessage(ChatColorUtil.fixColor("&8&m---------- &8&l[ &3&lALERT&8&l ]&8&m ----------"));
-								ps.sendMessage(ChatColorUtil.fixColor(" "));
-								ps.sendMessage(ChatColorUtil.fixColor("          " + message + "          "));
-								ps.sendMessage(ChatColorUtil.fixColor(" "));
-								ps.sendMessage(ChatColorUtil.fixColor("&8&m---------- &8&l[ &3&lALERT&8&l ]&8&m ----------"));
+								ps.sendMessage(Util.color("&8&m---------- &8&l[ &3&lALERT&8&l ]&8&m ----------"));
+								ps.sendMessage(Util.color(" "));
+								ps.sendMessage(Util.color("          " + message + "          "));
+								ps.sendMessage(Util.color(" "));
+								ps.sendMessage(Util.color("&8&m---------- &8&l[ &3&lALERT&8&l ]&8&m ----------"));
 								return true;
 							}
 						} else if (args[0].equals("title")) {
 							for (Player ps : Bukkit.getOnlinePlayers()) {
-								final Component mainTitle = Component.text(ChatColorUtil.fixColor("&8* &4&lALERT &8*"));
-								final Component subTitle = Component.text(ChatColorUtil.fixColor(message));
+								final Component mainTitle = Component.text(Util.color("&8* &4&lALERT &8*"));
+								final Component subTitle = Component.text(Util.color(message));
 								final Title title = Title.title(mainTitle, subTitle);
 								ps.showTitle(title);
 								return true;
 							}
 						} else if (args[0].equals("actionbar")) {
 							for (Player ps : Bukkit.getOnlinePlayers()) {
-								final Component actionbar = Component.text(ChatColorUtil.fixColor("&8* &4&lALERT &8*" + message));
+								final Component actionbar = Component.text(Util.color("&8* &4&lALERT &8*" + message));
 								ps.sendActionBar(actionbar);
 								return true;
 							}
 						}
 				} else {
-					sender.sendMessage(ChatColorUtil.fixColor("&cPodaj prawidłowy typ alertu!"));
+					sender.sendMessage(Util.color("&cPodaj prawidłowy typ alertu!"));
 					return false;
 				}
 			} else {
-				sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnien!"));
+				sender.sendMessage(Util.color("&cBrak uprawnien!"));
 				return false;
 			}
 

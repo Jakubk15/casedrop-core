@@ -1,6 +1,6 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.ChatColorUtil;
+import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -19,15 +19,15 @@ public class KickCommand implements CommandExecutor {
 				if (args.length > 0) {
 					Player target = Bukkit.getPlayerExact(args[0]);
 					assert target != null;
-					target.kick(null, PlayerKickEvent.Cause.valueOf(ChatColorUtil.fixColor("&cZostałeś wyrzucony z serwera!\n\n&cPrzez administratora: " + sender.getName() + "\n\n&cPowód: " + args[1])));
-					sender.sendMessage(ChatColorUtil.fixColor("&3Wyrzucono gracza" + target.getName()));
+					target.kick(null, PlayerKickEvent.Cause.valueOf(Util.color("&cZostałeś wyrzucony z serwera!\n\n&cPrzez administratora: " + sender.getName() + "\n\n&cPowód: " + args[1])));
+					sender.sendMessage(Util.color("&3Wyrzucono gracza" + target.getName()));
 					return true;
 				} else {
-					sender.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
+					sender.sendMessage(Util.color("&cPodaj nick gracza!"));
 					return false;
 				}
 			} else {
-				sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnien!"));
+				sender.sendMessage(Util.color("&cBrak uprawnien!"));
 			}
 		return false;
 	}

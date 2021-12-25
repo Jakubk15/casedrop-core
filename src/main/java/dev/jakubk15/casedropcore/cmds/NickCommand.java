@@ -1,6 +1,6 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.ChatColorUtil;
+import dev.jakubk15.casedropcore.utils.Util;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -20,12 +20,12 @@ public class NickCommand implements CommandExecutor {
 					Player target = Bukkit.getPlayerExact(args[1]);
 					assert target != null;
 					target.displayName(Component.text(args[0]));
-					sender.sendMessage(ChatColorUtil.fixColor("&3Zmieniono nick gracza " + target.getName() + " na " + args[0]));
+					sender.sendMessage(Util.color("&3Zmieniono nick gracza " + target.getName() + " na " + args[0]));
 				} else {
-					sender.sendMessage(ChatColorUtil.fixColor("&cPodaj nowy nick!"));
+					sender.sendMessage(Util.color("&cPodaj nowy nick!"));
 				}
 			} else {
-				sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnień!"));
+				sender.sendMessage(Util.color("&cBrak uprawnień!"));
 			}
 
 		return false;

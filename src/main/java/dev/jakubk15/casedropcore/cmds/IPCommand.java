@@ -1,6 +1,6 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.ChatColorUtil;
+import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -18,14 +18,14 @@ public class IPCommand implements CommandExecutor {
 				if (args.length > 0) {
 					Player target = Bukkit.getPlayerExact(args[0]);
 					assert target != null;
-					sender.sendMessage(ChatColorUtil.fixColor("&3IP gracza &b") + target.getName() + " &3to &b" + target.getAddress());
+					sender.sendMessage(Util.color("&3IP gracza &b") + target.getName() + " &3to &b" + target.getAddress());
 					return true;
 				} else {
-					sender.sendMessage(ChatColorUtil.fixColor("&cPodaj nick gracza!"));
+					sender.sendMessage(Util.color("&cPodaj nick gracza!"));
 					return false;
 				}
 			} else {
-				sender.sendMessage(ChatColorUtil.fixColor("&cBrak uprawnień!"));
+				sender.sendMessage(Util.color("&cBrak uprawnień!"));
 			}
 		return false;
 	}

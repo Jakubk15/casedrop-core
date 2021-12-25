@@ -1,6 +1,6 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.ChatColorUtil;
+import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -15,7 +15,7 @@ public class HelpopCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
 			if (args[0].isEmpty()) {
-				sender.sendMessage(ChatColorUtil.fixColor("&cPodaj wiadomość!"));
+				sender.sendMessage(Util.color("&cPodaj wiadomość!"));
 			} else {
 				StringBuilder builder = new StringBuilder();
 				for (String arg : args) {
@@ -25,8 +25,8 @@ public class HelpopCommand implements CommandExecutor {
 				String result = builder.toString();
 				for (Player ps : Bukkit.getOnlinePlayers()) {
 					if (ps.hasPermission("essentials.helpop.receive") || ps.isOp()) {
-						ps.sendMessage(ChatColorUtil.fixColor("&8[&4Helpop&8] &c" + sender.getName() + ": " + result));
-						sender.sendMessage(ChatColorUtil.fixColor("&8[&4Helpop&8] &7Wiadomość wysłana do administracji!"));
+						ps.sendMessage(Util.color("&8[&4Helpop&8] &c" + sender.getName() + ": " + result));
+						sender.sendMessage(Util.color("&8[&4Helpop&8] &7Wiadomość wysłana do administracji!"));
 					}
 				}
 			}

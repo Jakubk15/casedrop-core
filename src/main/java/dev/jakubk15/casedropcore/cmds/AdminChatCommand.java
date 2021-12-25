@@ -1,6 +1,6 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.ChatColorUtil;
+import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -24,11 +24,11 @@ public class AdminChatCommand implements CommandExecutor {
 								builder.append(s1);
 							}
 							String result = builder.toString();
-							adm.sendMessage(ChatColorUtil.fixColor("&8[&4AdminChat&8] » &7" + sender.getName() + " &7» " + result));
+							adm.sendMessage(Util.color("&8[&4AdminChat&8] » &7" + sender.getName() + " &7» " + result));
 						}
 					}
 				} else {
-					sender.sendMessage(ChatColorUtil.fixColor("&cPodaj wiadomość!"));
+					sender.sendMessage(Util.color("&cPodaj wiadomość!"));
 				}
 			} else {
 				sender.sendMessage("&cBrak uprawnień!");
