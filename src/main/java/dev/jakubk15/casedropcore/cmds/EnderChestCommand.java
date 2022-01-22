@@ -1,29 +1,25 @@
 package dev.jakubk15.casedropcore.cmds;
 
 import dev.jakubk15.casedropcore.utils.Util;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
+import org.mineacademy.fo.command.SimpleCommand;
 
-public class EnderChestCommand implements CommandExecutor {
+public class EnderChestCommand extends SimpleCommand {
 
-	public EnderChestCommand() {}
+	public EnderChestCommand() {
+		super("enderchest|ec");
+	}
 
 	@Override
-	public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-		if (commandSender instanceof Player p) {
-			if (commandSender.hasPermission("essentials.enderchest")) {
+	public void onCommand() {
+		if (sender instanceof Player p) {
+			if (sender.hasPermission("essentials.enderchest")) {
 				p.openInventory(p.getEnderChest());
-				return true;
 			} else {
-				commandSender.sendMessage(Util.color("&cBrak uprawnień."));
-				return false;
+				sender.sendMessage(Util.color("&cBrak uprawnień."));
 			}
 		} else {
-			commandSender.sendMessage("Nie można wykonać tego polecenia z poziomu konsoli.");
+			sender.sendMessage("Nie można wykonać tego polecenia z poziomu konsoli.");
 		}
-		return false;
 	}
 }

@@ -2,18 +2,17 @@ package dev.jakubk15.casedropcore.cmds;
 
 import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
+import org.mineacademy.fo.command.SimpleCommand;
 
-public class HelpopCommand implements CommandExecutor {
+public class HelpopCommand extends SimpleCommand {
 
-	public HelpopCommand() {}
+	public HelpopCommand() {
+		super("helpop");
+	}
 
 	@Override
-	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+	public void onCommand() {
 			if (args[0].isEmpty()) {
 				sender.sendMessage(Util.color("&cPodaj wiadomość!"));
 			} else {
@@ -30,6 +29,5 @@ public class HelpopCommand implements CommandExecutor {
 					}
 				}
 			}
-		return false;
 	}
 }

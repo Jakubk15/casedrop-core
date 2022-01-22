@@ -3,18 +3,17 @@ package dev.jakubk15.casedropcore.cmds;
 import dev.jakubk15.casedropcore.utils.Util;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
+import org.mineacademy.fo.command.SimpleCommand;
 
-public class NickCommand implements CommandExecutor {
+public class NickCommand extends SimpleCommand {
 
-	public NickCommand() {}
+	public NickCommand() {
+		super("nick|nickname");
+	}
 
 	@Override
-	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+	public void onCommand() {
 			if (sender.hasPermission("essentials.nick")) {
 				if (args.length > 0) {
 					Player target = Bukkit.getPlayerExact(args[1]);
@@ -28,6 +27,5 @@ public class NickCommand implements CommandExecutor {
 				sender.sendMessage(Util.color("&cBrak uprawnień!"));
 			}
 
-		return false;
 	}
 }

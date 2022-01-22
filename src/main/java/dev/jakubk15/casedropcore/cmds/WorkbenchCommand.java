@@ -1,29 +1,25 @@
 package dev.jakubk15.casedropcore.cmds;
 
 import dev.jakubk15.casedropcore.utils.Util;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
+import org.mineacademy.fo.command.SimpleCommand;
 
-public class WorkbenchCommand implements CommandExecutor {
+public class WorkbenchCommand extends SimpleCommand {
 
-	public WorkbenchCommand() {}
+	public WorkbenchCommand() {
+		super("wb|workbench");
+	}
 
 	@Override
-	public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-		if (commandSender instanceof Player p) {
-			if (commandSender.hasPermission("essentials.workbench")) {
+	public void onCommand() {
+		if (sender instanceof Player p) {
+			if (sender.hasPermission("essentials.workbench")) {
 				p.openWorkbench(null, true);
-				return true;
 			} else {
-				commandSender.sendMessage(Util.color("&cBrak uprawnień."));
-				return false;
+				sender.sendMessage(Util.color("&cBrak uprawnień."));
 			}
 		} else {
-			commandSender.sendMessage("Nie można wykonać tego polecenia z poziomu konsoli.");
+			sender.sendMessage("Nie można wykonać tego polecenia z poziomu konsoli.");
 		}
-		return false;
 	}
 }

@@ -2,24 +2,21 @@ package dev.jakubk15.casedropcore.cmds;
 
 import dev.jakubk15.casedropcore.CasedropCore;
 import dev.jakubk15.casedropcore.utils.Util;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
-import org.jetbrains.annotations.NotNull;
+import org.mineacademy.fo.command.SimpleCommand;
 
-public class ReloadCommand implements CommandExecutor {
+public class ReloadCommand extends SimpleCommand {
 
-	public ReloadCommand() {}
+	public ReloadCommand() {
+		super("reload");
+	}
 
 	@Override
-	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+	public void onCommand() {
 		if (sender.hasPermission("essentials.reload")) {
-			CasedropCore.getInstance().reloadConfig();
+			CasedropCore.getInstance().reload();
 			sender.sendMessage(Util.color("&3Przeładowano config!"));
-			return true;
 		} else {
 			sender.sendMessage(Util.color("&cBrak uprawnien."));
 		}
-		return false;
 	}
 }

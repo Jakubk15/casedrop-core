@@ -2,18 +2,17 @@ package dev.jakubk15.casedropcore.cmds;
 
 import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
+import org.mineacademy.fo.command.SimpleCommand;
 
-public class AdminChatCommand implements CommandExecutor {
+public class AdminChatCommand extends SimpleCommand {
 
-	public AdminChatCommand() {}
+	public AdminChatCommand() {
+		super("adminchat");
+	}
 
 	@Override
-	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+	public void onCommand() {
 			if (sender.hasPermission("essentials.adminchat")) {
 				if (args.length > 0) {
 					for (Player adm : Bukkit.getOnlinePlayers()) {
@@ -33,7 +32,6 @@ public class AdminChatCommand implements CommandExecutor {
 			} else {
 				sender.sendMessage("&cBrak uprawnień!");
 			}
-		return false;
 	}
 }
 

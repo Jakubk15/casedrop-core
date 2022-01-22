@@ -2,18 +2,17 @@ package dev.jakubk15.casedropcore.cmds;
 
 import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
+import org.mineacademy.fo.command.SimpleCommand;
 
-public class UnmuteCommand implements CommandExecutor {
+public class UnmuteCommand extends SimpleCommand {
 
-	public UnmuteCommand() {}
+	public UnmuteCommand() {
+		super("unmute");
+	}
 
 	@Override
-	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+	public void onCommand() {
 			if (sender.hasPermission("essentials.unmute")) {
 				if (args.length > 0) {
 					Player target = Bukkit.getPlayerExact(args[0]);
@@ -31,6 +30,5 @@ public class UnmuteCommand implements CommandExecutor {
 				sender.sendMessage(Util.color("&cBrak uprawnien!"));
 			}
 
-		return false;
 	}
 }

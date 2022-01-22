@@ -1,16 +1,15 @@
 package dev.jakubk15.casedropcore;
 
-import org.bukkit.plugin.java.JavaPlugin;
+import org.mineacademy.fo.plugin.SimplePlugin;
 
-public class CasedropCore extends JavaPlugin {
+public class CasedropCore extends SimplePlugin {
 
 	public CasedropCore() {}
 
 	public static CasedropCore instance;
-	private final CommandFactory commandFactory = new CommandFactory();
 
 	@Override
-	public void onEnable() {
+	public void onPluginStart() {
 		instance = this;
 		getLogger().info("_________                  ________                            _________                  ");
 		getLogger().info("__  ____/_____ _______________  __ \\____________________       __  ____/_________________ ");
@@ -18,12 +17,16 @@ public class CasedropCore extends JavaPlugin {
 		getLogger().info("/ /___  / /_/ /_(__  )/  __/  /_/ /_  /   / /_/ /_  /_/ //_____/ /___  / /_/ /  /   /  __/");
 		getLogger().info("\\____/  \\__,_/ /____/ \\___//_____/ /_/    \\____/_  .___/       \\____/  \\____//_/    \\___/ ");
 		getLogger().info("                                                /_/                                       ");
-		commandFactory.registerCommands();
-		this.getConfig().options().copyDefaults(true);
-		saveDefaultConfig();
+		registerCommands();
 	}
 
 	public static CasedropCore getInstance() {
-		return instance;
+		return (CasedropCore) SimplePlugin.getInstance();
 	}
+
+	public void registerCommands() {
+
+	}
+
+
 }
