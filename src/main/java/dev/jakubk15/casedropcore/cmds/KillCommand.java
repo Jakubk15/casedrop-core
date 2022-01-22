@@ -9,6 +9,10 @@ public class KillCommand extends SimpleCommand {
 
 	public KillCommand() {
 		super("kill");
+		setPermission("essentials.kill");
+		setMinArguments(1);
+		setUsage("<player>");
+		setDescription("Kills player");
 	}
 
 	@Override

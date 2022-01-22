@@ -16,23 +16,27 @@ public class MuteCommand extends SimpleCommand implements Listener {
 
 	public MuteCommand() {
 		super("mute");
+		setPermission("essentials.mute");
+		setUsage("<player> [reason]");
+		setDescription("Mutes player with reason (if specified).");
+		setMinArguments(1);
 	}
 
 	public static Set<UUID> muted = new HashSet<>();
 
 	@Override
 	public void onCommand() {
-			if (sender.hasPermission("essentials.mute")) {
-				if (args.length > 0) {
-					Player target = Bukkit.getPlayerExact(args[0]);
-					assert target != null;
-					String reason = args[1];
-					target.sendMessage(Util.color("&3Zostałeś wyciszony przez administratora " + sender.getName() + " &3 za " + reason));
-					muted.add(target.getUniqueId());
-				} else {
-					sender.sendMessage(Util.color("&cPodaj nick gracza!"));
-				}
+		if (sender.hasPermission("essentials.mute")) {
+			if (args.length > 0) {
+				Player target = Bukkit.getPlayerExact(args[0]);
+				assert target != null;
+				String reason = args[1];
+				target.sendMessage(Util.color("&3Zostałeś wyciszony przez administratora " + sender.getName() + " &3 za " + reason));
+				muted.add(target.getUniqueId());
+			} else {
+				sender.sendMessage(Util.color("&cPodaj nick gracza!"));
 			}
+		}
 	}
 
 	@EventHandler

@@ -8,30 +8,33 @@ import org.mineacademy.fo.command.SimpleCommand;
 public class AdminChatCommand extends SimpleCommand {
 
 	public AdminChatCommand() {
-		super("adminchat");
+		super("adminchat|ac");
+		setMinArguments(1);
+		setUsage("<message>");
+		setDescription("Sends message to all admins online.");
+		setPermission("essentials.adminchat");
 	}
 
 	@Override
 	public void onCommand() {
-			if (sender.hasPermission("essentials.adminchat")) {
-				if (args.length > 0) {
-					for (Player adm : Bukkit.getOnlinePlayers()) {
-						if (adm.hasPermission("essentials.adminchat")) {
-							StringBuilder builder = new StringBuilder();
-							for (String arg : args) {
-								String s1 = arg + " ";
-								builder.append(s1);
-							}
-							String result = builder.toString();
-							adm.sendMessage(Util.color("&8[&4AdminChat&8] » &7" + sender.getName() + " &7» " + result));
-						}
+		if (sender.hasPermission("essentials.adminchat")) {
+			if (args.length > 0) {
+				for (Player adm : Bukkit.getOnlinePlayers()) {
+					StringBuilder builder = new StringBuilder();
+					for (String arg : args) {
+						String s1 = arg + " ";
+						builder.append(s1);
 					}
-				} else {
-					sender.sendMessage(Util.color("&cPodaj wiadomość!"));
+					String result = builder.toString();
+					adm.sendMessage(Util.color("&8[&4AdminChat&8] » &7" + sender.getName() + " &7» " + result));
 				}
 			} else {
-				sender.sendMessage("&cBrak uprawnień!");
+				sender.sendMessage(Util.color("&cPodaj wiadomość!"));
 			}
+		} else {
+			sender.sendMessage("&cBrak uprawnień!");
+		}
 	}
+
 }
 

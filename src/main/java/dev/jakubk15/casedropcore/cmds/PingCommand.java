@@ -11,6 +11,9 @@ public class PingCommand extends SimpleCommand {
 
 	public PingCommand() {
 		super("ping");
+		setPermission("essentials.ping");
+		setUsage("<player> <message>");
+		setDescription("Sends a private message to player.");
 	}
 
 	@Override

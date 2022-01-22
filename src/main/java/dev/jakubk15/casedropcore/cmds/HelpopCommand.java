@@ -9,25 +9,28 @@ public class HelpopCommand extends SimpleCommand {
 
 	public HelpopCommand() {
 		super("helpop");
+		setUsage("<message>");
+		setMinArguments(1);
+		setDescription("Sends a message to operators.");
 	}
 
 	@Override
 	public void onCommand() {
-			if (args[0].isEmpty()) {
-				sender.sendMessage(Util.color("&cPodaj wiadomość!"));
-			} else {
-				StringBuilder builder = new StringBuilder();
-				for (String arg : args) {
-					String s1 = arg + " ";
-					builder.append(s1);
-				}
-				String result = builder.toString();
-				for (Player ps : Bukkit.getOnlinePlayers()) {
-					if (ps.hasPermission("essentials.helpop.receive") || ps.isOp()) {
-						ps.sendMessage(Util.color("&8[&4Helpop&8] &c" + sender.getName() + ": " + result));
-						sender.sendMessage(Util.color("&8[&4Helpop&8] &7Wiadomość wysłana do administracji!"));
-					}
+		if (args[0].isEmpty()) {
+			sender.sendMessage(Util.color("&cPodaj wiadomość!"));
+		} else {
+			StringBuilder builder = new StringBuilder();
+			for (String arg : args) {
+				String s1 = arg + " ";
+				builder.append(s1);
+			}
+			String result = builder.toString();
+			for (Player ps : Bukkit.getOnlinePlayers()) {
+				if (ps.hasPermission("essentials.helpop.receive") || ps.isOp()) {
+					ps.sendMessage(Util.color("&8[&4Helpop&8] &c" + sender.getName() + ": " + result));
+					sender.sendMessage(Util.color("&8[&4Helpop&8] &7Wiadomość wysłana do administracji!"));
 				}
 			}
+		}
 	}
 }

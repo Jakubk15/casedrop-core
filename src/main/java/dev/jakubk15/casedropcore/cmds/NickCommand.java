@@ -10,22 +10,21 @@ public class NickCommand extends SimpleCommand {
 
 	public NickCommand() {
 		super("nick|nickname");
+		setPermission("essentials.nick");
+		setUsage("<player> <nickname>");
+		setDescription("Change nickname of player.");
+		setMinArguments(1);
 	}
 
 	@Override
 	public void onCommand() {
-			if (sender.hasPermission("essentials.nick")) {
-				if (args.length > 0) {
-					Player target = Bukkit.getPlayerExact(args[1]);
-					assert target != null;
-					target.displayName(Component.text(args[0]));
-					sender.sendMessage(Util.color("&3Zmieniono nick gracza " + target.getName() + " na " + args[0]));
-				} else {
-					sender.sendMessage(Util.color("&cPodaj nowy nick!"));
-				}
-			} else {
-				sender.sendMessage(Util.color("&cBrak uprawnień!"));
-			}
-
+		if (args.length > 0) {
+			Player target = Bukkit.getPlayerExact(args[1]);
+			assert target != null;
+			target.displayName(Component.text(args[0]));
+			sender.sendMessage(Util.color("&3Zmieniono nick gracza " + target.getName() + " na " + args[0]));
+		} else {
+			sender.sendMessage(Util.color("&cPodaj nowy nick!"));
+		}
 	}
 }

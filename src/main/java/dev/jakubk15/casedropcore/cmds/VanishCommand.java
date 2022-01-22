@@ -9,22 +9,24 @@ public class VanishCommand extends SimpleCommand {
 
 	public VanishCommand() {
 		super("vanish|v");
+		setPermission("essentials.vanish");
+		setUsage("<player>");
+		setDescription("Włącza/wyłącza vanisha.");
 	}
 
 	@Override
 	public void onCommand() {
-			if (sender.hasPermission("essentials.vanish")) {
-				if (args.length > 0) {
-					Player target = Bukkit.getPlayerExact(args[0]);
-					assert target != null;
-					sender.sendMessage(Util.color(target.isInvisible() ? "&3Włączono " : "&3Wyłączono " + "vanisha dla gracza " + target.getName()));
-					target.setInvisible(!target.isInvisible());
-				} else {
-					Player sender1 = (Player) sender;
-					sender.sendMessage(Util.color(sender1.isInvisible() ? "&3Włączono " : "&3Wyłączono " + "vanisha."));
-					sender1.setInvisible(!sender1.isInvisible());
-				}
-			}
+		if (args.length > 0) {
+			Player target = Bukkit.getPlayerExact(args[0]);
+			assert target != null;
+			sender.sendMessage(Util.color(target.isInvisible() ? "&3Włączono " : "&3Wyłączono " + "vanisha dla gracza " + target.getName()));
+			target.setInvisible(!target.isInvisible());
+		} else {
+			Player sender1 = (Player) sender;
+			sender.sendMessage(Util.color(sender1.isInvisible() ? "&3Włączono " : "&3Wyłączono " + "vanisha."));
+			sender1.setInvisible(!sender1.isInvisible());
+		}
 	}
 }
+
 

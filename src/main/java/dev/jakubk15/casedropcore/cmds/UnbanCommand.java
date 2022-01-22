@@ -9,24 +9,23 @@ public class UnbanCommand extends SimpleCommand {
 
 	public UnbanCommand() {
 		super("unban");
+		setPermission("essentials.unban");
+		setDescription("Unbans a already banned player.");
 	}
 
 	@Override
 	public void onCommand() {
-			if (sender.hasPermission("essentials.unban")) {
-				if (args.length > 0) {
-					Player target = Bukkit.getPlayerExact(args[0]);
-					assert target != null;
-					if (target.isBanned()) {
-						Bukkit.getServer().getBannedPlayers().remove(target);
-					} else {
-						sender.sendMessage(Util.color("&cTen gracz nie jest zbanowany!"));
-					}
-				} else {
-					sender.sendMessage(Util.color("&cPodaj nick gracza!"));
-				}
+		if (args.length > 0) {
+			Player target = Bukkit.getPlayerExact(args[0]);
+			assert target != null;
+			if (target.isBanned()) {
+				Bukkit.getServer().getBannedPlayers().remove(target);
 			} else {
-				sender.sendMessage(Util.color("&cBrak uprawnien!"));
+				sender.sendMessage(Util.color("&cTen gracz nie jest zbanowany!"));
 			}
+		} else {
+			sender.sendMessage(Util.color("&cPodaj nick gracza!"));
+		}
+
 	}
 }

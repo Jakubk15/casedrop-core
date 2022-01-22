@@ -9,24 +9,24 @@ public class FeedCommand extends SimpleCommand {
 
 	public FeedCommand() {
 		super("feed");
+		setMinArguments(0);
+		setDescription("Feeds player.");
+		setPermission("essentials.feed");
+		setUsage("[player]");
 	}
 
 	@Override
 	public void onCommand() {
-			if (sender.hasPermission("essentials.feed")) {
-				if (args.length > 0) {
-					Player target = Bukkit.getPlayerExact(args[0]);
-					assert target != null;
-					target.setFoodLevel(20);
-					target.sendMessage(Util.color("&3Zostałeś najedzony!"));
-					sender.sendMessage(Util.color("&3Najadłeś gracza " + target.getName() + "."));
-				} else {
-					Player sender1 = (Player) sender;
-					sender1.setFoodLevel(20);
-					sender.sendMessage(Util.color("&3Zostałeś najedzony!"));
-				}
-			} else {
-				sender.sendMessage(Util.color("&cBrak uprawnień!"));
-			}
+		if (args.length > 0) {
+			Player target = Bukkit.getPlayerExact(args[0]);
+			assert target != null;
+			target.setFoodLevel(20);
+			target.sendMessage(Util.color("&3Zostałeś najedzony!"));
+			sender.sendMessage(Util.color("&3Najadłeś gracza " + target.getName() + "."));
+		} else {
+			Player sender1 = (Player) sender;
+			sender1.setFoodLevel(20);
+			sender.sendMessage(Util.color("&3Zostałeś najedzony!"));
+		}
 	}
 }

@@ -9,20 +9,20 @@ public class IPCommand extends SimpleCommand {
 
 	public IPCommand() {
 		super("ip");
+		setMinArguments(1);
+		setUsage("<player>");
+		setPermission("essentials.ip");
+		setDescription("Gets player IPv4 address.");
 	}
 
 	@Override
 	public void onCommand() {
-			if (sender.hasPermission("essentials.ip")) {
-				if (args.length > 0) {
-					Player target = Bukkit.getPlayerExact(args[0]);
-					assert target != null;
-					sender.sendMessage(Util.color("&3IP gracza &b") + target.getName() + " &3to &b" + target.getAddress());
-				} else {
-					sender.sendMessage(Util.color("&cPodaj nick gracza!"));
-				}
-			} else {
-				sender.sendMessage(Util.color("&cBrak uprawnień!"));
-			}
+		if (args.length > 0) {
+			Player target = Bukkit.getPlayerExact(args[0]);
+			assert target != null;
+			sender.sendMessage(Util.color("&3IP gracza &b") + target.getName() + " &3to &b" + target.getAddress());
+		} else {
+			sender.sendMessage(Util.color("&cPodaj nick gracza!"));
+		}
 	}
 }

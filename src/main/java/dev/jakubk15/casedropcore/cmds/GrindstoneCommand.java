@@ -8,6 +8,8 @@ public class GrindstoneCommand extends SimpleCommand {
 
 	public GrindstoneCommand() {
 		super("grindstone");
+		setMinArguments(0);
+		setPermission("essentials.grindstone");
 	}
 
 	@Override

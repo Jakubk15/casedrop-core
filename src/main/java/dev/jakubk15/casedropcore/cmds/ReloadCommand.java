@@ -7,16 +7,14 @@ import org.mineacademy.fo.command.SimpleCommand;
 public class ReloadCommand extends SimpleCommand {
 
 	public ReloadCommand() {
-		super("reload");
+		super("casedropcore-reload");
+		setPermission("essentials.reload");
+		setDescription("Reloads the plugin.");
 	}
 
 	@Override
 	public void onCommand() {
-		if (sender.hasPermission("essentials.reload")) {
-			CasedropCore.getInstance().reload();
-			sender.sendMessage(Util.color("&3Przeładowano config!"));
-		} else {
-			sender.sendMessage(Util.color("&cBrak uprawnien."));
-		}
+		CasedropCore.getInstance().reload();
+		sender.sendMessage(Util.color("&3Przeładowano config!"));
 	}
 }

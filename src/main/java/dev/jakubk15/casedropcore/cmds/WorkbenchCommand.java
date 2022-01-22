@@ -8,6 +8,8 @@ public class WorkbenchCommand extends SimpleCommand {
 
 	public WorkbenchCommand() {
 		super("wb|workbench");
+		setPermission("essentials.workbench");
+		setDescription("Opens a workbench.");
 	}
 
 	@Override

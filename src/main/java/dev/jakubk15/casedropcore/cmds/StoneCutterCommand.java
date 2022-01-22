@@ -1,6 +1,5 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.entity.Player;
 import org.mineacademy.fo.command.SimpleCommand;
 
@@ -8,16 +7,14 @@ public class StoneCutterCommand extends SimpleCommand {
 
 	public StoneCutterCommand() {
 		super("stonecutter|sc");
+		setPermission("essentials.stonecutter");
+		setDescription("Opens a stonecutter.");
 	}
 
 	@Override
 	public void onCommand() {
 		if (sender instanceof Player p) {
-			if (sender.hasPermission("essentials.stonecutter")) {
-				p.openStonecutter(null, true);
-			} else {
-				sender.sendMessage(Util.color("&cBrak uprawnień."));
-			}
+			p.openStonecutter(null, true);
 		} else {
 			sender.sendMessage("Nie można wykonać tego polecenia z poziomu konsoli.");
 		}

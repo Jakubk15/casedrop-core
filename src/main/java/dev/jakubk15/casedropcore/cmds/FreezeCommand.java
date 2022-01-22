@@ -27,10 +27,23 @@ public class FreezeCommand extends SimpleCommand implements Listener {
 
 	public FreezeCommand() {
 		super("freeze");
+		setMinArguments(1);
+		setUsage("<player>");
+		setPermission("essentials.freeze");
 	}
 
 	public static Set<UUID> freezedPlayers = new HashSet<>();
 
+
+	/*
+	 *
+	 * Wywołuje BARDZO DUZE lagi. Używaj na własną odpowiedzialność.
+	 * Może zostać usunięte w przyszłości.
+	 *
+	 */
+
+
+	@Deprecated
 	@EventHandler
 	private void onMove(PlayerMoveEvent e) {
 		Player p = e.getPlayer();
@@ -97,28 +110,28 @@ public class FreezeCommand extends SimpleCommand implements Listener {
 	public void onCommand() {
 		if (sender.hasPermission("essentials.freeze")) {
 			if (args.length > 0) {
-					if (args[1].equals("on")) {
-						Player target = Bukkit.getPlayerExact(args[0]);
-						assert target != null;
-						if (!target.hasPermission("essentials.freeze.bypass")) {
-							UUID uuid = target.getUniqueId();
-							freezedPlayers.add(uuid);
-							sender.sendMessage(Util.color("&3Zamrożono gracza " + target.getName()));
-							target.sendMessage(Util.color("&3Gracz " + sender.getName() + "&3 zamroził cię."));
-							target.setInvulnerable(!target.isInvulnerable());
-							final int food = target.getFoodLevel();
-						} else {
-							sender.sendMessage(Util.color("&cTen gracz ma uprawnienie 'essentials.freeze.bypass', co daje mu bypass na zamrażanie"));
-						}
-					} else if (args[1].equals("off")) {
-						Player cel = Bukkit.getPlayerExact(args[0]);
-						UUID uuid = cel.getUniqueId();
-						freezedPlayers.remove(uuid);
-						sender.sendMessage(Util.color("&3Odmrożono gracza " + cel.getName()));
-						cel.setInvulnerable(!cel.isInvulnerable());
+				if (args[1].equals("on")) {
+					Player target = Bukkit.getPlayerExact(args[0]);
+					assert target != null;
+					if (!target.hasPermission("essentials.freeze.bypass")) {
+						UUID uuid = target.getUniqueId();
+						freezedPlayers.add(uuid);
+						sender.sendMessage(Util.color("&3Zamrożono gracza " + target.getName()));
+						target.sendMessage(Util.color("&3Gracz " + sender.getName() + "&3 zamroził cię."));
+						target.setInvulnerable(!target.isInvulnerable());
+						int food = target.getFoodLevel();
 					} else {
-						sender.sendMessage(Util.color("&cPodaj odpowiedni parametr; Dostępne: 'on', 'off'"));
+						sender.sendMessage(Util.color("&cTen gracz ma uprawnienie 'essentials.freeze.bypass', co daje mu bypass na zamrażanie"));
 					}
+				} else if (args[1].equals("off")) {
+					Player cel = Bukkit.getPlayerExact(args[0]);
+					UUID uuid = cel.getUniqueId();
+					freezedPlayers.remove(uuid);
+					sender.sendMessage(Util.color("&3Odmrożono gracza " + cel.getName()));
+					cel.setInvulnerable(!cel.isInvulnerable());
+				} else {
+					sender.sendMessage(Util.color("&cPodaj odpowiedni parametr; Dostępne: 'on', 'off'"));
+				}
 			} else {
 				sender.sendMessage(Util.color("&cPodaj nick gracza!"));
 			}

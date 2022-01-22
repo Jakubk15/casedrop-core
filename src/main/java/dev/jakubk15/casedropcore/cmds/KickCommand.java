@@ -10,21 +10,21 @@ public class KickCommand extends SimpleCommand {
 
 	public KickCommand() {
 		super("kick");
+		setPermission("essentials.kick");
+		setMinArguments(1);
+		setUsage("<player> [reason]");
+		setDescription("Kicks player.");
 	}
 
 	@Override
 	public void onCommand() {
-			if (sender.hasPermission("essentials.kick")) {
-				if (args.length > 0) {
-					Player target = Bukkit.getPlayerExact(args[0]);
-					assert target != null;
-					target.kick(null, PlayerKickEvent.Cause.valueOf(Util.color("&cZostałeś wyrzucony z serwera!\n\n&cPrzez administratora: " + sender.getName() + "\n\n&cPowód: " + args[1])));
-					sender.sendMessage(Util.color("&3Wyrzucono gracza" + target.getName()));
-				} else {
-					sender.sendMessage(Util.color("&cPodaj nick gracza!"));
-				}
-			} else {
-				sender.sendMessage(Util.color("&cBrak uprawnien!"));
-			}
+		if (args.length > 0) {
+			Player target = Bukkit.getPlayerExact(args[0]);
+			assert target != null;
+			target.kick(null, PlayerKickEvent.Cause.valueOf(Util.color("&cZostałeś wyrzucony z serwera!\n\n&cPrzez administratora: " + sender.getName() + "\n\n&cPowód: " + args[1])));
+			sender.sendMessage(Util.color("&3Wyrzucono gracza" + target.getName()));
+		} else {
+			sender.sendMessage(Util.color("&cPodaj nick gracza!"));
+		}
 	}
 }

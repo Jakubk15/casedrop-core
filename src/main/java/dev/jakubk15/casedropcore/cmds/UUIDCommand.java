@@ -9,16 +9,19 @@ public class UUIDCommand extends SimpleCommand {
 
 	public UUIDCommand() {
 		super("uuid|getuuid");
+		setPermission("essentials.uuid");
+		setUsage("<player>");
+		setDescription("Gets UUID (Unique ID) of player.");
 	}
 
 	@Override
 	public void onCommand() {
-			if (args.length > 0) {
-				Player target = Bukkit.getPlayerExact(args[0]);
-				assert target != null;
-				sender.sendMessage(Util.color("&3UUID gracza &b" + target.getName() + "&3 to &b" + target.getUniqueId()));
-			} else {
-				sender.sendMessage(Util.color("&cPodaj prawidłowy nick gracza"));
-			}
+		if (args.length > 0) {
+			Player target = Bukkit.getPlayerExact(args[0]);
+			assert target != null;
+			sender.sendMessage(Util.color("&3UUID gracza &b" + target.getName() + "&3 to &b" + target.getUniqueId()));
+		} else {
+			sender.sendMessage(Util.color("&cPodaj prawidłowy nick gracza"));
+		}
 	}
 }
