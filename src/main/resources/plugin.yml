@@ -1,10 +1,10 @@
 name: Casedropcore
-version: 1.8
+version: 2.0
 main: dev.jakubk15.casedropcore.CasedropCore
-api-version: 1.17
+api-version: 1.13
 prefix: CaseDropCore
 authors: [ Jakubk15 ]
-description: Essentials tools for server.
+description: Essentials tools for your server.
 commands:
   feed:
     permission: essentials.feed
