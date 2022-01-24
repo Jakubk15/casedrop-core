@@ -13,6 +13,7 @@ public class FeedCommand extends SimpleCommand {
 		setDescription("Feeds player.");
 		setPermission("essentials.feed");
 		setUsage("[player]");
+		setPermissionMessage("&cBrak uprawnień.");
 	}
 
 	@Override

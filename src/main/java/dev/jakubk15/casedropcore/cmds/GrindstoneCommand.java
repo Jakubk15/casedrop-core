@@ -12,6 +12,7 @@ public class GrindstoneCommand extends SimpleCommand {
 		super("grindstone");
 		setMinArguments(0);
 		setPermission("essentials.grindstone");
+		setPermissionMessage("&cBrak uprawnień.");
 	}
 
 	@Override

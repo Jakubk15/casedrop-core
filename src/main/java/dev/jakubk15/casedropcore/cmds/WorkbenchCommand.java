@@ -9,6 +9,7 @@ public class WorkbenchCommand extends SimpleCommand {
 		super("wb|workbench");
 		setPermission("essentials.workbench");
 		setDescription("Opens a workbench.");
+		setPermissionMessage("&cBrak uprawnień.");
 	}
 
 	@Override

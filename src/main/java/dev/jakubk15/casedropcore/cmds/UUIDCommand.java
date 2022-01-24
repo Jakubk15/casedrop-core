@@ -11,6 +11,7 @@ public class UUIDCommand extends SimpleCommand {
 		setPermission("essentials.uuid");
 		setUsage("<player>");
 		setDescription("Gets UUID (Unique ID) of player.");
+		setPermissionMessage("&cBrak uprawnień.");
 	}
 
 	@Override

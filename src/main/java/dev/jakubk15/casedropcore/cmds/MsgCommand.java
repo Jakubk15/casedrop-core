@@ -23,6 +23,12 @@ public class MsgCommand extends SimpleCommand {
 			String msg = args[1];
 			target.sendMessage(Util.color("&3[&b" + sender.getName() + "&3 -> " + target.getName() + "&3] &7" + msg));
 			tell(Util.color("&3[&b" + sender.getName() + "&3 -> " + target.getName() + "&3] &7" + msg));
+			// TODO implement config socialspy check
+			for (Player adm : Bukkit.getOnlinePlayers()) {
+				if (adm.hasPermission("essentials.socialspy")) {
+					adm.sendMessage(Util.color("&4[SocialSpy] &3[&b" + sender.getName() + "&3 -> " + target.getName() + "&3] &7" + msg));
+				}
+			}
 		} else {
 			sender.sendMessage(Util.color("&cPodany gracz jest offline lub nie był nigdy na serwerze!"));
 		}

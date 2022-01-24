@@ -20,6 +20,7 @@ public class MuteCommand extends SimpleCommand implements Listener {
 		setUsage("<player> [reason]");
 		setDescription("Mutes player with reason (if specified).");
 		setMinArguments(1);
+		setPermissionMessage("&cBrak uprawnień.");
 	}
 
 	public static Set<UUID> muted = new HashSet<>();

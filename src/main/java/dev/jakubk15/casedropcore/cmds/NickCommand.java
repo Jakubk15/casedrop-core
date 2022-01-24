@@ -13,6 +13,7 @@ public class NickCommand extends SimpleCommand {
 		setUsage("<player> <nickname>");
 		setDescription("Change nickname of player.");
 		setMinArguments(1);
+		setPermissionMessage("&cBrak uprawnień.");
 	}
 
 	@Override

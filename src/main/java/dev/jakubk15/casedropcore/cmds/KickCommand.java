@@ -14,6 +14,7 @@ public class KickCommand extends SimpleCommand {
 		setMinArguments(1);
 		setUsage("<player> [reason]");
 		setDescription("Kicks player.");
+		setPermissionMessage("&cBrak uprawnień.");
 	}
 
 	@Override

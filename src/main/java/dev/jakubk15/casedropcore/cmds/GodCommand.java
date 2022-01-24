@@ -12,6 +12,7 @@ public class GodCommand extends SimpleCommand {
 		setMinArguments(0);
 		setDescription("Enables/disables godmode.");
 		setPermission("essentials.god");
+		setPermissionMessage("&cBrak uprawnień.");
 	}
 
 	@Override

@@ -13,6 +13,7 @@ public class IPCommand extends SimpleCommand {
 		setUsage("<player>");
 		setPermission("essentials.ip");
 		setDescription("Gets player IPv4 address.");
+		setPermissionMessage("&cBrak uprawnień.");
 	}
 
 	@Override

@@ -13,6 +13,7 @@ public class GamemodeCommand extends SimpleCommand {
 		setPermission("essentials.gamemode");
 		setDescription("Changes gamemode.");
 		setUsage("<gamemode>");
+		setPermissionMessage("&cBrak uprawnień.");
 	}
 
 	@Override

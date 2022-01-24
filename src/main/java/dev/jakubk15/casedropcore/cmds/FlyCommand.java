@@ -12,6 +12,7 @@ public class FlyCommand extends SimpleCommand {
 		setMinArguments(0);
 		setPermission("essentials.fly");
 		setUsage("[player]");
+		setPermissionMessage("&cBrak uprawnień.");
 	}
 
 	@Override

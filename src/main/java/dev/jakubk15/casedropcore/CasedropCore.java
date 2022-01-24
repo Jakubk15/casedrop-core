@@ -30,12 +30,9 @@ public class CasedropCore extends SimplePlugin {
 
 	/* TODO:
 	- realnickname command
-	- socialspy?
-	- checkban
-	- teleport
+	- socialspy (finish config check)
 	- messages.properties
 	- settings.yml
-	- switch to java 8 for maximum backwards compatibility (1.8.8 - 1.18.x) for now
     - split ChatManager and FreezeCommand onto listeners
 	 */
 
@@ -47,6 +44,7 @@ public class CasedropCore extends SimplePlugin {
 		registerCommand(new BanCommand());
 		registerCommand(new BanIPCommand());
 		registerCommand(new ChatManager());
+		registerCommand(new CheckbanCommand());
 		registerCommand(new EnderChestCommand());
 		registerCommand(new FeedCommand());
 		registerCommand(new FlyCommand());
@@ -65,13 +63,12 @@ public class CasedropCore extends SimplePlugin {
 		registerCommand(new PingCommand());
 		registerCommand(new ReloadCommand());
 		registerCommand(new StoneCutterCommand());
+		registerCommand(new TeleportCommand());
 		registerCommand(new UnbanCommand());
 		registerCommand(new UnmuteCommand());
 		registerCommand(new UUIDCommand());
 		registerCommand(new VanishCommand());
 		registerCommand(new WorkbenchCommand());
-
-
 	}
 
 	public void registerEvents() {
@@ -79,6 +76,4 @@ public class CasedropCore extends SimplePlugin {
 		registerEvents(new FreezeCommand());
 		registerEvents(new MuteCommand());
 	}
-
-
 }

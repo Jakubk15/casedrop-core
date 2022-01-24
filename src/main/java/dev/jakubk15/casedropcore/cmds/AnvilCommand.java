@@ -13,6 +13,7 @@ public class AnvilCommand extends SimpleCommand {
 		setMinArguments(0);
 		setDescription("Opens anvil");
 		setPermission("essentials.anvil");
+		setPermissionMessage("&cBrak uprawnień.");
 	}
 
 	@Override

@@ -13,6 +13,7 @@ public class BanCommand extends SimpleCommand {
 		setMinArguments(1);
 		setPermission("essentials.ban");
 		setDescription("Bans player.");
+		setPermissionMessage("&cBrak uprawnień.");
 	}
 
 	@Override

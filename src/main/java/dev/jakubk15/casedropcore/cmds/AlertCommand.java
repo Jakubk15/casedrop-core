@@ -16,6 +16,8 @@ public class AlertCommand extends SimpleCommand {
 		setMinArguments(2);
 		setUsage("<type> <message>");
 		setDescription("Sends alert with specified type and message to all players.");
+		setPermission("essentials.broadcast");
+		setPermissionMessage("&cBrak uprawnień.");
 	}
 
 	@Override

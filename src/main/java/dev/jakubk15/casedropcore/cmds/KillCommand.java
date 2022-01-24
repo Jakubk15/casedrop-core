@@ -12,6 +12,7 @@ public class KillCommand extends SimpleCommand {
 		setMinArguments(1);
 		setUsage("<player>");
 		setDescription("Kills player");
+		setPermissionMessage("&cBrak uprawnień.");
 	}
 
 	@Override

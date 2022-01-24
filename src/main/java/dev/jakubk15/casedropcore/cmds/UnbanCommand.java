@@ -10,6 +10,7 @@ public class UnbanCommand extends SimpleCommand {
 		super("unban");
 		setPermission("essentials.unban");
 		setDescription("Unbans a already banned player.");
+		setPermissionMessage("&cBrak uprawnień.");
 	}
 
 	@Override

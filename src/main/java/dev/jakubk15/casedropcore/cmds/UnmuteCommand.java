@@ -11,6 +11,7 @@ public class UnmuteCommand extends SimpleCommand {
 		setPermission("essentials.unmute");
 		setUsage("<player>");
 		setDescription("Unmutes already muted player.");
+		setPermissionMessage("&cBrak uprawnień.");
 	}
 
 	@Override

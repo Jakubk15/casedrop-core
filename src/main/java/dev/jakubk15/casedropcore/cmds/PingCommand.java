@@ -13,7 +13,7 @@ public class PingCommand extends SimpleCommand {
 		super("ping");
 		setPermission("essentials.ping");
 		setUsage("<player> <message>");
-		setDescription("Sends a private message to player.");
+		setDescription("Check player ping.");
 	}
 
 	@Override

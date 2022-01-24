@@ -12,6 +12,7 @@ public class HealCommand extends SimpleCommand {
 		setMinArguments(0);
 		setUsage("[player]");
 		setDescription("Heals player.");
+		setPermissionMessage("&cBrak uprawnień.");
 	}
 
 	@Override

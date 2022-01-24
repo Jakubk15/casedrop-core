@@ -15,6 +15,7 @@ public class AdminChatCommand extends SimpleCommand {
 		setUsage("<message>");
 		setDescription("Sends message to all admins online.");
 		setPermission("essentials.adminchat");
+		setPermissionMessage("&cBrak uprawnień.");
 	}
 
 	@Override

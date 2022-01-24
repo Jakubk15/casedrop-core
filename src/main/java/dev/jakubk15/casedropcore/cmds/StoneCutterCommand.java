@@ -12,6 +12,7 @@ public class StoneCutterCommand extends SimpleCommand {
 		super("stonecutter|sc");
 		setPermission("essentials.stonecutter");
 		setDescription("Opens a stonecutter.");
+		setPermissionMessage("&cBrak uprawnień.");
 	}
 
 	@Override

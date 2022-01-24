@@ -13,6 +13,7 @@ public class BanIPCommand extends SimpleCommand {
 		setMinArguments(1);
 		setPermission("essentials.banip");
 		setDescription("Bans player IP");
+		setPermissionMessage("&cBrak uprawnień.");
 	}
 
 	@Override

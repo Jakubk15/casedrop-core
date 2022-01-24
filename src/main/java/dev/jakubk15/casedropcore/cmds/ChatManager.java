@@ -15,6 +15,7 @@ public class ChatManager extends SimpleCommand implements Listener {
 		setMinArguments(1);
 		setPermission("essentials.chat.admin");
 		setDescription("Chat manager main command.");
+		setPermissionMessage("&cBrak uprawnień.");
 	}
 
 	public static boolean isMuted;

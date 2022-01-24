@@ -10,6 +10,7 @@ public class ReloadCommand extends SimpleCommand {
 		super("casedropcore-reload");
 		setPermission("essentials.reload");
 		setDescription("Reloads the plugin.");
+		setPermissionMessage("&cBrak uprawnień.");
 	}
 
 	@Override

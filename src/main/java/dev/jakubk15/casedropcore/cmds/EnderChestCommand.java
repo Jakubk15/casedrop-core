@@ -11,6 +11,7 @@ public class EnderChestCommand extends SimpleCommand {
 		setMinArguments(0);
 		setPermission("essentials.enderchest");
 		setDescription("Opens enderchest.");
+		setPermissionMessage("&cBrak uprawnień.");
 	}
 
 	@Override

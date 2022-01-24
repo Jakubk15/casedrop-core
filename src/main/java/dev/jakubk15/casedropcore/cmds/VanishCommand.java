@@ -11,6 +11,7 @@ public class VanishCommand extends SimpleCommand {
 		setPermission("essentials.vanish");
 		setUsage("<player>");
 		setDescription("Włącza/wyłącza vanisha.");
+		setPermissionMessage("&cBrak uprawnień.");
 	}
 
 	@Override
