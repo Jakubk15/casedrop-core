@@ -1,11 +1,11 @@
 package dev.jakubk15.casedropcore.cmds;
 
 import dev.jakubk15.casedropcore.utils.Util;
-import io.papermc.paper.event.player.AsyncChatEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.mineacademy.fo.command.SimpleCommand;
 
 import java.util.HashSet;
@@ -26,24 +26,21 @@ public class MuteCommand extends SimpleCommand implements Listener {
 
 	@Override
 	public void onCommand() {
-		if (args.length > 0) {
-			Player target = Bukkit.getPlayerExact(args[0]);
-			if (target == null) return;
-			String reason = args[1];
-			target.sendMessage(Util.color("&3Zostałeś wyciszony przez administratora " + sender.getName() + " &3 za " + reason));
-			muted.add(target.getUniqueId());
-		} else {
-			sender.sendMessage(Util.color("&cPodaj nick gracza!"));
-		}
+		checkArgs(1, "&cPodaj nick gracza.");
+		Player target = Bukkit.getPlayerExact(args[0]);
+		if (target == null) return;
+		String reason = args[1];
+		target.sendMessage(Util.color("&3Zostałeś wyciszony przez administratora " + sender.getName() + " &3 za " + reason));
+		muted.add(target.getUniqueId());
+
 	}
 
 	@EventHandler
-	private void onChat(AsyncChatEvent event) {
+	private void onChat(AsyncPlayerChatEvent event) {
 		if (muted.contains(event.getPlayer().getUniqueId())) {
 			event.setCancelled(true);
 			event.getPlayer().sendMessage(Util.color("&cJesteś wyciszony!"));
 		}
-
 	}
 
 

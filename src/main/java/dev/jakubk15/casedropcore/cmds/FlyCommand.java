@@ -25,7 +25,7 @@ public class FlyCommand extends SimpleCommand {
 		} else {
 			Player sender1 = (Player) sender;
 			sender1.setAllowFlight(!sender1.isFlying());
-			sender.sendMessage(Util.color("&3Latanie zostało:") + (sender1.getAllowFlight() ? "włączone." : "wyłączone."));
+			tell(Util.color("&3Latanie zostało:") + (sender1.getAllowFlight() ? "włączone." : "wyłączone."));
 		}
 	}
 }

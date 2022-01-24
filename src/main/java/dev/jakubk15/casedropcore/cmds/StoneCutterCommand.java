@@ -1,6 +1,9 @@
 package dev.jakubk15.casedropcore.cmds;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.inventory.Inventory;
 import org.mineacademy.fo.command.SimpleCommand;
 
 public class StoneCutterCommand extends SimpleCommand {
@@ -14,6 +17,7 @@ public class StoneCutterCommand extends SimpleCommand {
 	@Override
 	public void onCommand() {
 		checkConsole();
-		((Player) sender).openStonecutter(null, true);
+		Inventory inv = Bukkit.createInventory(null, InventoryType.STONECUTTER);
+		((Player) sender).openInventory(inv);
 	}
 }

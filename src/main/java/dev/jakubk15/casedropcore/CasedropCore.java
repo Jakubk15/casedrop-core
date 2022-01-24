@@ -31,6 +31,7 @@ public class CasedropCore extends SimplePlugin {
 	/* TODO:
 	- realnickname command
 	- socialspy?
+	- checkban
 	- teleport
 	- messages.properties
 	- settings.yml

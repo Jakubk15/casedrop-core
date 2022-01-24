@@ -22,11 +22,11 @@ public class FeedCommand extends SimpleCommand {
 			if (target == null) return;
 			target.setFoodLevel(20);
 			target.sendMessage(Util.color("&3Zostałeś najedzony!"));
-			sender.sendMessage(Util.color("&3Najadłeś gracza " + target.getName() + "."));
+			tell(Util.color("&3Najadłeś gracza " + target.getName() + "."));
 		} else {
 			Player sender1 = (Player) sender;
 			sender1.setFoodLevel(20);
-			sender.sendMessage(Util.color("&3Zostałeś najedzony!"));
+			tell(Util.color("&3Zostałeś najedzony!"));
 		}
 	}
 }

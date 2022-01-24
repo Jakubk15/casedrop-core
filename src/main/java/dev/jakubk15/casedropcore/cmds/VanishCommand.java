@@ -1,6 +1,5 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.mineacademy.fo.command.SimpleCommand;
@@ -19,11 +18,11 @@ public class VanishCommand extends SimpleCommand {
 		if (args.length > 0) {
 			Player target = Bukkit.getPlayerExact(args[0]);
 			if (target == null) return;
-			sender.sendMessage(Util.color(target.isInvisible() ? "&3Włączono " : "&3Wyłączono " + "vanisha dla gracza " + target.getName()));
+			tell(target.isInvisible() ? "&3Włączono " : "&3Wyłączono " + "vanisha dla gracza " + target.getName());
 			target.setInvisible(!target.isInvisible());
 		} else {
 			Player sender1 = (Player) sender;
-			sender.sendMessage(Util.color(sender1.isInvisible() ? "&3Włączono " : "&3Wyłączono " + "vanisha."));
+			tell(sender1.isInvisible() ? "&3Włączono " : "&3Wyłączono " + "vanisha.");
 			sender1.setInvisible(!sender1.isInvisible());
 		}
 	}

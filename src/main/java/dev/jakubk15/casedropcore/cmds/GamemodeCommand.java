@@ -17,29 +17,26 @@ public class GamemodeCommand extends SimpleCommand {
 
 	@Override
 	public void onCommand() {
-		if (args.length > 0) {
-			Player sender1 = (Player) sender;
-			if (sender1 == null) return;
-			switch (args[0]) {
-				case "0" -> {
-					sender1.setGameMode(GameMode.SURVIVAL);
-					sender.sendMessage(Util.color("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
-				}
-				case "1" -> {
-					sender1.setGameMode(GameMode.CREATIVE);
-					sender.sendMessage(Util.color("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
-				}
-				case "2" -> {
-					sender1.setGameMode(GameMode.ADVENTURE);
-					sender.sendMessage(Util.color("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
-				}
-				case "3" -> {
-					sender1.setGameMode(GameMode.SPECTATOR);
-					sender.sendMessage(Util.color("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
-				}
+		checkArgs(1, "&cPodaj argument 1");
+		Player sender1 = (Player) sender;
+		if (sender1 == null) return;
+		switch (args[0]) {
+			case "0": {
+				sender1.setGameMode(GameMode.SURVIVAL);
+				sender.sendMessage(Util.color("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
 			}
-		} else {
-			sender.sendMessage(Util.color("&cPodaj argument 1!"));
+			case "1": {
+				sender1.setGameMode(GameMode.CREATIVE);
+				sender.sendMessage(Util.color("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
+			}
+			case "2": {
+				sender1.setGameMode(GameMode.ADVENTURE);
+				sender.sendMessage(Util.color("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
+			}
+			case "3": {
+				sender1.setGameMode(GameMode.SPECTATOR);
+				sender.sendMessage(Util.color("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
+			}
 		}
 	}
 

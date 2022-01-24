@@ -14,10 +14,6 @@ public class WorkbenchCommand extends SimpleCommand {
 	@Override
 	public void onCommand() {
 		checkConsole();
-		if (sender.hasPermission("essentials.workbench")) {
-			((Player) sender).openWorkbench(null, true);
-		} else {
-			sender.sendMessage("Nie można wykonać tego polecenia z poziomu konsoli.");
-		}
+		((Player) sender).openWorkbench(null, true);
 	}
 }
