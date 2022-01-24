@@ -1,29 +1,31 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.Util;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
+import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.inventory.Inventory;
+import org.mineacademy.fo.command.SimpleCommand;
 
-public class AnvilCommand implements CommandExecutor {
+public class AnvilCommand extends SimpleCommand {
 
-	public AnvilCommand() {}
+	public AnvilCommand() {
+		super("anvil");
+		setMinArguments(0);
+		setDescription("Opens anvil");
+		setPermission("essentials.anvil");
+		setPermissionMessage("&cBrak uprawnień.");
+	}
 
 	@Override
-	public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-		if (commandSender instanceof Player p) {
-			if (commandSender.hasPermission("essentials.anvil")) {
-				p.openAnvil(null, true);
-				return true;
-			} else {
-				commandSender.sendMessage(Util.color("&cBrak uprawnień."));
-				return false;
-			}
+	public void onCommand() {
+		checkConsole();
+		Inventory inv = Bukkit.createInventory(null, InventoryType.ANVIL);
+		if (args.length > 0) {
+			Player p = Bukkit.getPlayerExact(args[0]);
+			p.openInventory(inv);
+			tell("&bOtworzono kowadło graczowi &3" + p.getName());
 		} else {
-			commandSender.sendMessage("Nie można wykonać tego polecenia z poziomu konsoli.");
+			((Player) sender).openInventory(inv);
 		}
-		return false;
 	}
 }

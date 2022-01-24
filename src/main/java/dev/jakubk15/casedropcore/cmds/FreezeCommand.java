@@ -2,19 +2,16 @@ package dev.jakubk15.casedropcore.cmds;
 
 import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
-import org.bukkit.event.player.PlayerAttemptPickupItemEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
-import org.jetbrains.annotations.NotNull;
+import org.mineacademy.fo.command.SimpleCommand;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -26,12 +23,28 @@ import java.util.UUID;
  *    And many lags!
  *    Use carefully, only when really needed.
  */
-public class FreezeCommand implements CommandExecutor, Listener {
+public class FreezeCommand extends SimpleCommand implements Listener {
 
-	public FreezeCommand() {}
+	public FreezeCommand() {
+		super("freeze");
+		setMinArguments(1);
+		setUsage("<player>");
+		setPermission("essentials.freeze");
+		setPermissionMessage("&cBrak uprawnień.");
+	}
 
 	public static Set<UUID> freezedPlayers = new HashSet<>();
 
+
+	/*
+	 *
+	 * Wywołuje bardzo duże lagi. Używaj na własną odpowiedzialność.
+	 * Może zostać usunięte w przyszłości.
+	 *
+	 */
+
+
+	@Deprecated
 	@EventHandler
 	private void onMove(PlayerMoveEvent e) {
 		Player p = e.getPlayer();
@@ -76,8 +89,8 @@ public class FreezeCommand implements CommandExecutor, Listener {
 	}
 
 	@EventHandler
-	private void onPickup(PlayerAttemptPickupItemEvent e) {
-		Player p = e.getPlayer();
+	private void onPickup(EntityPickupItemEvent e) {
+		Player p = (Player) e.getEntity();
 		if (freezedPlayers.contains(p.getUniqueId())) {
 			e.setCancelled(true);
 		}
@@ -95,42 +108,29 @@ public class FreezeCommand implements CommandExecutor, Listener {
 
 
 	@Override
-	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-		if (sender.hasPermission("essentials.freeze")) {
-			if (args.length > 0) {
-					if (args[1].equals("on")) {
-						Player target = Bukkit.getPlayerExact(args[0]);
-						assert target != null;
-						if (!target.hasPermission("essentials.freeze.bypass")) {
-							UUID uuid = target.getUniqueId();
-							freezedPlayers.add(uuid);
-							sender.sendMessage(Util.color("&3Zamrożono gracza " + target.getName()));
-							target.sendMessage(Util.color("&3Gracz " + sender.getName() + "&3 zamroził cię."));
-							target.setInvulnerable(!target.isInvulnerable());
-							final int food = target.getFoodLevel();
-							return true;
-						} else {
-							sender.sendMessage(Util.color("&cTen gracz ma uprawnienie 'essentials.freeze.bypass', co daje mu bypass na zamrażanie"));
-							return false;
-						}
-					} else if (args[1].equals("off")) {
-						Player cel = Bukkit.getPlayerExact(args[0]);
-						UUID uuid = cel.getUniqueId();
-						freezedPlayers.remove(uuid);
-						sender.sendMessage(Util.color("&3Odmrożono gracza " + cel.getName()));
-						cel.setInvulnerable(!cel.isInvulnerable());
-						return true;
-					} else {
-						sender.sendMessage(Util.color("&cPodaj odpowiedni parametr; Dostępne: 'on', 'off'"));
-						return false;
-					}
+	public void onCommand() {
+		checkArgs(1, "&cPodaj prawidłowy nick gracza");
+		if (args[1].equals("on")) {
+			Player target = Bukkit.getPlayerExact(args[0]);
+			assert target != null;
+			if (!target.hasPermission("essentials.freeze.bypass")) {
+				UUID uuid = target.getUniqueId();
+				freezedPlayers.add(uuid);
+				sender.sendMessage(Util.color("&3Zamrożono gracza " + target.getName()));
+				target.sendMessage(Util.color("&3Gracz " + sender.getName() + "&3 zamroził cię."));
+				target.setInvulnerable(!target.isInvulnerable());
+				int food = target.getFoodLevel();
 			} else {
-				sender.sendMessage(Util.color("&cPodaj nick gracza!"));
-				return false;
+				sender.sendMessage(Util.color("&cTen gracz ma uprawnienie 'essentials.freeze.bypass', co daje mu bypass na zamrażanie"));
 			}
+		} else if (args[1].equals("off")) {
+			Player cel = Bukkit.getPlayerExact(args[0]);
+			UUID uuid = cel.getUniqueId();
+			freezedPlayers.remove(uuid);
+			sender.sendMessage(Util.color("&3Odmrożono gracza " + cel.getName()));
+			cel.setInvulnerable(!cel.isInvulnerable());
 		} else {
-			sender.sendMessage(Util.color("&cBrak uprawnien!"));
+			sender.sendMessage(Util.color("&cPodaj odpowiedni parametr; Dostępne: 'on', 'off'"));
 		}
-	return false;
 	}
 }

@@ -1,29 +1,24 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.Util;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
+import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.inventory.Inventory;
+import org.mineacademy.fo.command.SimpleCommand;
 
-public class GrindstoneCommand implements CommandExecutor {
+public class GrindstoneCommand extends SimpleCommand {
 
-	public GrindstoneCommand() {}
+	public GrindstoneCommand() {
+		super("grindstone");
+		setMinArguments(0);
+		setPermission("essentials.grindstone");
+		setPermissionMessage("&cBrak uprawnień.");
+	}
 
 	@Override
-	public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-		if (commandSender instanceof Player p) {
-			if (commandSender.hasPermission("essentials.grindstone")) {
-				p.openGrindstone(null, true);
-				return true;
-			} else {
-				commandSender.sendMessage(Util.color("&cBrak uprawnień."));
-				return false;
-			}
-		} else {
-			commandSender.sendMessage("Nie można wykonać tego polecenia z poziomu konsoli.");
-		}
-		return false;
+	public void onCommand() {
+		checkConsole();
+		Inventory inv = Bukkit.createInventory(null, InventoryType.GRINDSTONE);
+		((Player) sender).openInventory(inv);
 	}
 }

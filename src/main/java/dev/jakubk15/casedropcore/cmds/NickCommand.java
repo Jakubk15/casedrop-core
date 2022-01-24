@@ -1,33 +1,28 @@
 package dev.jakubk15.casedropcore.cmds;
 
 import dev.jakubk15.casedropcore.utils.Util;
-import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
+import org.mineacademy.fo.command.SimpleCommand;
 
-public class NickCommand implements CommandExecutor {
+public class NickCommand extends SimpleCommand {
 
-	public NickCommand() {}
+	public NickCommand() {
+		super("nick|nickname");
+		setPermission("essentials.nick");
+		setUsage("<player> <nickname>");
+		setDescription("Change nickname of player.");
+		setMinArguments(1);
+		setPermissionMessage("&cBrak uprawnień.");
+	}
 
 	@Override
-	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-			if (sender.hasPermission("essentials.nick")) {
-				if (args.length > 0) {
-					Player target = Bukkit.getPlayerExact(args[1]);
-					assert target != null;
-					target.displayName(Component.text(args[0]));
-					sender.sendMessage(Util.color("&3Zmieniono nick gracza " + target.getName() + " na " + args[0]));
-				} else {
-					sender.sendMessage(Util.color("&cPodaj nowy nick!"));
-				}
-			} else {
-				sender.sendMessage(Util.color("&cBrak uprawnień!"));
-			}
+	public void onCommand() {
+		checkArgs(1, "&cPodaj nowy nick.");
+		Player target = Bukkit.getPlayerExact(args[1]);
+		if (target == null) return;
+		target.setDisplayName(Util.color(args[0]));
+		sender.sendMessage(Util.color("&3Zmieniono nick gracza " + target.getName() + " na " + args[0]));
 
-		return false;
 	}
 }

@@ -1,60 +1,61 @@
 package dev.jakubk15.casedropcore.cmds;
 
 import dev.jakubk15.casedropcore.utils.Util;
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.title.Title;
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
+import org.mineacademy.fo.command.SimpleCommand;
 
-public class AlertCommand implements CommandExecutor {
+import java.util.List;
 
-	public AlertCommand() {}
+public class AlertCommand extends SimpleCommand {
+
+	public AlertCommand() {
+		super("alert");
+		setMinArguments(2);
+		setUsage("<type> <message>");
+		setDescription("Sends alert with specified type and message to all players.");
+		setPermission("essentials.broadcast");
+		setPermissionMessage("&cBrak uprawnień.");
+	}
 
 	@Override
-	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-			if (sender.hasPermission("essentials.broadcast")) {
-				if (args.length > 0) {
-						final String message = args[1];
-						if (!args[0].equals("title") && !args[0].equals("actionbar") && !args[0].equals("chat")) {
-							sender.sendMessage(Util.color("&cPodaj prawidłowy typ alertu!"));
-							return false;
-						} else if (args[0].equals("chat")) {
-							for (Player ps : Bukkit.getOnlinePlayers()) {
-								ps.sendMessage(Util.color("&8&m---------- &8&l[ &3&lALERT&8&l ]&8&m ----------"));
-								ps.sendMessage(Util.color(" "));
-								ps.sendMessage(Util.color("          " + message + "          "));
-								ps.sendMessage(Util.color(" "));
-								ps.sendMessage(Util.color("&8&m---------- &8&l[ &3&lALERT&8&l ]&8&m ----------"));
-								return true;
-							}
-						} else if (args[0].equals("title")) {
-							for (Player ps : Bukkit.getOnlinePlayers()) {
-								final Component mainTitle = Component.text(Util.color("&8* &4&lALERT &8*"));
-								final Component subTitle = Component.text(Util.color(message));
-								final Title title = Title.title(mainTitle, subTitle);
-								ps.showTitle(title);
-								return true;
-							}
-						} else if (args[0].equals("actionbar")) {
-							for (Player ps : Bukkit.getOnlinePlayers()) {
-								final Component actionbar = Component.text(Util.color("&8* &4&lALERT &8*" + message));
-								ps.sendActionBar(actionbar);
-								return true;
-							}
-						}
-				} else {
-					sender.sendMessage(Util.color("&cPodaj prawidłowy typ alertu!"));
-					return false;
-				}
-			} else {
-				sender.sendMessage(Util.color("&cBrak uprawnien!"));
-				return false;
+	public void onCommand() {
+		checkArgs(1, "&cPodaj prawidłowy typ alertu!");
+		String type = args[0];
+		String message = args[1];
+		if (!type.equals("title") && !type.equals("actionbar") && !type.equals("chat")) {
+			sender.sendMessage(Util.color("&cPodaj prawidłowy typ alertu!"));
+		} else if (args[0].equals("chat")) {
+			for (Player ps : Bukkit.getOnlinePlayers()) {
+				ps.sendMessage(Util.color("&8&m---------- &8&l[ &3&lALERT&8&l ]&8&m ----------"));
+				ps.sendMessage(Util.color(" "));
+				ps.sendMessage(Util.color("          " + message + "          "));
+				ps.sendMessage(Util.color(" "));
+				ps.sendMessage(Util.color("&8&m---------- &8&l[ &3&lALERT&8&l ]&8&m ----------"));
+				return;
 			}
+		} else if (args[0].equals("title")) {
+			for (Player ps : Bukkit.getOnlinePlayers()) {
+				String title = (Util.color("&8* &4&lALERT &8*"));
+				String subTitle = (Util.color(message));
+				ps.sendTitle(title, subTitle, 5, 40, 5);
+				return;
+			}
+		} else if (args[0].equals("actionbar")) {
+			for (Player ps : Bukkit.getOnlinePlayers()) {
+				String actionbar = (Util.color("&8* &4&lALERT &8*" + message));
+				ps.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(message));
+				return;
+			}
+		}
 
-		return false;
+
+	}
+
+	@Override
+	protected List<String> completeLastWordPlayerNames() {
+		return super.completeLastWordPlayerNames();
 	}
 }

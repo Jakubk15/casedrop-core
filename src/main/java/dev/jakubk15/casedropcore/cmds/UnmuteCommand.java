@@ -1,36 +1,29 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
+import org.mineacademy.fo.command.SimpleCommand;
 
-public class UnmuteCommand implements CommandExecutor {
+public class UnmuteCommand extends SimpleCommand {
 
-	public UnmuteCommand() {}
+	public UnmuteCommand() {
+		super("unmute");
+		setPermission("essentials.unmute");
+		setUsage("<player>");
+		setDescription("Unmutes already muted player.");
+		setPermissionMessage("&cBrak uprawnień.");
+	}
 
 	@Override
-	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-			if (sender.hasPermission("essentials.unmute")) {
-				if (args.length > 0) {
-					Player target = Bukkit.getPlayerExact(args[0]);
-					assert target != null;
-					if (MuteCommand.muted.contains(target.getUniqueId())) {
-						MuteCommand.muted.remove(target.getUniqueId());
-						sender.sendMessage(Util.color("&3Odciszono gracza " + target.getName()));
-					} else {
-						sender.sendMessage(Util.color("&cTen gracz nie jest wyciszony!"));
-					}
-				} else {
-					sender.sendMessage(Util.color("&cPodaj nick gracza!"));
-				}
-			} else {
-				sender.sendMessage(Util.color("&cBrak uprawnien!"));
-			}
-
-		return false;
+	public void onCommand() {
+		checkArgs(1, "&cPodaj nick gracza!");
+		Player target = Bukkit.getPlayerExact(args[0]);
+		if (target == null) return;
+		if (MuteCommand.muted.contains(target.getUniqueId())) {
+			MuteCommand.muted.remove(target.getUniqueId());
+			tell("&3Odciszono gracza " + target.getName());
+		} else {
+			tell("&cTen gracz nie jest wyciszony!");
+		}
 	}
 }

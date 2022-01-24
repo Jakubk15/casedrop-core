@@ -1,33 +1,32 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
+import org.mineacademy.fo.command.SimpleCommand;
 
-public class VanishCommand implements CommandExecutor {
+public class VanishCommand extends SimpleCommand {
 
-	public VanishCommand() {}
+	public VanishCommand() {
+		super("vanish|v");
+		setPermission("essentials.vanish");
+		setUsage("<player>");
+		setDescription("Włącza/wyłącza vanisha.");
+		setPermissionMessage("&cBrak uprawnień.");
+	}
 
 	@Override
-	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-			if (sender.hasPermission("essentials.vanish")) {
-				if (args.length > 0) {
-					Player target = Bukkit.getPlayerExact(args[0]);
-					assert target != null;
-					sender.sendMessage(Util.color(target.isInvisible() ? "&3Włączono " : "&3Wyłączono " + "vanisha dla gracza " + target.getName()));
-					target.setInvisible(!target.isInvisible());
-					return true;
-				} else {
-					Player sender1 = (Player) sender;
-					sender.sendMessage(Util.color(sender1.isInvisible() ? "&3Włączono " : "&3Wyłączono " + "vanisha."));
-					sender1.setInvisible(!sender1.isInvisible());
-				}
-			}
-		return false;
+	public void onCommand() {
+		if (args.length > 0) {
+			Player target = Bukkit.getPlayerExact(args[0]);
+			if (target == null) return;
+			tell(target.isInvisible() ? "&3Włączono " : "&3Wyłączono " + "vanisha dla gracza " + target.getName());
+			target.setInvisible(!target.isInvisible());
+		} else {
+			Player sender1 = (Player) sender;
+			tell(sender1.isInvisible() ? "&3Włączono " : "&3Wyłączono " + "vanisha.");
+			sender1.setInvisible(!sender1.isInvisible());
+		}
 	}
-	}
+}
+
 

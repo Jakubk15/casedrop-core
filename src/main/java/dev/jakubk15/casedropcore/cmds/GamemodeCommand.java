@@ -2,51 +2,43 @@ package dev.jakubk15.casedropcore.cmds;
 
 import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.GameMode;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
+import org.mineacademy.fo.command.SimpleCommand;
 
-public class GamemodeCommand implements CommandExecutor {
+public class GamemodeCommand extends SimpleCommand {
 
-	public GamemodeCommand() {}
+	public GamemodeCommand() {
+		super("gamemode|gm");
+		setMinArguments(1);
+		setPermission("essentials.gamemode");
+		setDescription("Changes gamemode.");
+		setUsage("<gamemode>");
+		setPermissionMessage("&cBrak uprawnień.");
+	}
 
 	@Override
-	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-			if (sender.hasPermission("essentials.gamemode")) {
-				if (args.length > 0) {
-					Player sender1 = (Player) sender;
-					switch (args[0]) {
-						case "0" -> {
-							sender1.setGameMode(GameMode.SURVIVAL);
-							sender.sendMessage(Util.color("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
-							return true;
-						}
-						case "1" -> {
-							sender1.setGameMode(GameMode.CREATIVE);
-							sender.sendMessage(Util.color("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
-							return true;
-						}
-						case "2" -> {
-							sender1.setGameMode(GameMode.ADVENTURE);
-							sender.sendMessage(Util.color("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
-							return true;
-						}
-						case "3" -> {
-							sender1.setGameMode(GameMode.SPECTATOR);
-							sender.sendMessage(Util.color("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
-							return true;
-						}
-					}
-				} else {
-					sender.sendMessage(Util.color("&cPodaj argument 1!"));
-					return false;
-				}
-			} else {
-				sender.sendMessage(Util.color("&cBrak uprawnien!"));
+	public void onCommand() {
+		checkArgs(1, "&cPodaj argument 1");
+		Player sender1 = (Player) sender;
+		if (sender1 == null) return;
+		switch (args[0]) {
+			case "0": {
+				sender1.setGameMode(GameMode.SURVIVAL);
+				sender.sendMessage(Util.color("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
 			}
-	return false;
+			case "1": {
+				sender1.setGameMode(GameMode.CREATIVE);
+				sender.sendMessage(Util.color("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
+			}
+			case "2": {
+				sender1.setGameMode(GameMode.ADVENTURE);
+				sender.sendMessage(Util.color("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
+			}
+			case "3": {
+				sender1.setGameMode(GameMode.SPECTATOR);
+				sender.sendMessage(Util.color("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
+			}
+		}
 	}
 
 }

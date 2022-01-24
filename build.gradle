@@ -10,30 +10,51 @@ plugins {
 repositories {
     mavenCentral()
     mavenLocal()
-    maven { url = ('https://papermc.io/repo/repository/maven-public/') }
-
+    maven { url = ('https://jitpack.io') }
     maven { url = ('https://oss.sonatype.org/content/groups/public/') }
-
-    maven { url = ('https://repo.maven.apache.org/maven2/') }
 }
 
 dependencies {
-    // paper api
-    compileOnly("io.papermc.paper:paper-api:1.18.1-R0.1-SNAPSHOT")
+
+    // foundation
+    implementation("com.github.kangarko:foundation:5.12.5") {
+        exclude group: 'org.mineacademy.plugin', module: 'AuthMe'
+        exclude group: 'org.mineacademy.plugin', module: 'CitizensAPI'
+        exclude group: 'org.mineacademy.plugin', module: 'CMI-API'
+        exclude group: 'org.mineacademy.plugin', module: 'DiscordSRV'
+        exclude group: 'org.mineacademy.plugin', module: 'EssentialsX'
+        exclude group: 'org.mineacademy.plugin', module: 'Factions'
+        exclude group: 'org.mineacademy.plugin', module: 'FactionsUUID'
+        exclude group: 'org.mineacademy.plugin', module: 'Jobs'
+        exclude group: 'org.mineacademy.plugin', module: 'LandsAPI'
+        exclude group: 'org.mineacademy.plugin', module: 'LWC'
+        exclude group: 'org.mineacademy.plugin', module: 'MassiveCore'
+        exclude group: 'org.mineacademy.plugin', module: 'mcMMO'
+        exclude group: 'org.mineacademy.plugin', module: 'Multiverse-Core'
+        exclude group: 'org.mineacademy.plugin', module: 'NuVotifier'
+        exclude group: 'org.mineacademy.plugin', module: 'PlaceholderAPI'
+        exclude group: 'org.mineacademy.plugin', module: 'ProtocolLib'
+        exclude group: 'org.mineacademy.plugin', module: 'Residence'
+        exclude group: 'org.mineacademy.plugin', module: 'SimpleClans'
+        exclude group: 'org.mineacademy.plugin', module: 'StackMob'
+        exclude group: 'org.mineacademy.plugin', module: 'Towny'
+        exclude group: 'org.mineacademy.plugin', module: 'TownyChat'
+        exclude group: 'org.mineacademy.plugin', module: 'Vault'
+        exclude group: 'org.mineacademy.plugin', module: 'WorldEdit'
+        exclude group: 'org.mineacademy.plugin', module: 'WorldGuard'
+    }
 
     // lombok
-    compileOnly ("org.projectlombok:lombok:1.18.22")
+    compileOnly("org.projectlombok:lombok:1.18.22")
     annotationProcessor("org.projectlombok:lombok:1.18.22")
 
-    // kyori
-    implementation "net.kyori:adventure-api:4.9.3"
 }
 
 group = 'dev.jakubk15'
-version = '1.8-SNAPSHOT'
+version = '2.0-ALPHA'
 description = 'casedropcore'
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(8))
 }
 
 tasks.withType(JavaCompile) {
@@ -42,5 +63,5 @@ tasks.withType(JavaCompile) {
 
 shadowJar {
     archiveFileName.set("casedrop-core-${project.version}.jar")
-    relocate("net.kyori", "dev.jakubk15.casedropcore.libs.kyori")
+    relocate("org.mineacademy.fo", "dev.jakubk15.casedropcore.lib")
 }

@@ -1,33 +1,27 @@
 package dev.jakubk15.casedropcore.cmds;
 
 import dev.jakubk15.casedropcore.utils.Util;
+import org.bukkit.BanList;
 import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
+import org.mineacademy.fo.command.SimpleCommand;
 
-public class BanIPCommand implements CommandExecutor {
+public class BanIPCommand extends SimpleCommand {
 
-	public BanIPCommand() {}
+	public BanIPCommand() {
+		super("banip");
+		setMinArguments(1);
+		setPermission("essentials.banip");
+		setDescription("Bans player IP");
+		setPermissionMessage("&cBrak uprawnień.");
+	}
 
 	@Override
-	public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-			if (sender.hasPermission("essentials.banip")) {
-				if (args.length > 0) {
-					final Player target = Bukkit.getPlayerExact(args[0]);
-					assert target != null;
-						target.banPlayerFull(Util.color("&cZostałeś zbanowany na IP!\n\nPrzez administratora: " + sender.getName() + "\n\n&cPowód: " + args[1]));
-						sender.sendMessage(Util.color("&3Zbanowano gracza " + target.getName() + "\n&3Powód: " + args[1]));
-						return true;
-				} else {
-					sender.sendMessage(Util.color("&cPodaj nick gracza!"));
-					return false;
-				}
-			} else {
-				sender.sendMessage(Util.color("&cBrak uprawnien!"));
-			}
-		return false;
+	public void onCommand() {
+		checkArgs(1, "&cPodaj prawidłowy nick gracza");
+		Player target = Bukkit.getPlayerExact(args[0]);
+		if (target == null) return;
+		Bukkit.getBanList(BanList.Type.IP).addBan(target.getName(), Util.color("&cZostałeś zbanowany!\n\nPrzez administratora: " + sender.getName() + "\n\n&cPowód: " + args[1]), null, sender.getName());
+		tell(Util.color("&3Zbanowano gracza " + target.getName() + "\n&3Powód: " + args[1]));
 	}
 }
