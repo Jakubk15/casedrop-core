@@ -34,7 +34,7 @@ This project is mainly dedicated for my Minecraft Server, however it also can be
 - Mute
 - Nick
 - Ping
-- Realname
+- RealName
 - Stonecutter
 - Unban
 - UUID getter
