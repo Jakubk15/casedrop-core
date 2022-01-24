@@ -20,6 +20,7 @@ This project is mainly dedicated for my Minecraft Server, however it also can be
 - Ban
 - BanIP
 - ChatManager
+- Checkban
 - Enderchest
 - Feed
 - Freeze
@@ -33,6 +34,7 @@ This project is mainly dedicated for my Minecraft Server, however it also can be
 - Mute
 - Nick
 - Ping
+- Realname
 - Stonecutter
 - Unban
 - UUID getter
