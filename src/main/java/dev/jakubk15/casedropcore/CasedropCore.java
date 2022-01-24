@@ -61,6 +61,7 @@ public class CasedropCore extends SimplePlugin {
 		registerCommand(new MuteCommand());
 		registerCommand(new NickCommand());
 		registerCommand(new PingCommand());
+		registerCommand(new RealNameCommand());
 		registerCommand(new ReloadCommand());
 		registerCommand(new StoneCutterCommand());
 		registerCommand(new TeleportCommand());
