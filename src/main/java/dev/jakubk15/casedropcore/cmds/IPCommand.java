@@ -4,6 +4,7 @@ import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.mineacademy.fo.command.SimpleCommand;
+import org.mineacademy.fo.settings.Lang;
 
 public class IPCommand extends SimpleCommand {
 
@@ -20,7 +21,9 @@ public class IPCommand extends SimpleCommand {
 	public void onCommand() {
 		checkArgs(1, "&cPodaj nick gracza");
 		Player target = Bukkit.getPlayerExact(args[0]);
-		assert target != null;
+		if (target == null) {
+			tell(Lang.of("Commands.Invalid_PlayerNickName"));
+		}
 		sender.sendMessage(Util.color("&3IP gracza &b") + target.getName() + " &3to &b" + target.getAddress());
 	}
 }

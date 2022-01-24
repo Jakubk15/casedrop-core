@@ -15,7 +15,12 @@ public class ReloadCommand extends SimpleCommand {
 
 	@Override
 	public void onCommand() {
-		CasedropCore.getInstance().reload();
-		sender.sendMessage(Util.color("&3Przeładowano config!"));
+		try {
+			CasedropCore.getInstance().reload();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			sender.sendMessage(Util.color("&3Przeładowano config!"));
+		}
 	}
 }

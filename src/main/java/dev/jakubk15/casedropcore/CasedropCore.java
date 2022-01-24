@@ -1,6 +1,9 @@
 package dev.jakubk15.casedropcore;
 
 import dev.jakubk15.casedropcore.cmds.*;
+import org.mineacademy.fo.command.DebugCommand;
+import org.mineacademy.fo.command.PermsCommand;
+import org.mineacademy.fo.constants.FoPermissions;
 import org.mineacademy.fo.plugin.SimplePlugin;
 
 public class CasedropCore extends SimplePlugin {
@@ -29,11 +32,7 @@ public class CasedropCore extends SimplePlugin {
 	}
 
 	/* TODO:
-	- realnickname command
-	- socialspy (finish config check)
-	- messages.properties
-	- settings.yml
-    - split ChatManager and FreezeCommand onto listeners
+	- kick after ban
 	 */
 
 
@@ -45,6 +44,7 @@ public class CasedropCore extends SimplePlugin {
 		registerCommand(new BanIPCommand());
 		registerCommand(new ChatManager());
 		registerCommand(new CheckbanCommand());
+		registerCommand(new DebugCommand());
 		registerCommand(new EnderChestCommand());
 		registerCommand(new FeedCommand());
 		registerCommand(new FlyCommand());
@@ -60,6 +60,7 @@ public class CasedropCore extends SimplePlugin {
 		registerCommand(new MsgCommand());
 		registerCommand(new MuteCommand());
 		registerCommand(new NickCommand());
+		registerCommand(new PermsCommand(FoPermissions.class));
 		registerCommand(new PingCommand());
 		registerCommand(new RealNameCommand());
 		registerCommand(new ReloadCommand());

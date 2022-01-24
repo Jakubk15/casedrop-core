@@ -1,0 +1,90 @@
+# !-----------------------------------------------------------------------------------------------!
+#                              Welcome to the localization file.
+# !-----------------------------------------------------------------------------------------------!
+#
+#   The localization/ folder stores various localization files. Use the suggested naming
+#   convention message_LANGUAGE.yml and then the "SimpleLocalization" or the "Lang" class to
+#   use this file.
+#
+#   1) COLOR CODES are supported with the '&' character.
+#      - For usage, see http://minecraftwiki.net/wiki/Formatting_codes
+#      - When you use them, place quotes around the message like this: "Hello &cworld."
+#       - To use HEX colors, use #123456 syntax: "Hello #123456world."
+#
+#   2) TO HIDE any message, set it to 'none'.
+#
+#   3) For UNICODE CHARACTERS (smileys, symbols, ..), save the file in UTF-8 encoding. See
+#      - https://github.com/${author}/${project.name}/wiki/Use-Right-Encoding
+#
+# !-----------------------------------------------------------------------------------------------!
+
+Commands:
+  No_Console: "&cYou can't use this command as a console."
+  No_Permission: "&cYou don't have permission to use this command."
+  AdminChatPrefix: "&8[&4AdminChat&8] » &7"
+  Invalid_PlayerNickName: "&cOk... What's a pitty, that this player is not even on this server. Who do you want me to teleport? Air?"
+  Invalid_Alert_Type: "&cType correct alert typre (title, actionbar, chat)!"
+  Invalid_Chat_Type: "&cPodaj prawidłowy argument; Dostępne: on, off, clear."
+  Alert_Header: "&8&m---------- &8&l[ &3&lALERT&8&l ]&8&m ----------"
+  Alert_Title: "&8* &4&lALERT &8*"
+  Alert_ActionBar: "&8* &4&lALERT &8*"
+  Anvil_Successful: "&bAnvil opened for player &3{player}"
+  Ban_Reason: "&cYou have been banned!\n\nBy administrator: {admin} \n\n&cReason: {reason}"
+  Ban_Message: "&3Player {player} has been banned. \n&3Reason: {reason}"
+  ChatMuted: "&cCurrently chat is muted!"
+  ChatHeader: "&8&m---------- &8&l[ &3&lCHAT &8&l ] &8&m----------"
+  ChatEnabled: "              &3Chat has been &aenabled!"
+  ChatDisabled: "              &3Chat has been &cdisabled!"
+  ChatCleared: "              &3Chat has been &bcleared!"
+  Checkban_Provide_name: "&cProvide player name."
+  Enderchest_Succesful: "&bEnderchest opened for &3{player}"
+  Feed: "&3You are no more hungry!"
+  Feed_Other: "&3Succesfully feed {player}."
+  FlyEnabled: "&3Flying &benabled."
+  FlyDisabled: "&3Flying &bdisabled."
+  FreezeAction: "&cYou are frozen. You can't do anything."
+  FreezeBypass: "&cThis player has permission 'essentials.freeze.bypass', so you can't freeze them."
+  Freezed: "&3Freezed {player}"
+  Frozen: "&3Administrator {admin} freezed you."
+  FreezeInvalidParameter: "&cInvalid parameter; Available: 'on', 'off'"
+  Gamemode_Provide_Parameter: "&cProvide parameter 1"
+  Gamemode_Changed: "&3Gamemode changed to &b{gamemode}"
+  GodmodeDisabled: "&3Godmode &bdisabled"
+  GodmodeEnabled: "&3Godmode &Benabled"
+  Grindstone_Successful: "&3Grindstone opened for &b{player}"
+  Heal: "&3You have been healed."
+  Heal_Other: "&3You have healed &b{player}&3."
+  HelpopSent: "&8[&4Helpop&8] &7Your message has been forwarded to server admins!"
+  HelpopFormat: "&8[&4Helpop&8] &c {sender} : {result}"
+  HelpopNoMessage: "&cPodaj wiadomość!"
+  IP_Command: "&3IP of &b{player} &3 is &b{InetSocketAddress}"
+  Kicked: "&cYou have been kicked out of the server!\n\n&cBy: &b{admin} \n\n&cReason: &b{reason}"
+  Kick: "&3Kicked &b{player}"
+  Kill: "&3Killed &b{player}"
+  MsgFormat: "&3[&b {sender} &3 -> &b{target} &3 ] &7 {msg}"
+  Muted: "&3You have been muted by {admin} &3 za {reason}"
+  MutedEvent: "&cYou are muted!"
+  NickChanged: "&3Changed nickname of &b{target} na &r{nickname}"
+  Ping: "&aYour ping: &6{ping}"
+  RealName: "&3Real name of &b{player} &3 is &b{realname}"
+  RealName_NotNicked: "&3This player is not nicked."
+  RealName_NoParam: "&cType player nickname, you want to check."
+  Reload_Success: "&3Reloaded config."
+  Reload_Fail: "&cReloading failed. Check console for more errors."
+  Stonecutter_Successful: "&3Opened stonecutter for &b{player}."
+  Teleport_To: "&3You have been teleported to &b{player}"
+  Unbanned: "&3Unbanned {player}"
+  Unbanned_Fail: "&cThis player is not banned!"
+  Unmuted: "&3Unmuted &b{player}"
+  Unmuted_Fail: "&cThis player is not muted!"
+  UUID: "&3UUID of player &b{player} &3is &b{uuid}"
+  VanishEnabledOther: "&3Vanish enabled for &b{player}"
+  VanishDisabledOther: "&3Vanish disabled for &b{player}"
+  VanishEnabled: "&3Vanish enabled."
+  VanishDisabled: "&3Vanish disabled."
+  Workbench: "&3Opened workbench for &b{player}"
+
+
+
+# Do not touch.
+Version: 1

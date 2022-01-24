@@ -20,5 +20,6 @@ public class GrindstoneCommand extends SimpleCommand {
 		checkConsole();
 		Inventory inv = Bukkit.createInventory(null, InventoryType.GRINDSTONE);
 		((Player) sender).openInventory(inv);
+		tell("Commands.Grindstone_Successful");
 	}
 }
