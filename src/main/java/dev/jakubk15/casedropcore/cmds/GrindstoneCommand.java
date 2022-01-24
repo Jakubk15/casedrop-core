@@ -1,7 +1,9 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.Util;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.inventory.Inventory;
 import org.mineacademy.fo.command.SimpleCommand;
 
 public class GrindstoneCommand extends SimpleCommand {
@@ -15,10 +17,7 @@ public class GrindstoneCommand extends SimpleCommand {
 	@Override
 	public void onCommand() {
 		checkConsole();
-		if (sender.hasPermission("essentials.grindstone")) {
-			((Player) sender).openGrindstone(null, true);
-		} else {
-			sender.sendMessage(Util.color("&cBrak uprawnień."));
-		}
+		Inventory inv = Bukkit.createInventory(null, InventoryType.GRINDSTONE);
+		((Player) sender).openInventory(inv);
 	}
 }

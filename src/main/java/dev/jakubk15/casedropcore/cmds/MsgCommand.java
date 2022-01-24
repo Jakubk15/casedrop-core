@@ -17,18 +17,14 @@ public class MsgCommand extends SimpleCommand {
 
 	@Override
 	public void onCommand() {
-		if (args.length > 0) {
-			Player target = Bukkit.getPlayerExact(args[0]);
-			if (target != null) {
-				String msg = args[1];
-				target.sendMessage(Util.color("&3[&b" + sender.getName() + "&3 -> " + target.getName() + "&3] &7" + msg));
-				sender.sendMessage(Util.color("&3[&b" + sender.getName() + "&3 -> " + target.getName() + "&3] &7" + msg));
-			} else {
-				sender.sendMessage(Util.color("&cPodany gracz jest offline lub nie był nigdy na serwerze!"));
-			}
+		checkArgs(1, "&cPodaj nick gracza");
+		Player target = Bukkit.getPlayerExact(args[0]);
+		if (target != null) {
+			String msg = args[1];
+			target.sendMessage(Util.color("&3[&b" + sender.getName() + "&3 -> " + target.getName() + "&3] &7" + msg));
+			tell(Util.color("&3[&b" + sender.getName() + "&3 -> " + target.getName() + "&3] &7" + msg));
 		} else {
-			sender.sendMessage(Util.color("&cPodaj nick gracza!"));
+			sender.sendMessage(Util.color("&cPodany gracz jest offline lub nie był nigdy na serwerze!"));
 		}
-
 	}
 }
