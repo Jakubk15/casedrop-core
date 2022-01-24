@@ -17,10 +17,9 @@ public class KillCommand extends SimpleCommand {
 
 	@Override
 	public void onCommand() {
-		if (sender.hasPermission("essentials.kill")) {
-			Player target = Bukkit.getPlayerExact(args[0]);
-			target.setHealth(0);
-			sender.sendMessage(Util.color("&3Zabito gracza &b" + target.getName()));
-		}
+		Player target = Bukkit.getPlayerExact(args[0]);
+		if (target == null) return;
+		target.setHealth(0);
+		sender.sendMessage(Util.color("&3Zabito gracza &b" + target.getName()));
 	}
 }

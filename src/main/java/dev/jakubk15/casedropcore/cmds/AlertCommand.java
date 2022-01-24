@@ -19,8 +19,9 @@ public class AlertCommand extends SimpleCommand {
 	@Override
 	public void onCommand() {
 		if (args.length > 0) {
+			String type = args[0];
 			String message = args[1];
-			if (!args[0].equals("title") && !args[0].equals("actionbar") && !args[0].equals("chat")) {
+			if (!type.equals("title") && !type.equals("actionbar") && !type.equals("chat")) {
 				sender.sendMessage(Util.color("&cPodaj prawidłowy typ alertu!"));
 			} else if (args[0].equals("chat")) {
 				for (Player ps : Bukkit.getOnlinePlayers()) {

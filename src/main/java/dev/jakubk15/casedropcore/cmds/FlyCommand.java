@@ -18,7 +18,7 @@ public class FlyCommand extends SimpleCommand {
 	public void onCommand() {
 		if (args.length > 0) {
 			Player target = Bukkit.getPlayerExact(args[0]);
-			assert target != null;
+			if (target == null) return;
 			target.setAllowFlight(!target.isFlying());
 			Player sender1 = (Player) sender;
 			target.sendMessage(Util.color("&3Latanie zostało:") + (sender1.getAllowFlight() ? "włączone." : "wyłączone."));

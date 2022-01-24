@@ -20,7 +20,7 @@ public class NickCommand extends SimpleCommand {
 	public void onCommand() {
 		if (args.length > 0) {
 			Player target = Bukkit.getPlayerExact(args[1]);
-			assert target != null;
+			if (target == null) return;
 			target.displayName(Component.text(args[0]));
 			sender.sendMessage(Util.color("&3Zmieniono nick gracza " + target.getName() + " na " + args[0]));
 		} else {

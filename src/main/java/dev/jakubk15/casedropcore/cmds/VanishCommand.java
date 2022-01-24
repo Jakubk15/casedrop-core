@@ -18,7 +18,7 @@ public class VanishCommand extends SimpleCommand {
 	public void onCommand() {
 		if (args.length > 0) {
 			Player target = Bukkit.getPlayerExact(args[0]);
-			assert target != null;
+			if (target == null) return;
 			sender.sendMessage(Util.color(target.isInvisible() ? "&3Włączono " : "&3Wyłączono " + "vanisha dla gracza " + target.getName()));
 			target.setInvisible(!target.isInvisible());
 		} else {

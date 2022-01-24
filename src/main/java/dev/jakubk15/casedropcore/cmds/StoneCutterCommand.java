@@ -13,10 +13,7 @@ public class StoneCutterCommand extends SimpleCommand {
 
 	@Override
 	public void onCommand() {
-		if (sender instanceof Player p) {
-			p.openStonecutter(null, true);
-		} else {
-			sender.sendMessage("Nie można wykonać tego polecenia z poziomu konsoli.");
-		}
+		checkConsole();
+		((Player) sender).openStonecutter(null, true);
 	}
 }

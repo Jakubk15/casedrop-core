@@ -14,14 +14,11 @@ public class GrindstoneCommand extends SimpleCommand {
 
 	@Override
 	public void onCommand() {
-		if (sender instanceof Player p) {
-			if (sender.hasPermission("essentials.grindstone")) {
-				p.openGrindstone(null, true);
-			} else {
-				sender.sendMessage(Util.color("&cBrak uprawnień."));
-			}
+		checkConsole();
+		if (sender.hasPermission("essentials.grindstone")) {
+			((Player) sender).openGrindstone(null, true);
 		} else {
-			sender.sendMessage("Nie można wykonać tego polecenia z poziomu konsoli.");
+			sender.sendMessage(Util.color("&cBrak uprawnień."));
 		}
 	}
 }

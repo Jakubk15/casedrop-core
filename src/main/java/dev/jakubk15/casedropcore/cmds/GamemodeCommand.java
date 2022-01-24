@@ -19,6 +19,7 @@ public class GamemodeCommand extends SimpleCommand {
 	public void onCommand() {
 		if (args.length > 0) {
 			Player sender1 = (Player) sender;
+			if (sender1 == null) return;
 			switch (args[0]) {
 				case "0" -> {
 					sender1.setGameMode(GameMode.SURVIVAL);

@@ -19,7 +19,7 @@ public class GodCommand extends SimpleCommand {
 		if (sender.hasPermission("essentials.god")) {
 			if (args.length > 0) {
 				Player target = Bukkit.getPlayerExact(args[0]);
-				assert target != null;
+				if (target == null) return;
 				target.setInvulnerable(!target.isInvulnerable());
 				sender.sendMessage(Util.color("&3Godmode " + (target.isInvulnerable() ? "&3włączone" : "&3wyłączone")));
 			} else {

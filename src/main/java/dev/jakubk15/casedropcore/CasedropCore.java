@@ -5,18 +5,21 @@ import org.mineacademy.fo.plugin.SimplePlugin;
 
 public class CasedropCore extends SimplePlugin {
 
-	public CasedropCore() {}
+	public CasedropCore() {
+	}
 
 	public static CasedropCore instance;
 
 	@Override
 	public void onPluginStart() {
+		// Our beautiful title :)
 		getLogger().info("_________                  ________                            _________                  ");
 		getLogger().info("__  ____/_____ _______________  __ \\____________________       __  ____/_________________ ");
 		getLogger().info("_  /    _  __ `/_  ___/  _ \\_  / / /_  ___/  __ \\__  __ \\_______  /    _  __ \\_  ___/  _ \\");
 		getLogger().info("/ /___  / /_/ /_(__  )/  __/  /_/ /_  /   / /_/ /_  /_/ //_____/ /___  / /_/ /  /   /  __/");
 		getLogger().info("\\____/  \\__,_/ /____/ \\___//_____/ /_/    \\____/_  .___/       \\____/  \\____//_/    \\___/ ");
 		getLogger().info("                                                /_/                                       ");
+		// Register commands + events
 		registerCommands();
 		registerEvents();
 	}
@@ -24,6 +27,17 @@ public class CasedropCore extends SimplePlugin {
 	public static CasedropCore getInstance() {
 		return (CasedropCore) SimplePlugin.getInstance();
 	}
+
+	/* TODO:
+	- realnickname command
+	- socialspy?
+	- teleport
+	- messages.properties
+	- settings.yml
+	- switch to java 8 for maximum backwards compatibility (1.8.8 - 1.18.x) for now
+    - split ChatManager and FreezeCommand onto listeners
+	 */
+
 
 	public void registerCommands() {
 		registerCommand(new AdminChatCommand());

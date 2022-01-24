@@ -18,7 +18,7 @@ public class UnmuteCommand extends SimpleCommand {
 	public void onCommand() {
 		if (args.length > 0) {
 			Player target = Bukkit.getPlayerExact(args[0]);
-			assert target != null;
+			if (target == null) return;
 			if (MuteCommand.muted.contains(target.getUniqueId())) {
 				MuteCommand.muted.remove(target.getUniqueId());
 				sender.sendMessage(Util.color("&3Odciszono gracza " + target.getName()));

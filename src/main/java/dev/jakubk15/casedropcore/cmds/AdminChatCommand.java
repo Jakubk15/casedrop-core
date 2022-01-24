@@ -5,6 +5,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.mineacademy.fo.command.SimpleCommand;
 
+import java.util.List;
+
 public class AdminChatCommand extends SimpleCommand {
 
 	public AdminChatCommand() {
@@ -17,24 +19,21 @@ public class AdminChatCommand extends SimpleCommand {
 
 	@Override
 	public void onCommand() {
-		if (sender.hasPermission("essentials.adminchat")) {
-			if (args.length > 0) {
-				for (Player adm : Bukkit.getOnlinePlayers()) {
-					StringBuilder builder = new StringBuilder();
-					for (String arg : args) {
-						String s1 = arg + " ";
-						builder.append(s1);
-					}
-					String result = builder.toString();
-					adm.sendMessage(Util.color("&8[&4AdminChat&8] » &7" + sender.getName() + " &7» " + result));
-				}
-			} else {
-				sender.sendMessage(Util.color("&cPodaj wiadomość!"));
+		for (Player adm : Bukkit.getOnlinePlayers()) {
+			StringBuilder builder = new StringBuilder();
+			for (String arg : args) {
+				String s1 = arg + " ";
+				builder.append(s1);
 			}
-		} else {
-			sender.sendMessage("&cBrak uprawnień!");
+			String result = builder.toString();
+			adm.sendMessage(Util.color("&8[&4AdminChat&8] » &7" + sender.getName() + " &7» " + result));
 		}
 	}
 
+
+	@Override
+	protected List<String> completeLastWordPlayerNames() {
+		return super.completeLastWordPlayerNames();
+	}
 }
 

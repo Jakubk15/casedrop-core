@@ -20,7 +20,7 @@ public class KickCommand extends SimpleCommand {
 	public void onCommand() {
 		if (args.length > 0) {
 			Player target = Bukkit.getPlayerExact(args[0]);
-			assert target != null;
+			if (target == null) return;
 			target.kick(null, PlayerKickEvent.Cause.valueOf(Util.color("&cZostałeś wyrzucony z serwera!\n\n&cPrzez administratora: " + sender.getName() + "\n\n&cPowód: " + args[1])));
 			sender.sendMessage(Util.color("&3Wyrzucono gracza" + target.getName()));
 		} else {

@@ -16,17 +16,13 @@ public class BanIPCommand extends SimpleCommand {
 
 	@Override
 	public void onCommand() {
-		if (sender.hasPermission("essentials.banip")) {
-			if (args.length > 0) {
-				Player target = Bukkit.getPlayerExact(args[0]);
-				assert target != null;
-				target.banPlayerFull(Util.color("&cZostałeś zbanowany na IP!\n\nPrzez administratora: " + sender.getName() + "\n\n&cPowód: " + args[1]));
-				sender.sendMessage(Util.color("&3Zbanowano gracza " + target.getName() + "\n&3Powód: " + args[1]));
-			} else {
-				sender.sendMessage(Util.color("&cPodaj nick gracza!"));
-			}
+		if (args.length > 0) {
+			Player target = Bukkit.getPlayerExact(args[0]);
+			assert target != null;
+			target.banPlayerFull(Util.color("&cZostałeś zbanowany na IP!\n\nPrzez administratora: " + sender.getName() + "\n\n&cPowód: " + args[1]));
+			sender.sendMessage(Util.color("&3Zbanowano gracza " + target.getName() + "\n&3Powód: " + args[1]));
 		} else {
-			sender.sendMessage(Util.color("&cBrak uprawnien!"));
+			sender.sendMessage(Util.color("&cPodaj nick gracza!"));
 		}
 	}
 }

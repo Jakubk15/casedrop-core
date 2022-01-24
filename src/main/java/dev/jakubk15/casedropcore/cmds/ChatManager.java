@@ -22,7 +22,7 @@ public class ChatManager extends SimpleCommand implements Listener {
 	@EventHandler
 	public void onChat(AsyncChatEvent e) {
 		Player p = e.getPlayer();
-		if (!p.hasPermission("essentials.chat.*")) {
+		if (!p.hasPermission("essentials.chat.bypass")) {
 			if (isMuted) {
 				e.setCancelled(true);
 				p.sendMessage(Util.color("&cObecnie chat jest wyciszony!"));

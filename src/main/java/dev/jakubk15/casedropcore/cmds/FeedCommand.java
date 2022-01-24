@@ -19,7 +19,7 @@ public class FeedCommand extends SimpleCommand {
 	public void onCommand() {
 		if (args.length > 0) {
 			Player target = Bukkit.getPlayerExact(args[0]);
-			assert target != null;
+			if (target == null) return;
 			target.setFoodLevel(20);
 			target.sendMessage(Util.color("&3Zostałeś najedzony!"));
 			sender.sendMessage(Util.color("&3Najadłeś gracza " + target.getName() + "."));
