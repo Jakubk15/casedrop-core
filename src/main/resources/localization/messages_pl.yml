@@ -23,7 +23,7 @@ Commands:
   No_Console: "&cNie możesz używać tego polecenia jako konsoli."
   No_Permission: "&cNie masz permisji aby użyć tej komendy!"
   AdminChatPrefix: "&8[&4AdminChat&8] » &7"
-  Invalid_PlayerNickName: "&cHej... Ty! W twoim nicku są nie obsługiwane znaki! Zmieniaj nick i wbijaj na serwer!"
+  Invalid_PlayerNickName: "&cHmmm, szkoda, że tego gracza nie ma nawet na serwerze. Kogo mam teleportować? Powietrze?"
   Invalid_Alert_Type: "&cZdefiniuj poprawny typ alertu! (title, actionbar, chat)!"
   Invalid_Chat_Type: "&cPodaj prawidłowy argument; Dostępne: on, off, clear."
   Alert_Header: "&8&m---------- &8&l[ &3&lALERT&8&l ]&8&m ----------"
