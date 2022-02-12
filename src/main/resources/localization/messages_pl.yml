@@ -1,0 +1,97 @@
+# !-----------------------------------------------------------------------------------------------!
+#                              Welcome to the localization file.
+# !-----------------------------------------------------------------------------------------------!
+#
+#   The localization/ folder stores various localization files. Use the suggested naming
+#   convention message_LANGUAGE.yml and then the "SimpleLocalization" or the "Lang" class to
+#   use this file. 
+#   Polish translation by vBagieta#0786
+#
+#   1) COLOR CODES are supported with the '&' character.
+#      - For usage, see http://minecraftwiki.net/wiki/Formatting_codes
+#      - When you use them, place quotes around the message like this: "Hello &cworld."
+#       - To use HEX colors, use #123456 syntax: "Hello #123456world."
+#
+#   2) TO HIDE any message, set it to 'none'.
+#
+#   3) For UNICODE CHARACTERS (smileys, symbols, ..), save the file in UTF-8 encoding. See
+#      - https://github.com/${author}/${project.name}/wiki/Use-Right-Encoding
+#
+# !-----------------------------------------------------------------------------------------------!
+
+Commands:
+  No_Console: "&cNie możesz używać tego polecenia jako konsoli."
+  No_Permission: "&cNie masz permisji aby użyć tej komendy!"
+  AdminChatPrefix: "&8[&4AdminChat&8] » &7"
+  Invalid_PlayerNickName: "&cHmmm, szkoda, że tego gracza nie ma nawet na serwerze. Kogo mam teleportować? Powietrze?"
+  Invalid_Alert_Type: "&cZdefiniuj poprawny typ alertu! (title, actionbar, chat)!"
+  Invalid_Chat_Type: "&cPodaj prawidłowy argument; Dostępne: on, off, clear."
+  Alert_Header: "&8&m---------- &8&l[ &3&lALERT&8&l ]&8&m ----------"
+  Alert_Title: "&8* &4&lALERT &8*"
+  Alert_ActionBar: "&8* &4&lALERT &8*"
+  Anvil_Successful: "&bPomyslnie otworzono kowadlo dla gracza &3{player}"
+  Ban_Reason: "&cZostales zbanowany na serwerze (╯°□°）╯︵ ┻━┻\n\n&cBan nadany przez: &3{admin} \n\n&cPowód: &b{reason}\n\n&bBan nie słuszny? Odwołaj się na discordzie! &edc.serwer.pl"
+  Ban_Message: "&3Gracz {player} został zbanowany. \n&3Powód: {reason}"
+  ChatMuted: "&cCzat jest wyłączony!!"
+  ChatHeader: "&8&m---------- &8&l[ &3&lCHAT &8&l ] &8&m----------"
+  ChatEnabled: "              &3Czat został &awłączony!"
+  ChatDisabled: "              &3Czat został &cwyłączony!"
+  ChatCleared: "              &3Czat został &bwyczyszczony!"
+  Checkban_Provide_name: "&cPodaj prawidłowy nick gracza.."
+  Checkban_IPBanned: "&3Gracz &b{target} &3jest zbanowany &3&lna IP!"
+  Checkban_Banned: "&3Gracz &b{player} &3jest zbanowany!"
+  Checkban_Created: "&3Ban nadany przez: {created}"
+  Checkban_Expiry: "&3Wyagasa: {expiry}"
+  Checkban_Reason: "&3Powód: {reason}"
+  Checkban_Source: "&3Źródło: {source}"
+  Enderchest_Succesful: "&bPomyślnie otworzono skrzynie kresu dla &3{player}"
+  Feed: "&3Zostałeś nakarmiony!"
+  Feed_Other: "&3Pomyślnie nakarmiono {player}."
+  FlyEnabled: "&3Latanie zostało &bewłaczone."
+  FlyDisabled: "&3Latanie zostało &bwyłączone."
+  FreezeAction: "&cJestes zamrozony. &bNie mozesz się ruszać."
+  FreezeBypass: "&cTen gracz ma permisje &9[essentials.freeze.bypass]&c, nie mozesz go zamrozic!"
+  Freezed: "&3Zamrozono {player}"
+  Frozen: "&3Administrator {admin} zamroził Ciebie!."
+  FreezeInvalidParameter: "&cNie poprawne parametry; Dostepne: 'on', 'off'"
+  Gamemode_Provide_Parameter: "&cProvide parameter 1"
+  Gamemode_Changed: "&3Tryb gry został zmieniony na &b{gamemode}"
+  GodmodeDisabled: "&3Tryb boga został &bwyłączony"
+  GodmodeEnabled: "&3Tryb boga został &Bwłączony"
+  Grindstone_Successful: "&3Kamień szlifierski został otworzony dla &b{player}"
+  Heal: "&3Zostałeś uleczony."
+  Heal_Other: "&3Uleczyłeś garcza &b{player}&3."
+  HelpopSent: "&8[&4Helpop&8] &7Twoja wiadomosc została wysłana! Administarcja zajmie się twoim zgłoszeniem jak najszybciej!"
+  HelpopFormat: "&8[&4Helpop&8] &c {sender}: {result}"
+  HelpopNoMessage: "&cPodaj wiadomość!"
+  IP_Command: "&9IP gracza&b{player} &3 to &b[{InetSocketAddress}]"
+  Kicked: "&cZostałeś wyrzucony z serwera (╯°□°）╯︵ ┻━┻\n\n&cPrzez: &b{admin} \n\n&cPowód: &b{reason}"
+  Kick: "&3Wyrzucono gracza &b{player}"
+  Kill: "&3Zabito &b{player}"
+  MsgFormat: "&3[&b {sender} &3 -> &b{target} &3 ] &7 {msg}"
+  Muted: "&3Zostałeś wyciszony {admin} &3 za {reason}"
+  MutedEvent: "&cJesteś wyciszony"
+  NickChanged: "&3Zmieniono nick &b{target} na &r{nickname}"
+  Ping: "&aPong! Twój Ping to &6{ping}"
+  RealName: "&3Prawdziwy nick gracza &b{player} &3 to &b{realname}"
+  RealName_NotNicked: "&3Ten gracz nie zmieniał nicku."
+  RealName_NoParam: "&cZdefiniuj nick gracza aby sprawdzić."
+  Reload_Success: "&3Pomyślnie przeładowano konfiguracje."
+  Reload_Fail: "&cNapotkano błąd przy przeładowaniu konfiguracji. Sprawdź konsole po wiecej błędów."
+  Stonecutter_Successful: "&3Otwarto stół do cięc dla &b{player}."
+  Teleport_To: "&3Zostałeś przeteleportowany do gracza &b{player}"
+  Unbanned: "&3Odbanowano gracza {player}"
+  Unbanned_Fail: "&cTen gracz nie jest zbanowany!"
+  Unmuted: "&3Odciszono gracza &b{player}"
+  Unmuted_Fail: "&cTen gracz nie jest wyciszony!"
+  UUID: "&3UUID gracza &b{player} &3to &b{uuid}"
+  VanishEnabledOther: "&3Właczono vanisha dla &b{player}"
+  VanishDisabledOther: "&3Wyłaczono vanisha dla &b{player}"
+  VanishEnabled: "&3Pomyślnie właczno vanisha."
+  VanishDisabled: "&3Pomyślnie wyłaczono vanisha."
+  Workbench: "&3Otwarto stół do craftowania dla gracza &b{player}"
+
+
+
+# Do not touch.
+Version: 1
