@@ -1,8 +1,8 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.mineacademy.fo.Common;
 import org.mineacademy.fo.command.SimpleCommand;
 
 public class HelpopCommand extends SimpleCommand {
@@ -17,7 +17,7 @@ public class HelpopCommand extends SimpleCommand {
 	@Override
 	public void onCommand() {
 		if (args[0].isEmpty()) {
-			sender.sendMessage(Util.color("&cPodaj wiadomość!"));
+			sender.sendMessage(Common.colorize("&cPodaj wiadomość!"));
 		} else {
 			StringBuilder builder = new StringBuilder();
 			for (String arg : args) {
@@ -27,8 +27,8 @@ public class HelpopCommand extends SimpleCommand {
 			String result = builder.toString();
 			for (Player ps : Bukkit.getOnlinePlayers()) {
 				if (ps.hasPermission("essentials.helpop.receive") || ps.isOp()) {
-					ps.sendMessage(Util.color("&8[&4Helpop&8] &c" + sender.getName() + ": " + result));
-					sender.sendMessage(Util.color("&8[&4Helpop&8] &7Wiadomość wysłana do administracji!"));
+					ps.sendMessage(Common.colorize("&8[&4Helpop&8] &c" + sender.getName() + ": " + result));
+					sender.sendMessage(Common.colorize("&8[&4Helpop&8] &7Wiadomość wysłana do administracji!"));
 				}
 			}
 		}

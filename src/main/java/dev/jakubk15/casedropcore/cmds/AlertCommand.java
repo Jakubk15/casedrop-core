@@ -1,10 +1,10 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.Util;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.mineacademy.fo.Common;
 import org.mineacademy.fo.command.SimpleCommand;
 
 import java.util.List;
@@ -26,26 +26,26 @@ public class AlertCommand extends SimpleCommand {
 		String type = args[0];
 		String message = args[1];
 		if (!type.equals("title") && !type.equals("actionbar") && !type.equals("chat")) {
-			sender.sendMessage(Util.color("&cPodaj prawidłowy typ alertu!"));
+			sender.sendMessage(Common.colorize("&cPodaj prawidłowy typ alertu!"));
 		} else if (args[0].equals("chat")) {
 			for (Player ps : Bukkit.getOnlinePlayers()) {
-				ps.sendMessage(Util.color("&8&m---------- &8&l[ &3&lALERT&8&l ]&8&m ----------"));
-				ps.sendMessage(Util.color(" "));
-				ps.sendMessage(Util.color("          " + message + "          "));
-				ps.sendMessage(Util.color(" "));
-				ps.sendMessage(Util.color("&8&m---------- &8&l[ &3&lALERT&8&l ]&8&m ----------"));
+				ps.sendMessage(Common.colorize("&8&m---------- &8&l[ &3&lALERT&8&l ]&8&m ----------"));
+				ps.sendMessage(Common.colorize(" "));
+				ps.sendMessage(Common.colorize("          " + message + "          "));
+				ps.sendMessage(Common.colorize(" "));
+				ps.sendMessage(Common.colorize("&8&m---------- &8&l[ &3&lALERT&8&l ]&8&m ----------"));
 				return;
 			}
 		} else if (args[0].equals("title")) {
 			for (Player ps : Bukkit.getOnlinePlayers()) {
-				String title = (Util.color("&8* &4&lALERT &8*"));
-				String subTitle = (Util.color(message));
+				String title = (Common.colorize("&8* &4&lALERT &8*"));
+				String subTitle = (Common.colorize(message));
 				ps.sendTitle(title, subTitle, 5, 40, 5);
 				return;
 			}
 		} else if (args[0].equals("actionbar")) {
 			for (Player ps : Bukkit.getOnlinePlayers()) {
-				String actionbar = (Util.color("&8* &4&lALERT &8*" + message));
+				String actionbar = (Common.colorize("&8* &4&lALERT &8*" + message));
 				ps.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(message));
 				return;
 			}

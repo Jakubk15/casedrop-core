@@ -1,8 +1,8 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
+import org.mineacademy.fo.Common;
 import org.mineacademy.fo.command.SimpleCommand;
 
 public class GamemodeCommand extends SimpleCommand {
@@ -24,19 +24,19 @@ public class GamemodeCommand extends SimpleCommand {
 		switch (args[0]) {
 			case "0": {
 				sender1.setGameMode(GameMode.SURVIVAL);
-				sender.sendMessage(Util.color("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
+				sender.sendMessage(Common.colorize("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
 			}
 			case "1": {
 				sender1.setGameMode(GameMode.CREATIVE);
-				sender.sendMessage(Util.color("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
+				sender.sendMessage(Common.colorize("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
 			}
 			case "2": {
 				sender1.setGameMode(GameMode.ADVENTURE);
-				sender.sendMessage(Util.color("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
+				sender.sendMessage(Common.colorize("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
 			}
 			case "3": {
 				sender1.setGameMode(GameMode.SPECTATOR);
-				sender.sendMessage(Util.color("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
+				sender.sendMessage(Common.colorize("&3Twój tryb gry został zmieniony na " + sender1.getGameMode()));
 			}
 		}
 	}

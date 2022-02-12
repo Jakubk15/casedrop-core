@@ -1,7 +1,7 @@
 package dev.jakubk15.casedropcore.cmds;
 
 import dev.jakubk15.casedropcore.CasedropCore;
-import dev.jakubk15.casedropcore.utils.Util;
+import org.mineacademy.fo.Common;
 import org.mineacademy.fo.command.SimpleCommand;
 
 public class ReloadCommand extends SimpleCommand {
@@ -20,7 +20,7 @@ public class ReloadCommand extends SimpleCommand {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
-			sender.sendMessage(Util.color("&3Przeładowano config!"));
+			sender.sendMessage(Common.colorize("&3Przeładowano config!"));
 		}
 	}
 }

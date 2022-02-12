@@ -1,11 +1,11 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.mineacademy.fo.Common;
 import org.mineacademy.fo.command.SimpleCommand;
 
 import java.util.HashSet;
@@ -31,7 +31,7 @@ public class MuteCommand extends SimpleCommand implements Listener {
 		Player target = Bukkit.getPlayerExact(args[0]);
 		if (target == null) return;
 		String reason = args[1];
-		target.sendMessage(Util.color("&3Zostałeś wyciszony przez administratora " + sender.getName() + " &3 za " + reason));
+		target.sendMessage(Common.colorize("&3Zostałeś wyciszony przez administratora " + sender.getName() + " &3 za " + reason));
 		muted.add(target.getUniqueId());
 
 	}
@@ -40,7 +40,7 @@ public class MuteCommand extends SimpleCommand implements Listener {
 	private void onChat(AsyncPlayerChatEvent event) {
 		if (muted.contains(event.getPlayer().getUniqueId())) {
 			event.setCancelled(true);
-			event.getPlayer().sendMessage(Util.color("&cJesteś wyciszony!"));
+			event.getPlayer().sendMessage(Common.colorize("&cJesteś wyciszony!"));
 		}
 	}
 

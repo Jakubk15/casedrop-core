@@ -1,8 +1,6 @@
 package dev.jakubk15.casedropcore.cmds;
 
-import dev.jakubk15.casedropcore.utils.Util;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
+import org.mineacademy.fo.Common;
 import org.mineacademy.fo.command.SimpleCommand;
 
 import java.util.List;
@@ -20,15 +18,7 @@ public class AdminChatCommand extends SimpleCommand {
 
 	@Override
 	public void onCommand() {
-		for (Player adm : Bukkit.getOnlinePlayers()) {
-			StringBuilder builder = new StringBuilder();
-			for (String arg : args) {
-				String s1 = arg + " ";
-				builder.append(s1);
-			}
-			String result = builder.toString();
-			adm.sendMessage(Util.color("&8[&4AdminChat&8] » &7" + sender.getName() + " &7» " + result));
-		}
+		Common.broadcastWithPerm("msky.adminchat", "&3┃ &9&lMODCHAT &3┃ &6" + getPlayer().getName() + " &8» &3" + Common.joinRange(0, args), false);
 	}
 
 
