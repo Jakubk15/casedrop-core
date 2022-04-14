@@ -41,10 +41,11 @@ Commands:
   Checkban_IPBanned: "&3Gracz &b{target} &3jest zbanowany &3&lna IP!"
   Checkban_Banned: "&3Gracz &b{player} &3jest zbanowany!"
   Checkban_Created: "&3Ban nadany przez: {created}"
-  Checkban_Expiry: "&3Wyagasa: {expiry}"
+  Checkban_Expiry: "&3Wygasa: {expiry}"
   Checkban_Reason: "&3Powód: {reason}"
   Checkban_Source: "&3Źródło: {source}"
-  Enderchest_Succesful: "&bPomyślnie otworzono skrzynie kresu dla &3{player}"
+  Checkban_NotBanned: "&3Gracz &b{player} &3nie jest zbanowany!"
+  Enderchest_Successful: "&bPomyślnie otworzono skrzynie kresu dla &3{player}"
   Feed: "&3Zostałeś nakarmiony!"
   Feed_Other: "&3Pomyślnie nakarmiono {player}."
   FlyEnabled: "&3Latanie zostało &bewłaczone."
@@ -52,7 +53,9 @@ Commands:
   FreezeAction: "&cJestes zamrozony. &bNie mozesz się ruszać."
   FreezeBypass: "&cTen gracz ma permisje &9[essentials.freeze.bypass]&c, nie mozesz go zamrozic!"
   Freezed: "&3Zamrozono {player}"
+  Freezed_disabled: "&3Odmrożono {player}"
   Frozen: "&3Administrator {admin} zamroził Ciebie!."
+  Frozen_disabled: "&3Administrator {admin} odmroził cię."
   FreezeInvalidParameter: "&cNie poprawne parametry; Dostepne: 'on', 'off'"
   Gamemode_Provide_Parameter: "&cProvide parameter 1"
   Gamemode_Changed: "&3Tryb gry został zmieniony na &b{gamemode}"
@@ -72,10 +75,8 @@ Commands:
   Muted: "&3Zostałeś wyciszony {admin} &3 za {reason}"
   MutedEvent: "&cJesteś wyciszony"
   NickChanged: "&3Zmieniono nick &b{target} na &r{nickname}"
+  NickProvide: "&cProszę podać nick."
   Ping: "&aPong! Twój Ping to &6{ping}"
-  RealName: "&3Prawdziwy nick gracza &b{player} &3 to &b{realname}"
-  RealName_NotNicked: "&3Ten gracz nie zmieniał nicku."
-  RealName_NoParam: "&cZdefiniuj nick gracza aby sprawdzić."
   Reload_Success: "&3Pomyślnie przeładowano konfiguracje."
   Reload_Fail: "&cNapotkano błąd przy przeładowaniu konfiguracji. Sprawdź konsole po wiecej błędów."
   Stonecutter_Successful: "&3Otwarto stół do cięc dla &b{player}."
@@ -90,8 +91,5 @@ Commands:
   VanishEnabled: "&3Pomyślnie właczno vanisha."
   VanishDisabled: "&3Pomyślnie wyłaczono vanisha."
   Workbench: "&3Otwarto stół do craftowania dla gracza &b{player}"
-
-
-
 # Do not touch.
 Version: 1
