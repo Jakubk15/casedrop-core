@@ -34,7 +34,7 @@ public class ChatManager extends SimpleCommand implements Listener {
 
 	@Override
 	public void onCommand() {
-		checkArgs(1, Lang.of("Commands.ChatInvalidParameter"));
+		checkArgs(1, Lang.of("Commands.Invalid_Chat_Type"));
 		if (args[0].equalsIgnoreCase("on")) {
 			isMuted = false;
 			for (Player all : Bukkit.getOnlinePlayers()) {
@@ -68,7 +68,7 @@ public class ChatManager extends SimpleCommand implements Listener {
 				return;
 			}
 		} else {
-			sender.sendMessage(Common.colorize(Lang.of("Invalid_Chat_Type")));
+			sender.sendMessage(Common.colorize(Lang.of("Commands.Invalid_Chat_Type")));
 		}
 
 	}

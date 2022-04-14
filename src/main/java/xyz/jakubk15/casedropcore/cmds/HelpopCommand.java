@@ -18,7 +18,7 @@ public class HelpopCommand extends SimpleCommand {
 	@Override
 	public void onCommand() {
 		if (args[0].isEmpty()) {
-			sender.sendMessage(Common.colorize("&cPodaj wiadomość!"));
+			sender.sendMessage(Common.colorize(Lang.of("Commands.HelpopNoMessage")));
 		} else {
 			StringBuilder builder = new StringBuilder();
 			for (String arg : args) {

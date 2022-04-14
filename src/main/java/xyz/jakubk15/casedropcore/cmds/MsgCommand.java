@@ -19,14 +19,14 @@ public class MsgCommand extends SimpleCommand {
 
 	@Override
 	public void onCommand() {
-		checkArgs(1, "&cPodaj nick gracza");
+		checkArgs(1, Lang.of("Commands.Invalid_PlayerNickName"));
 		Player target = Bukkit.getPlayerExact(args[0]);
 		if (target != null) {
 			String msg = args[1];
 			target.sendMessage(Common.colorize(Lang.of("Commands.MsgFormat")
 					.replace("{sender}", sender.getName())
 					.replace("{target}", target.getName())));
-			
+
 			tell(Common.colorize(Lang.of("Commands.MsgFormat")
 					.replace("{sender}", sender.getName())
 					.replace("{target}", target.getName())));

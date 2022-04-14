@@ -19,7 +19,7 @@ public class NickCommand extends SimpleCommand {
 
 	@Override
 	public void onCommand() {
-		checkArgs(1, "&cPodaj nowy nick.");
+		checkArgs(1, Lang.of("Commands.NickProvide"));
 		Player target = Bukkit.getPlayerExact(args[1]);
 		if (target == null) return;
 		target.setDisplayName(Common.colorize(args[0]));

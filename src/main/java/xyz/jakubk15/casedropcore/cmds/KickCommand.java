@@ -20,7 +20,7 @@ public class KickCommand extends SimpleCommand {
 
 	@Override
 	public void onCommand() {
-		checkArgs(1, "&cPodaj nick gracza!");
+		checkArgs(1, Lang.of("Commands.Invalid_PlayerNickName"));
 		Player target = Bukkit.getPlayerExact(args[0]);
 		if (target == null) return;
 		PlayerUtil.kick(target, Lang.of("Commands.Kicked")

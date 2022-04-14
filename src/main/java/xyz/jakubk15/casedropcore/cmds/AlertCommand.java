@@ -23,7 +23,7 @@ public class AlertCommand extends SimpleCommand {
 
 	@Override
 	public void onCommand() {
-		checkArgs(1, "&cPodaj prawidłowy typ alertu!");
+		checkArgs(1, Lang.of("Commands.Invalid_Alert_Type"));
 		String type = args[0];
 		String message = args[1];
 		if (!type.equals("title") && !type.equals("actionbar") && !type.equals("chat")) {

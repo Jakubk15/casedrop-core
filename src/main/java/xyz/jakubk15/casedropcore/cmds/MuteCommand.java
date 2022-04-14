@@ -28,7 +28,7 @@ public class MuteCommand extends SimpleCommand implements Listener {
 
 	@Override
 	public void onCommand() {
-		checkArgs(1, "&cPodaj nick gracza.");
+		checkArgs(1, Lang.of("Commands.Invalid_PlayerNickName"));
 		Player target = Bukkit.getPlayerExact(args[0]);
 		if (target == null) return;
 		String reason = args[1];

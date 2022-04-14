@@ -1,7 +1,6 @@
 package xyz.jakubk15.casedropcore.cmds;
 
 import org.bukkit.Bukkit;
-import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.mineacademy.fo.Common;
 import org.mineacademy.fo.command.SimpleCommand;
@@ -18,12 +17,11 @@ public class PingCommand extends SimpleCommand {
 
 	@Override
 	public void onCommand() {
-		if (!(sender instanceof ConsoleCommandSender)) {
-			Player sender1 = (Player) sender;
-			for (int i = 0; i < 10; i++) {
-				Bukkit.getScheduler().scheduleSyncRepeatingTask(CasedropCore.getInstance(),
-						() -> sender.sendMessage(Common.colorize("Commands.Ping").replace("{ping}", Integer.toString(sender1.getPing()))), 200, 1);
-			}
+		checkConsole();
+		Player sender1 = getPlayer();
+		for (int i = 0; i < 10; i++) {
+			Bukkit.getScheduler().scheduleSyncRepeatingTask(CasedropCore.getInstance(),
+					() -> sender.sendMessage(Common.colorize("Commands.Ping").replace("{ping}", Integer.toString(sender1.getPing()))), 200, 1);
 		}
 	}
 }
