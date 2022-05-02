@@ -12,31 +12,3 @@
 
 
 This project is mainly dedicated for my Minecraft Server, however it also can be used for other Paper-based servers.
-
-### Features:
-- AdminChat
-- Alert
-- Anvil
-- Ban
-- BanIP
-- ChatManager
-- Checkban
-- Enderchest
-- Feed
-- Freeze
-- Fly
-- Gamemode
-- Godmode
-- Grindstone
-- GetIP
-- Kick
-- MSG
-- Mute
-- Nick
-- Ping
-- RealName
-- Stonecutter
-- Unban
-- UUID getter
-- Vanish
-- Workbench
