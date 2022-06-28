@@ -17,7 +17,7 @@ repositories {
 dependencies {
 
     // foundation
-    implementation("com.github.kangarko:foundation:5.12.8") {
+    implementation("com.github.kangarko:foundation:6.0.2") {
         exclude group: 'org.mineacademy.plugin', module: 'AuthMe'
         exclude group: 'org.mineacademy.plugin', module: 'CitizensAPI'
         exclude group: 'org.mineacademy.plugin', module: 'CMI-API'
