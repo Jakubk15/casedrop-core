@@ -21,7 +21,7 @@ public class TeleportCommand extends SimpleCommand {
 	protected void onCommand() {
 		checkConsole();
 		checkArgs(1, Lang.of("Commands.Invalid_PlayerNickName"));
-		Player p = (Player) sender;
+		Player p = getPlayer();
 		if (args.length == 1) {
 			Player target = Bukkit.getPlayer(args[0]);
 			if (target == null) {

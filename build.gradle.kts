@@ -16,11 +16,14 @@ repositories {
     mavenLocal()
     maven { url = uri("https://jitpack.io") }
     maven { url = uri("https://oss.sonatype.org/content/groups/public/") }
+    maven { url = uri("https://hub.spigotmc.org/nexus/content/repositories/snapshots/") }
 }
 
 dependencies {
+    // spigot-API
+    compileOnly("org.spigotmc:spigot-api:1.18.2-R0.1-SNAPSHOT")
     // foundation
-    implementation("com.github.kangarko:foundation:5.12.8") {
+    implementation("com.github.kangarko:foundation:6.0.2") {
         exclude(group = "org.mineacademy.plugin", module = "AuthMe")
         exclude(group = "org.mineacademy.plugin", module = "CitizensAPI")
         exclude(group = "org.mineacademy.plugin", module = "CMI-API")
@@ -32,6 +35,7 @@ dependencies {
         exclude(group = "org.mineacademy.plugin", module = "LandsAPI")
         exclude(group = "org.mineacademy.plugin", module = "LWC")
         exclude(group = "org.mineacademy.plugin", module = "mcMMO")
+        exclude(group = "org.mineacademy.plugin", module = "MassiveCore")
         exclude(group = "org.mineacademy.plugin", module = "Multiverse-Core")
         exclude(group = "org.mineacademy.plugin", module = "NuVotifier")
         exclude(group = "org.mineacademy.plugin", module = "PlaceholderAPI")

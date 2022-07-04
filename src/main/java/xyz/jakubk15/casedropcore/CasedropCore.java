@@ -2,8 +2,6 @@ package xyz.jakubk15.casedropcore;
 
 import org.mineacademy.fo.Common;
 import org.mineacademy.fo.command.DebugCommand;
-import org.mineacademy.fo.command.PermsCommand;
-import org.mineacademy.fo.constants.FoPermissions;
 import org.mineacademy.fo.plugin.SimplePlugin;
 import xyz.jakubk15.casedropcore.cmds.*;
 
@@ -29,7 +27,7 @@ public class CasedropCore extends SimplePlugin {
 	public int getFoundedYear() {
 		return 2022;
 	}
-	
+
 	public static CasedropCore getInstance() {
 		return (CasedropCore) SimplePlugin.getInstance();
 	}
@@ -58,7 +56,6 @@ public class CasedropCore extends SimplePlugin {
 		registerCommand(new MsgCommand());
 		registerCommand(new MuteCommand());
 		registerCommand(new NickCommand());
-		registerCommand(new PermsCommand(FoPermissions.class));
 		registerCommand(new PingCommand());
 		registerCommand(new ReloadCommand());
 		registerCommand(new StoneCutterCommand());
