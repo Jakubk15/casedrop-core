@@ -13,14 +13,16 @@ repositories {
     maven { url = uri("https://jitpack.io") }
     maven { url = uri("https://oss.sonatype.org/content/groups/public/") }
     maven { url = uri("https://hub.spigotmc.org/nexus/content/repositories/snapshots/") }
+    maven { url = uri("https://bitbucket.org/kangarko/libraries/src/master/") }
 }
 
 dependencies {
     // spigot-API
     compileOnly("org.spigotmc:spigot-api:1.19.2-R0.1-SNAPSHOT")
     // foundation
-    implementation("com.github.kangarko:foundation:6.1.2") {
+    implementation("com.github.kangarko:Foundation:6.1.2") {
         exclude(group = "org.mineacademy.plugin", module = "AuthMe")
+        exclude(group = "org.mineacademy.plugin", module = "BentoBox")
         exclude(group = "org.mineacademy.plugin", module = "CitizensAPI")
         exclude(group = "org.mineacademy.plugin", module = "CMI-API")
         exclude(group = "org.mineacademy.plugin", module = "DiscordSRV")
