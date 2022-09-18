@@ -3,7 +3,9 @@ package xyz.jakubk15.casedropcore;
 import org.mineacademy.fo.Common;
 import org.mineacademy.fo.command.DebugCommand;
 import org.mineacademy.fo.plugin.SimplePlugin;
-import xyz.jakubk15.casedropcore.cmds.*;
+import xyz.jakubk15.casedropcore.command.*;
+
+import java.util.stream.Stream;
 
 public class CasedropCore extends SimplePlugin {
 
@@ -33,44 +35,48 @@ public class CasedropCore extends SimplePlugin {
 	}
 
 	public void registerCommands() {
-		registerCommand(new AdminChatCommand());
-		registerCommand(new AlertCommand());
-		registerCommand(new AnvilCommand());
-		registerCommand(new BanCommand());
-		registerCommand(new BanIPCommand());
-		registerCommand(new ChatManager());
-		registerCommand(new CheckbanCommand());
-		registerCommand(new DebugCommand());
-		registerCommand(new EnderChestCommand());
-		registerCommand(new FeedCommand());
-		registerCommand(new FlyCommand());
-		registerCommand(new FreezeCommand());
-		registerCommand(new GamemodeCommand());
-		registerCommand(new GodCommand());
-		registerCommand(new GrindstoneCommand());
-		registerCommand(new HealCommand());
-		registerCommand(new HelpopCommand());
-		registerCommand(new IPCommand());
-		registerCommand(new KickCommand());
-		registerCommand(new KillCommand());
-		registerCommand(new MsgCommand());
-		registerCommand(new MuteCommand());
-		registerCommand(new NickCommand());
-		registerCommand(new PingCommand());
-		registerCommand(new ReloadCommand());
-		registerCommand(new StoneCutterCommand());
-		registerCommand(new TeleportCommand());
-		registerCommand(new UnbanCommand());
-		registerCommand(new UnmuteCommand());
-		registerCommand(new UUIDCommand());
-		registerCommand(new VanishCommand());
-		registerCommand(new WorkbenchCommand());
+		Stream.of(
+				new AdminChatCommand(),
+				new AlertCommand(),
+				new AnvilCommand(),
+				new BanCommand(),
+				new BanIPCommand(),
+				new ChatManager(),
+				new CheckbanCommand(),
+				new DebugCommand(),
+				new EnderChestCommand(),
+				new FeedCommand(),
+				new FlyCommand(),
+				new FreezeCommand(),
+				new GamemodeCommand(),
+				new GodCommand(),
+				new GrindstoneCommand(),
+				new HealCommand(),
+				new HelpopCommand(),
+				new IPCommand(),
+				new KickCommand(),
+				new KillCommand(),
+				new MsgCommand(),
+				new MuteCommand(),
+				new NickCommand(),
+				new PingCommand(),
+				new ReloadCommand(),
+				new StoneCutterCommand(),
+				new TeleportCommand(),
+				new UnbanCommand(),
+				new UnmuteCommand(),
+				new UUIDCommand(),
+				new VanishCommand(),
+				new WorkbenchCommand()
+		).forEach(command -> registerCommand(command));
 	}
 
 
 	public void registerEvents() {
-		registerEvents(new ChatManager());
-		registerEvents(new FreezeCommand());
-		registerEvents(new MuteCommand());
-	}
+		Stream.of(
+				new ChatManager(),
+				new FreezeCommand(),
+				new MuteCommand()
+		).forEach(event -> registerEvents(event));
+	} //mute freeze chat
 }
