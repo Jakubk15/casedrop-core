@@ -78,5 +78,5 @@ public class CasedropCore extends SimplePlugin {
 				new FreezeCommand(),
 				new MuteCommand()
 		).forEach(this::registerEvents);
-	} //mute freeze chat
+	}
 }
