@@ -71,6 +71,6 @@ tasks {
     shadowJar {
         archiveBaseName.set("casedrop-core")
         archiveClassifier.set("ALPHA")
-        archiveVersion.set("2.3")
+        archiveVersion.set("2.2")
     }
 }
