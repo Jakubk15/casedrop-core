@@ -27,12 +27,15 @@ public class TeleportCommand extends SimpleCommand {
 			if (target == null) {
 				tell(Lang.of("Invalid_PlayerNickName"));
 			}
+			assert target != null;
 			p.teleport(target.getLocation());
 			tell(Lang.of("Commands.Teleport_To")
 					.replace("{player}", target.getName()));
 		} else {
 			Player target0 = Bukkit.getPlayer(args[0]);
 			Player target1 = Bukkit.getPlayer(args[1]);
+			assert target0 != null;
+			assert target1 != null;
 			target0.teleport(target1.getLocation());
 			Common.tell(target0, Lang.of("Commands.Teleport_To")
 					.replace("{player}", target1.getName()));

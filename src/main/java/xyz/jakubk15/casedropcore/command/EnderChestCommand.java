@@ -23,7 +23,9 @@ public class EnderChestCommand extends SimpleCommand {
 			if (player == null) {
 				tell(Lang.of("Commands.Invalid_PlayerNickName"));
 			}
-			player.openInventory(player.getEnderChest());
+			if (player != null) {
+				player.openInventory(player.getEnderChest());
+			}
 			tell(Lang.of("Commands.Enderchest_Successful").replace("{player}", player.getName()));
 		} else {
 			((Player) sender).openInventory(((Player) sender).getEnderChest());

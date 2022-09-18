@@ -21,7 +21,7 @@ public class PingCommand extends SimpleCommand {
 		Player sender1 = getPlayer();
 		for (int i = 0; i < 10; i++) {
 			Bukkit.getScheduler().scheduleSyncRepeatingTask(CasedropCore.getInstance(),
-					() -> sender.sendMessage(Common.colorize("Commands.Ping").replace("{ping}", Integer.toString(sender1.getPing()))), 200, 1);
+					() -> sender.sendMessage(Common.colorize("Commands.Ping").replace("{ping}", Integer.toString(sender1.getPing()))), 2000, 1);
 		}
 	}
 }

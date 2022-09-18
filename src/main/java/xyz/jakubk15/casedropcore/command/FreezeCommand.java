@@ -120,7 +120,6 @@ public class FreezeCommand extends SimpleCommand implements Listener {
 				sender.sendMessage(Common.colorize(Lang.of("Commands.Freezed").replace("{player}", target.getName())));
 				target.sendMessage(Common.colorize(Lang.of("Commands.Frozen").replace("{admin}", sender.getName())));
 				target.setInvulnerable(!target.isInvulnerable());
-				int food = target.getFoodLevel();
 			} else {
 				sender.sendMessage(Common.colorize(Lang.of("Commands.FreezeBypass")));
 			}

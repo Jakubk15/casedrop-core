@@ -18,11 +18,13 @@ public class UnbanCommand extends SimpleCommand {
 	public void onCommand() {
 		checkArgs(1, Lang.of("Commands.InvalidPlayerNickName"));
 		Player target = Bukkit.getPlayerExact(args[0]);
-		if (target.isBanned()) {
-			Bukkit.getServer().getBannedPlayers().remove(target);
-			tell(Lang.of("Commands.Unbanned"));
-		} else {
-			tell(Lang.of("Commands.Unbanned_Fail"));
+		if (target != null) {
+			if (target.isBanned()) {
+				Bukkit.getServer().getBannedPlayers().remove(target);
+				tell(Lang.of("Commands.Unbanned"));
+			} else {
+				tell(Lang.of("Commands.Unbanned_Fail"));
+			}
 		}
 
 

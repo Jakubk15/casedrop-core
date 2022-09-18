@@ -24,7 +24,9 @@ public class IPCommand extends SimpleCommand {
 		if (target == null) {
 			tell(Lang.of("Commands.Invalid_PlayerNickName"));
 		}
-		sender.sendMessage(Common.colorize("&3IP gracza &b") + target.getName() + " &3to &b" + target.getAddress());
+		if (target != null) {
+			sender.sendMessage(Common.colorize("&3IP gracza &b") + target.getName() + " &3to &b" + target.getAddress());
+		}
 		sender.sendMessage(Common.colorize(Lang.of("Commands.IP_Command")
 				.replace("{player}", target.getName())
 				.replace("{InetSocketAddress}", target.getAddress().toString())));

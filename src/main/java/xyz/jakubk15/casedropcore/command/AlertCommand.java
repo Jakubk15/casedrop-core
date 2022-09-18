@@ -29,25 +29,25 @@ public class AlertCommand extends SimpleCommand {
 		if (!type.equals("title") && !type.equals("actionbar") && !type.equals("chat")) {
 			sender.sendMessage(Common.colorize(Lang.of("Commands.Invalid_Alert_Type")));
 		} else if (args[0].equals("chat")) {
-			for (Player ps : Remain.getOnlinePlayers()) {
-				ps.sendMessage(Common.colorize(Lang.of("Commands.Alert_Header")));
-				ps.sendMessage(Common.colorize(" "));
-				ps.sendMessage(Common.colorize("          " + message + "          "));
-				ps.sendMessage(Common.colorize(" "));
-				ps.sendMessage(Common.colorize(Lang.of("Commands.Alert_Header")));
+			for (Player player : Remain.getOnlinePlayers()) {
+				player.sendMessage(Common.colorize(Lang.of("Commands.Alert_Header")));
+				player.sendMessage(Common.colorize(" "));
+				player.sendMessage(Common.colorize("          " + message + "          "));
+				player.sendMessage(Common.colorize(" "));
+				player.sendMessage(Common.colorize(Lang.of("Commands.Alert_Header")));
 				return;
 			}
 		} else if (args[0].equals("title")) {
-			for (Player ps : Remain.getOnlinePlayers()) {
+			for (Player player : Remain.getOnlinePlayers()) {
 				String title = (Common.colorize(Lang.of("Commands.Alert_Title")));
 				String subTitle = (Common.colorize(message));
-				ps.sendTitle(title, subTitle, 5, 40, 5);
+				player.sendTitle(title, subTitle, 5, 40, 5);
 				return;
 			}
 		} else if (args[0].equals("actionbar")) {
-			for (Player ps : Remain.getOnlinePlayers()) {
+			for (Player player : Remain.getOnlinePlayers()) {
 				String actionbar = (Common.colorize(Lang.of("Commands.Alert_ActionBar") + message));
-				ps.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(message));
+				player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(message));
 				return;
 			}
 		}

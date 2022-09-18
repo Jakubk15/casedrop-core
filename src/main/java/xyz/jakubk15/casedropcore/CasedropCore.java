@@ -68,7 +68,7 @@ public class CasedropCore extends SimplePlugin {
 				new UUIDCommand(),
 				new VanishCommand(),
 				new WorkbenchCommand()
-		).forEach(command -> registerCommand(command));
+		).forEach(this::registerCommand);
 	}
 
 
@@ -77,6 +77,6 @@ public class CasedropCore extends SimplePlugin {
 				new ChatManager(),
 				new FreezeCommand(),
 				new MuteCommand()
-		).forEach(event -> registerEvents(event));
+		).forEach(this::registerEvents);
 	} //mute freeze chat
 }

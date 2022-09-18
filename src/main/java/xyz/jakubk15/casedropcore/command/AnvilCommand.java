@@ -22,10 +22,12 @@ public class AnvilCommand extends SimpleCommand {
 		checkConsole();
 		Inventory inv = Bukkit.createInventory(null, InventoryType.ANVIL);
 		if (args.length > 0) {
-			Player p = Bukkit.getPlayerExact(args[0]);
-			if (p == null) tell(Lang.of("Commands.Invalid_PlayerNickName"));
-			p.openInventory(inv);
-			tell(Lang.of("Commands.Anvil_Successful").replace("{player}", p.getName()));
+			Player player = Bukkit.getPlayerExact(args[0]);
+			if (player == null) tell(Lang.of("Commands.Invalid_PlayerNickName"));
+			if (player != null) {
+				player.openInventory(inv);
+			}
+			tell(Lang.of("Commands.Anvil_Successful").replace("{player}", player.getName()));
 		} else {
 			((Player) sender).openInventory(inv);
 		}
