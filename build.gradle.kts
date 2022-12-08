@@ -18,7 +18,7 @@ repositories {
 
 dependencies {
     // spigot-API
-    compileOnly("org.spigotmc:spigot-api:1.19.2-R0.1-SNAPSHOT")
+    compileOnly("org.spigotmc:spigot-api:1.19.3-R0.1-SNAPSHOT")
     // foundation
     implementation("com.github.kangarko:Foundation:6.2.2") {
         exclude(group = "org.mineacademy.plugin", module = "AuthMe")
