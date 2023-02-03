@@ -20,7 +20,7 @@ dependencies {
     // spigot-API
     compileOnly("org.spigotmc:spigot-api:1.19.3-R0.1-SNAPSHOT")
     // foundation
-    implementation("com.github.kangarko:Foundation:6.2.3") {
+    implementation("com.github.kangarko:Foundation:6.2.8") {
         exclude(group = "org.mineacademy.plugin", module = "AuthMe")
         exclude(group = "org.mineacademy.plugin", module = "BentoBox")
         exclude(group = "org.mineacademy.plugin", module = "CitizensAPI")
